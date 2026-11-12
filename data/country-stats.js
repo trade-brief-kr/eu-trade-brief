@@ -1,0 +1,3425 @@
+window.COUNTRY_STATS = {
+  "generatedAt": "2026-11-12T10:43:59+09:00",
+  "status": {
+    "worldBank:NY.GDP.MKTP.CD": "ok",
+    "worldBank:NY.GDP.PCAP.CD": "ok",
+    "worldBank:NY.GDP.MKTP.KD.ZG": "ok",
+    "worldBank:SP.POP.TOTL": "ok",
+    "worldBank:FP.CPI.TOTL.ZG": "ok",
+    "worldBank:SL.UEM.TOTL.ZS": "ok",
+    "eurostat:prc_hicp_minr": "ok(35개국)",
+    "eurostat:une_rt_m": "ok(32개국)",
+    "bis": "ok(48개 지역)",
+    "comtrade": "ok(연간 2025 39개국, 월간 2025-12 38개국)"
+  },
+  "sources": {
+    "worldBank": {
+      "name": "World Bank World Development Indicators",
+      "url": "https://data.worldbank.org/",
+      "license": "CC BY 4.0"
+    },
+    "eurostat": {
+      "name": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/",
+      "license": "CC BY 4.0 (Eurostat 재사용 정책)"
+    },
+    "bis": {
+      "name": "BIS Central bank policy rates",
+      "url": "https://data.bis.org/topics/CBPOL"
+    },
+    "comtrade": {
+      "name": "UN Comtrade (public preview)",
+      "url": "https://comtradeplus.un.org/",
+      "periods": {
+        "annual": "2025",
+        "monthly": "2025-12"
+      }
+    }
+  },
+  "countries": [
+    {
+      "id": "DE",
+      "iso3": "DEU",
+      "name": "독일",
+      "nameEn": "Germany",
+      "office": "프랑크푸르트·함부르크·뮌헨",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "독일 연방은행",
+        "url": "https://www.bundesbank.de/en"
+      },
+      "gdp": {
+        "value": 5050922925047.05,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=DE"
+      },
+      "gdpPerCapita": {
+        "value": 60496.4350820414,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=DE"
+      },
+      "gdpGrowth": {
+        "value": 0.239578342117881,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=DE"
+      },
+      "population": {
+        "value": 83491249,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=DE"
+      },
+      "inflation": {
+        "value": 2.8,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 4.1,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 9271326377.0,
+            "imports": 21628662375.0,
+            "balance": -12357335998.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 674434747.0,
+            "imports": 2215231488.0,
+            "balance": -1540796741.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "FR",
+      "iso3": "FRA",
+      "name": "프랑스",
+      "nameEn": "France",
+      "office": "파리",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "프랑스 중앙은행",
+        "url": "https://www.banque-france.fr/en"
+      },
+      "gdp": {
+        "value": 3366315927447.33,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=FR"
+      },
+      "gdpPerCapita": {
+        "value": 48985.7307807924,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=FR"
+      },
+      "gdpGrowth": {
+        "value": 0.840949955479587,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=FR"
+      },
+      "population": {
+        "value": 68720337,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=FR"
+      },
+      "inflation": {
+        "value": 3.8,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 8.5,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 6428665833.0,
+            "imports": 8646541023.0,
+            "balance": -2217875190.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 290285940.0,
+            "imports": 800180606.0,
+            "balance": -509894666.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "GB",
+      "iso3": "GBR",
+      "name": "영국",
+      "nameEn": "United Kingdom",
+      "office": "런던",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": {
+        "name": "영란은행",
+        "url": "https://www.bankofengland.co.uk/"
+      },
+      "gdp": {
+        "value": 4002587541846.01,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=GB"
+      },
+      "gdpPerCapita": {
+        "value": 57601.9621201954,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=GB"
+      },
+      "gdpGrowth": {
+        "value": 1.38844207858726,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=GB"
+      },
+      "population": {
+        "value": 69487000,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=GB"
+      },
+      "inflation": {
+        "value": 3.88306881625999,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=GB",
+        "basis": "CPI 연간"
+      },
+      "unemployment": {
+        "value": 4.746,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=GB",
+        "basis": "연간(ILO 모형추정)"
+      },
+      "policyRate": {
+        "value": 3.75,
+        "date": "2026-11-02",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "자국 중앙은행",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 7167093395.0,
+            "imports": 4541049661.0,
+            "balance": 2626043734.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 598040032.0,
+            "imports": 429647554.0,
+            "balance": 168392478.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "IT",
+      "iso3": "ITA",
+      "name": "이탈리아",
+      "nameEn": "Italy",
+      "office": "밀라노",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "이탈리아 중앙은행",
+        "url": "https://www.bancaditalia.it/"
+      },
+      "gdp": {
+        "value": 2551556954100.35,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=IT"
+      },
+      "gdpPerCapita": {
+        "value": 43308.6403060733,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=IT"
+      },
+      "gdpGrowth": {
+        "value": 0.539583636778445,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=IT"
+      },
+      "population": {
+        "value": 58915656,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=IT"
+      },
+      "inflation": {
+        "value": 5.6,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 6.3,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 4484579553.0,
+            "imports": 7899793987.0,
+            "balance": -3415214434.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 428694815.0,
+            "imports": 746055678.0,
+            "balance": -317360863.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "ES",
+      "iso3": "ESP",
+      "name": "스페인",
+      "nameEn": "Spain",
+      "office": "마드리드",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "스페인 중앙은행",
+        "url": "https://www.bde.es/"
+      },
+      "gdp": {
+        "value": 1906453309985.88,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=ES"
+      },
+      "gdpPerCapita": {
+        "value": 38627.2472148623,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=ES"
+      },
+      "gdpGrowth": {
+        "value": 2.82495400578509,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=ES"
+      },
+      "population": {
+        "value": 49355143,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=ES"
+      },
+      "inflation": {
+        "value": 4.9,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 10.3,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 3558406687.0,
+            "imports": 2625140864.0,
+            "balance": 933265823.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 355226489.0,
+            "imports": 283178447.0,
+            "balance": 72048042.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "NL",
+      "iso3": "NLD",
+      "name": "네덜란드",
+      "nameEn": "Netherlands",
+      "office": "암스테르담",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "네덜란드 중앙은행",
+        "url": "https://www.dnb.nl/en/"
+      },
+      "gdp": {
+        "value": 1332767651100.39,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=NL"
+      },
+      "gdpPerCapita": {
+        "value": 73683.917132794,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=NL"
+      },
+      "gdpGrowth": {
+        "value": 1.78463214703797,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=NL"
+      },
+      "population": {
+        "value": 18087633,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=NL"
+      },
+      "inflation": {
+        "value": 3.3,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 4.0,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 9610581016.0,
+            "imports": 10052950819.0,
+            "balance": -442369803.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 1050141029.0,
+            "imports": 953204924.0,
+            "balance": 96936105.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "PL",
+      "iso3": "POL",
+      "name": "폴란드",
+      "nameEn": "Poland",
+      "office": "바르샤바",
+      "eu": true,
+      "euro": false,
+      "group": "EU",
+      "centralBank": {
+        "name": "폴란드 중앙은행",
+        "url": "https://nbp.pl/en/"
+      },
+      "gdp": {
+        "value": 1035491784197.44,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=PL"
+      },
+      "gdpPerCapita": {
+        "value": 28419.5777395638,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=PL"
+      },
+      "gdpGrowth": {
+        "value": 3.5727250346774,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=PL"
+      },
+      "population": {
+        "value": 36435861,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=PL"
+      },
+      "inflation": {
+        "value": 4.0,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 3.4,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 3.75,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "자국 중앙은행",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 9003871572.0,
+            "imports": 1060826009.0,
+            "balance": 7943045563.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 552454014.0,
+            "imports": 116710442.0,
+            "balance": 435743572.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "BE",
+      "iso3": "BEL",
+      "name": "벨기에",
+      "nameEn": "Belgium",
+      "office": "브뤼셀",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "벨기에 중앙은행",
+        "url": "https://www.nbb.be/en"
+      },
+      "gdp": {
+        "value": 725466462859.646,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=BE"
+      },
+      "gdpPerCapita": {
+        "value": 60750.2735864647,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BE"
+      },
+      "gdpGrowth": {
+        "value": 0.983117967125935,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=BE"
+      },
+      "population": {
+        "value": 11941781,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=BE"
+      },
+      "inflation": {
+        "value": 5.2,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 6.0,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 3906148769.0,
+            "imports": 1444317000.0,
+            "balance": 2461831769.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 298149807.0,
+            "imports": 121474411.0,
+            "balance": 176675396.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "SE",
+      "iso3": "SWE",
+      "name": "스웨덴",
+      "nameEn": "Sweden",
+      "office": "스톡홀름",
+      "eu": true,
+      "euro": false,
+      "group": "EU",
+      "centralBank": {
+        "name": "스웨덴 중앙은행",
+        "url": "https://www.riksbank.se/en-gb/"
+      },
+      "gdp": {
+        "value": 668998664082.081,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=SE"
+      },
+      "gdpPerCapita": {
+        "value": 63133.2126736715,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=SE"
+      },
+      "gdpGrowth": {
+        "value": 1.54316373266217,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=SE"
+      },
+      "population": {
+        "value": 10596620,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=SE"
+      },
+      "inflation": {
+        "value": 1.0,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 8.6,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 1.75,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "자국 중앙은행",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 1397206874.0,
+            "imports": 2113804644.0,
+            "balance": -716597770.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 140078342.0,
+            "imports": 252907460.0,
+            "balance": -112829118.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "CH",
+      "iso3": "CHE",
+      "name": "스위스",
+      "nameEn": "Switzerland",
+      "office": "취리히",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": {
+        "name": "스위스 중앙은행",
+        "url": "https://www.snb.ch/en/"
+      },
+      "gdp": {
+        "value": 1043529899250.92,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=CH"
+      },
+      "gdpPerCapita": {
+        "value": 114769.012314293,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CH"
+      },
+      "gdpGrowth": {
+        "value": 1.30007790958307,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=CH"
+      },
+      "population": {
+        "value": 9092436,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CH"
+      },
+      "inflation": {
+        "value": 1.2,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 5.1,
+        "period": "2026-06",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 0.0,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "자국 중앙은행",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 2078512690.0,
+            "imports": 3938766625.0,
+            "balance": -1860253935.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 232946995.0,
+            "imports": 320453687.0,
+            "balance": -87506692.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "AT",
+      "iso3": "AUT",
+      "name": "오스트리아",
+      "nameEn": "Austria",
+      "office": "빈",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "오스트리아 중앙은행",
+        "url": "https://www.oenb.at/en/"
+      },
+      "gdp": {
+        "value": 579470021095.418,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=AT"
+      },
+      "gdpPerCapita": {
+        "value": 62930.0351324599,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=AT"
+      },
+      "gdpGrowth": {
+        "value": 0.615747280959056,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=AT"
+      },
+      "population": {
+        "value": 9208163,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=AT"
+      },
+      "inflation": {
+        "value": 3.5,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 6.3,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 1122684428.0,
+            "imports": 1603682814.0,
+            "balance": -480998386.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 73045726.0,
+            "imports": 146134334.0,
+            "balance": -73088608.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "CZ",
+      "iso3": "CZE",
+      "name": "체코",
+      "nameEn": "Czechia",
+      "office": "프라하",
+      "eu": true,
+      "euro": false,
+      "group": "EU",
+      "centralBank": {
+        "name": "체코 중앙은행",
+        "url": "https://www.cnb.cz/en/"
+      },
+      "gdp": {
+        "value": 391026962800.475,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=CZ"
+      },
+      "gdpPerCapita": {
+        "value": 35917.2724081665,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CZ"
+      },
+      "gdpGrowth": {
+        "value": 2.58046673293437,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=CZ"
+      },
+      "population": {
+        "value": 10886878,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CZ"
+      },
+      "inflation": {
+        "value": 2.2,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 2.8,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 3.75,
+        "date": "2026-11-02",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "자국 중앙은행",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 3505896421.0,
+            "imports": 1276689761.0,
+            "balance": 2229206660.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 265350145.0,
+            "imports": 197164505.0,
+            "balance": 68185640.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "HU",
+      "iso3": "HUN",
+      "name": "헝가리",
+      "nameEn": "Hungary",
+      "office": "부다페스트",
+      "eu": true,
+      "euro": false,
+      "group": "EU",
+      "centralBank": {
+        "name": "헝가리 중앙은행",
+        "url": "https://www.mnb.hu/en"
+      },
+      "gdp": {
+        "value": 246490213513.054,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=HU"
+      },
+      "gdpPerCapita": {
+        "value": 25907.4743259406,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=HU"
+      },
+      "gdpGrowth": {
+        "value": 0.509542309726868,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=HU"
+      },
+      "population": {
+        "value": 9514251,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=HU"
+      },
+      "inflation": {
+        "value": 2.1,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 4.6,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 5.5,
+        "date": "2026-10-28",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "자국 중앙은행",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 3880387570.0,
+            "imports": 821062780.0,
+            "balance": 3059324790.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 266311613.0,
+            "imports": 64334949.0,
+            "balance": 201976664.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "SK",
+      "iso3": "SVK",
+      "name": "슬로바키아",
+      "nameEn": "Slovakia",
+      "office": "브라티슬라바",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "슬로바키아 중앙은행",
+        "url": "https://nbs.sk/en/"
+      },
+      "gdp": {
+        "value": 154530066506.895,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=SK"
+      },
+      "gdpPerCapita": {
+        "value": 28543.6653439813,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=SK"
+      },
+      "gdpGrowth": {
+        "value": 0.807418690144758,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=SK"
+      },
+      "population": {
+        "value": 5413813,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=SK"
+      },
+      "inflation": {
+        "value": 2.9,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 5.7,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 2698628052.0,
+            "imports": 775845619.0,
+            "balance": 1922782433.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 190007554.0,
+            "imports": 54702946.0,
+            "balance": 135304608.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "RO",
+      "iso3": "ROU",
+      "name": "루마니아",
+      "nameEn": "Romania",
+      "office": "부쿠레슈티",
+      "eu": true,
+      "euro": false,
+      "group": "EU",
+      "centralBank": {
+        "name": "루마니아 중앙은행",
+        "url": "https://www.bnr.ro/"
+      },
+      "gdp": {
+        "value": 428677977854.826,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=RO"
+      },
+      "gdpPerCapita": {
+        "value": 22537.9532108047,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=RO"
+      },
+      "gdpGrowth": {
+        "value": 0.677829835052762,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=RO"
+      },
+      "population": {
+        "value": 19020271,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=RO"
+      },
+      "inflation": {
+        "value": 6.5,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 6.3,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 6.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "자국 중앙은행",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 606954620.0,
+            "imports": 574929003.0,
+            "balance": 32025617.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 43987185.0,
+            "imports": 54377229.0,
+            "balance": -10390044.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "DK",
+      "iso3": "DNK",
+      "name": "덴마크",
+      "nameEn": "Denmark",
+      "office": "코펜하겐",
+      "eu": true,
+      "euro": false,
+      "group": "EU",
+      "centralBank": {
+        "name": "덴마크 중앙은행",
+        "url": "https://www.nationalbanken.dk/en"
+      },
+      "gdp": {
+        "value": 462526660468.393,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=DK"
+      },
+      "gdpPerCapita": {
+        "value": 76970.1535217919,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=DK"
+      },
+      "gdpGrowth": {
+        "value": 2.92843280014236,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=DK"
+      },
+      "population": {
+        "value": 6009169,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=DK"
+      },
+      "inflation": {
+        "value": 2.1,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 6.8,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.1,
+        "date": "2026-11-02",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "자국 중앙은행",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 2658686024.0,
+            "imports": 1635992607.0,
+            "balance": 1022693417.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 250346561.0,
+            "imports": 102739022.0,
+            "balance": 147607539.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "FI",
+      "iso3": "FIN",
+      "name": "핀란드",
+      "nameEn": "Finland",
+      "office": "헬싱키",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "핀란드 중앙은행",
+        "url": "https://www.suomenpankki.fi/en/"
+      },
+      "gdp": {
+        "value": 317039368819.607,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=FI"
+      },
+      "gdpPerCapita": {
+        "value": 56148.580949046,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=FI"
+      },
+      "gdpGrowth": {
+        "value": 0.173444509584499,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=FI"
+      },
+      "population": {
+        "value": 5646436,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=FI"
+      },
+      "inflation": {
+        "value": 3.4,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 11.0,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 454118439.0,
+            "imports": 1100407705.0,
+            "balance": -646289266.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 66605475.0,
+            "imports": 106902081.0,
+            "balance": -40296606.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "NO",
+      "iso3": "NOR",
+      "name": "노르웨이",
+      "nameEn": "Norway",
+      "office": "스톡홀름",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": {
+        "name": "노르웨이 중앙은행",
+        "url": "https://www.norges-bank.no/en/"
+      },
+      "gdp": {
+        "value": 530755719438.879,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=NO"
+      },
+      "gdpPerCapita": {
+        "value": 94594.1929573987,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=NO"
+      },
+      "gdpGrowth": {
+        "value": 1.08528185031417,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=NO"
+      },
+      "population": {
+        "value": 5610870,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=NO"
+      },
+      "inflation": {
+        "value": 3.4,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 5.0,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 4.5,
+        "date": "2026-11-02",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "자국 중앙은행",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 563120651.0,
+            "imports": 1788824037.0,
+            "balance": -1225703386.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 78189517.0,
+            "imports": 146920347.0,
+            "balance": -68730830.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "IE",
+      "iso3": "IRL",
+      "name": "아일랜드",
+      "nameEn": "Ireland",
+      "office": "런던",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "아일랜드 중앙은행",
+        "url": "https://www.centralbank.ie/"
+      },
+      "gdp": {
+        "value": 721701359046.313,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=IE"
+      },
+      "gdpPerCapita": {
+        "value": 131592.462547877,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=IE"
+      },
+      "gdpGrowth": {
+        "value": 12.3375990291434,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=IE"
+      },
+      "population": {
+        "value": 5484367,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=IE"
+      },
+      "inflation": {
+        "value": 4.0,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 4.8,
+        "period": "2026-10",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 1142266722.0,
+            "imports": 1412363142.0,
+            "balance": -270096420.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 92870369.0,
+            "imports": 154794694.0,
+            "balance": -61924325.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "PT",
+      "iso3": "PRT",
+      "name": "포르투갈",
+      "nameEn": "Portugal",
+      "office": "리스본",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "포르투갈 중앙은행",
+        "url": "https://www.bportugal.pt/en"
+      },
+      "gdp": {
+        "value": 346639825141.821,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=PT"
+      },
+      "gdpPerCapita": {
+        "value": 32081.8106150292,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=PT"
+      },
+      "gdpGrowth": {
+        "value": 1.86448007464475,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=PT"
+      },
+      "population": {
+        "value": 10804871,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=PT"
+      },
+      "inflation": {
+        "value": 3.9,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 5.6,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 916727489.0,
+            "imports": 410404263.0,
+            "balance": 506323226.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 73128828.0,
+            "imports": 46411139.0,
+            "balance": 26717689.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "GR",
+      "iso3": "GRC",
+      "name": "그리스",
+      "nameEn": "Greece",
+      "office": "아테네",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "그리스 중앙은행",
+        "url": "https://www.bankofgreece.gr/en"
+      },
+      "gdp": {
+        "value": 280635521324.441,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=GR"
+      },
+      "gdpPerCapita": {
+        "value": 26948.0070432791,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=GR"
+      },
+      "gdpGrowth": {
+        "value": 2.07306882481713,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=GR"
+      },
+      "population": {
+        "value": 10413962,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=GR"
+      },
+      "inflation": {
+        "value": 5.6,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 7.6,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 948604483.0,
+            "imports": 482866029.0,
+            "balance": 465738454.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 123457437.0,
+            "imports": 68577642.0,
+            "balance": 54879795.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "BG",
+      "iso3": "BGR",
+      "name": "불가리아",
+      "nameEn": "Bulgaria",
+      "office": "소피아",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "불가리아 국립은행",
+        "url": "https://www.bnb.bg/?toLang=_EN"
+      },
+      "gdp": {
+        "value": 130777235529.606,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=BG"
+      },
+      "gdpPerCapita": {
+        "value": 20328.1667065538,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BG"
+      },
+      "gdpGrowth": {
+        "value": 3.0963663917961,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=BG"
+      },
+      "population": {
+        "value": 6433302,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=BG"
+      },
+      "inflation": {
+        "value": 6.0,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 3.4,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 227186480.0,
+            "imports": 291636068.0,
+            "balance": -64449588.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 23091254.0,
+            "imports": 31290139.0,
+            "balance": -8198885.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "HR",
+      "iso3": "HRV",
+      "name": "크로아티아",
+      "nameEn": "Croatia",
+      "office": "자그레브",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "크로아티아 국립은행",
+        "url": "https://www.hnb.hr/en/"
+      },
+      "gdp": {
+        "value": 105060182186.274,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=HR"
+      },
+      "gdpPerCapita": {
+        "value": 27103.9116109268,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=HR"
+      },
+      "gdpGrowth": {
+        "value": 3.40307537181749,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=HR"
+      },
+      "population": {
+        "value": 3876200,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=HR"
+      },
+      "inflation": {
+        "value": 4.4,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 4.3,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 129345320.0,
+            "imports": 20328173.0,
+            "balance": 109017147.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 11087070.0,
+            "imports": 2040237.0,
+            "balance": 9046833.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "SI",
+      "iso3": "SVN",
+      "name": "슬로베니아",
+      "nameEn": "Slovenia",
+      "office": "자그레브",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "슬로베니아 중앙은행",
+        "url": "https://www.bsi.si/en"
+      },
+      "gdp": {
+        "value": 79648204979.3618,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=SI"
+      },
+      "gdpPerCapita": {
+        "value": 37376.2216079138,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=SI"
+      },
+      "gdpGrowth": {
+        "value": 1.05992996255246,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=SI"
+      },
+      "population": {
+        "value": 2130986,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=SI"
+      },
+      "inflation": {
+        "value": 3.8,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 3.6,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 960844494.0,
+            "imports": 148796927.0,
+            "balance": 812047567.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 67548186.0,
+            "imports": 12465707.0,
+            "balance": 55082479.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "RS",
+      "iso3": "SRB",
+      "name": "세르비아",
+      "nameEn": "Serbia",
+      "office": "베오그라드",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": {
+        "name": "세르비아 국립은행",
+        "url": "https://nbs.rs/en/"
+      },
+      "gdp": {
+        "value": 99953324472.9042,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=RS"
+      },
+      "gdpPerCapita": {
+        "value": 15262.0464193413,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=RS"
+      },
+      "gdpGrowth": {
+        "value": 2.03039196235113,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=RS"
+      },
+      "population": {
+        "value": 6549143,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=RS"
+      },
+      "inflation": {
+        "value": 4.2,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 7.123,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=RS",
+        "basis": "연간(ILO 모형추정)"
+      },
+      "policyRate": {
+        "value": 5.75,
+        "date": "2026-10-30",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "자국 중앙은행",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 176797253.0,
+            "imports": 109637222.0,
+            "balance": 67160031.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 13970469.0,
+            "imports": 10513236.0,
+            "balance": 3457233.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "LT",
+      "iso3": "LTU",
+      "name": "리투아니아",
+      "nameEn": "Lithuania",
+      "office": "바르샤바",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "리투아니아 중앙은행",
+        "url": "https://www.lb.lt/en/"
+      },
+      "gdp": {
+        "value": 95210150818.3512,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=LT"
+      },
+      "gdpPerCapita": {
+        "value": 32958.6706396386,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=LT"
+      },
+      "gdpGrowth": {
+        "value": 2.92007656461696,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=LT"
+      },
+      "population": {
+        "value": 2888774,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=LT"
+      },
+      "inflation": {
+        "value": 6.1,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 6.2,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 379245863.0,
+            "imports": 120361634.0,
+            "balance": 258884229.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 33287088.0,
+            "imports": 11639286.0,
+            "balance": 21647802.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "LV",
+      "iso3": "LVA",
+      "name": "라트비아",
+      "nameEn": "Latvia",
+      "office": "스톡홀름",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "라트비아 중앙은행",
+        "url": "https://www.bank.lv/en/"
+      },
+      "gdp": {
+        "value": 48618869160.3254,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=LV"
+      },
+      "gdpPerCapita": {
+        "value": 26311.9730706362,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=LV"
+      },
+      "gdpGrowth": {
+        "value": 2.13786855731288,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=LV"
+      },
+      "population": {
+        "value": 1847785,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=LV"
+      },
+      "inflation": {
+        "value": 3.0,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 7.3,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 65489716.0,
+            "imports": 109108450.0,
+            "balance": -43618734.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 8058793.0,
+            "imports": 8666846.0,
+            "balance": -608053.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "EE",
+      "iso3": "EST",
+      "name": "에스토니아",
+      "nameEn": "Estonia",
+      "office": "헬싱키",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "에스토니아 중앙은행",
+        "url": "https://www.eestipank.ee/en"
+      },
+      "gdp": {
+        "value": 47030833798.5866,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=EE"
+      },
+      "gdpPerCapita": {
+        "value": 34417.6320815138,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=EE"
+      },
+      "gdpGrowth": {
+        "value": 0.584308464789387,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=EE"
+      },
+      "population": {
+        "value": 1366475,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=EE"
+      },
+      "inflation": {
+        "value": 3.6,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 8.0,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 158023328.0,
+            "imports": 95600521.0,
+            "balance": 62422807.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 15594918.0,
+            "imports": 7387090.0,
+            "balance": 8207828.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "LU",
+      "iso3": "LUX",
+      "name": "룩셈부르크",
+      "nameEn": "Luxembourg",
+      "office": "브뤼셀",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "룩셈부르크 중앙은행",
+        "url": "https://www.bcl.lu/en/"
+      },
+      "gdp": {
+        "value": 101157829491.107,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=LU"
+      },
+      "gdpPerCapita": {
+        "value": 147252.179121515,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=LU"
+      },
+      "gdpGrowth": {
+        "value": 0.63787818818335,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=LU"
+      },
+      "population": {
+        "value": 686970,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=LU"
+      },
+      "inflation": {
+        "value": 4.9,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 7.3,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 62429004.0,
+            "imports": 134235979.0,
+            "balance": -71806975.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 7881404.0,
+            "imports": 14855589.0,
+            "balance": -6974185.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "CY",
+      "iso3": "CYP",
+      "name": "키프로스",
+      "nameEn": "Cyprus",
+      "office": "아테네",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "키프로스 중앙은행",
+        "url": "https://www.centralbank.cy/en/"
+      },
+      "gdp": {
+        "value": 41225787247.3309,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=CY"
+      },
+      "gdpPerCapita": {
+        "value": 41783.08984375,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CY"
+      },
+      "gdpGrowth": {
+        "value": 3.77325347982725,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=CY"
+      },
+      "population": {
+        "value": 1370754,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CY"
+      },
+      "inflation": {
+        "value": 5.4,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 4.0,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 70579351.0,
+            "imports": 6013861.0,
+            "balance": 64565490.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 11242437.0,
+            "imports": 210852.0,
+            "balance": 11031585.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "MT",
+      "iso3": "MLT",
+      "name": "몰타",
+      "nameEn": "Malta",
+      "office": "밀라노",
+      "eu": true,
+      "euro": true,
+      "group": "EU·유로",
+      "centralBank": {
+        "name": "몰타 중앙은행",
+        "url": "https://www.centralbankmalta.org/"
+      },
+      "gdp": {
+        "value": 27771821560.9411,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=MT"
+      },
+      "gdpPerCapita": {
+        "value": 47906.9000057635,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=MT"
+      },
+      "gdpGrowth": {
+        "value": 3.96156139018959,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=MT"
+      },
+      "population": {
+        "value": 579704,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=MT"
+      },
+      "inflation": {
+        "value": 2.3,
+        "period": "2026-10",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 3.4,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로지역(ECB)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 2511482748.0,
+            "imports": 268112445.0,
+            "balance": 2243370303.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 423233896.0,
+            "imports": 48162346.0,
+            "balance": 375071550.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "IS",
+      "iso3": "ISL",
+      "name": "아이슬란드",
+      "nameEn": "Iceland",
+      "office": "스톡홀름",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": {
+        "name": "아이슬란드 중앙은행",
+        "url": "https://www.cb.is/"
+      },
+      "gdp": {
+        "value": 38582528789.0033,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=IS"
+      },
+      "gdpPerCapita": {
+        "value": 98323.4849517418,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=IS"
+      },
+      "gdpGrowth": {
+        "value": 1.27946207863934,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=IS"
+      },
+      "population": {
+        "value": 392404,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=IS"
+      },
+      "inflation": {
+        "value": 5.4,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 5.9,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 8.0,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "자국 중앙은행",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 57606884.0,
+            "imports": 22349623.0,
+            "balance": 35257261.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 6321379.0,
+            "imports": 2007387.0,
+            "balance": 4313992.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "AL",
+      "iso3": "ALB",
+      "name": "알바니아",
+      "nameEn": "Albania",
+      "office": "아테네",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": {
+        "name": "알바니아 중앙은행",
+        "url": "https://www.bankofalbania.org/"
+      },
+      "gdp": {
+        "value": 30540188271.3421,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=AL"
+      },
+      "gdpPerCapita": {
+        "value": 12998.147869552,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=AL"
+      },
+      "gdpGrowth": {
+        "value": 3.78893836241024,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=AL"
+      },
+      "population": {
+        "value": 2349580,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=AL"
+      },
+      "inflation": {
+        "value": 2.7,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 10.926,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=AL",
+        "basis": "연간(ILO 모형추정)"
+      },
+      "policyRate": {
+        "value": null,
+        "source": "BIS",
+        "url": "https://data.bis.org/topics/CBPOL",
+        "note": "BIS 미수록"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 357537014.0,
+            "imports": 8800665.0,
+            "balance": 348736349.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 34949606.0,
+            "imports": 768795.0,
+            "balance": 34180811.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "MK",
+      "iso3": "MKD",
+      "name": "북마케도니아",
+      "nameEn": "North Macedonia",
+      "office": "소피아",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": {
+        "name": "북마케도니아 국립은행",
+        "url": "https://www.nbrm.mk/"
+      },
+      "gdp": {
+        "value": 19101199817.0174,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=MK"
+      },
+      "gdpPerCapita": {
+        "value": 10489.9255355525,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=MK"
+      },
+      "gdpGrowth": {
+        "value": 3.48706619829503,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=MK"
+      },
+      "population": {
+        "value": 1820909,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=MK"
+      },
+      "inflation": {
+        "value": 3.5,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 10.7,
+        "period": "2026-09",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": 4.25,
+        "date": "2026-11-02",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "자국 중앙은행",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 11695601.0,
+            "imports": 7083579.0,
+            "balance": 4612022.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 1306730.0,
+            "imports": 634875.0,
+            "balance": 671855.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "BA",
+      "iso3": "BIH",
+      "name": "보스니아-헤르체고비나",
+      "nameEn": "Bosnia and Herzegovina",
+      "office": "자그레브",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": {
+        "name": "보스니아-헤르체고비나 중앙은행",
+        "url": "https://www.cbbh.ba/"
+      },
+      "gdp": {
+        "value": 32599982936.3931,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=BA"
+      },
+      "gdpPerCapita": {
+        "value": 10381.8460703874,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BA"
+      },
+      "gdpGrowth": {
+        "value": 2.12861913138053,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=BA"
+      },
+      "population": {
+        "value": 3140095,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=BA"
+      },
+      "inflation": {
+        "value": 3.97821271880433,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=BA",
+        "basis": "CPI 연간"
+      },
+      "unemployment": {
+        "value": 11.4,
+        "period": "2026-08",
+        "basis": "월간·계절조정",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
+      },
+      "policyRate": {
+        "value": null,
+        "source": "BIS",
+        "url": "https://data.bis.org/topics/CBPOL",
+        "note": "BIS 미수록"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 10424938.0,
+            "imports": 31175049.0,
+            "balance": -20750111.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 866751.0,
+            "imports": 5652302.0,
+            "balance": -4785551.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "ME",
+      "iso3": "MNE",
+      "name": "몬테네그로",
+      "nameEn": "Montenegro",
+      "office": "베오그라드",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": {
+        "name": "몬테네그로 중앙은행",
+        "url": "https://www.cbcg.me/en"
+      },
+      "gdp": {
+        "value": 9232801464.79257,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=ME"
+      },
+      "gdpPerCapita": {
+        "value": 14816.8380299947,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=ME"
+      },
+      "gdpGrowth": {
+        "value": 2.74455354258522,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=ME"
+      },
+      "population": {
+        "value": 623129,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=ME"
+      },
+      "inflation": {
+        "value": 5.5,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": 13.572,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=ME",
+        "basis": "연간(ILO 모형추정)"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로 사용국(ECB 금리)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 8045555.0,
+            "imports": 20956873.0,
+            "balance": -12911318.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 449275.0,
+            "imports": 12832.0,
+            "balance": 436443.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "XK",
+      "iso3": "XKX",
+      "name": "코소보",
+      "nameEn": "Kosovo",
+      "office": "베오그라드",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": {
+        "name": "코소보 중앙은행",
+        "url": "https://bqk-kos.org/"
+      },
+      "gdp": {
+        "value": 12456403306.8191,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=XK"
+      },
+      "gdpPerCapita": {
+        "value": 7899.41841135202,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=XK"
+      },
+      "gdpGrowth": {
+        "value": 3.59217142544483,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=XK"
+      },
+      "population": {
+        "value": 1576876,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=XK"
+      },
+      "inflation": {
+        "value": 7.8,
+        "period": "2026-09",
+        "basis": "HICP 전년동월비",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      "unemployment": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=XK",
+        "note": "World Bank 미수록"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로 사용국(ECB 금리)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": null,
+          "monthly": null,
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "LI",
+      "iso3": "LIE",
+      "name": "리히텐슈타인",
+      "nameEn": "Liechtenstein",
+      "office": "취리히",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": null,
+      "gdp": {
+        "value": 8905764270.4054,
+        "year": "2024",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=LI"
+      },
+      "gdpPerCapita": {
+        "value": 220167.225473557,
+        "year": "2024",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=LI"
+      },
+      "gdpGrowth": {
+        "value": -1.15748291975636,
+        "year": "2009",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=LI"
+      },
+      "population": {
+        "value": 41024,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=LI"
+      },
+      "inflation": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=LI",
+        "note": "World Bank 미수록"
+      },
+      "unemployment": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=LI",
+        "note": "World Bank 미수록"
+      },
+      "policyRate": {
+        "value": 0.0,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "스위스 프랑 사용국(SNB 금리)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": null,
+          "monthly": null,
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "MC",
+      "iso3": "MCO",
+      "name": "모나코",
+      "nameEn": "Monaco",
+      "office": "파리",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": null,
+      "gdp": {
+        "value": 11125788838.2812,
+        "year": "2024",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=MC"
+      },
+      "gdpPerCapita": {
+        "value": 288001.574856495,
+        "year": "2024",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=MC"
+      },
+      "gdpGrowth": {
+        "value": 8.51053758860212,
+        "year": "2024",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=MC"
+      },
+      "population": {
+        "value": 38341,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=MC"
+      },
+      "inflation": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=MC",
+        "note": "World Bank 미수록"
+      },
+      "unemployment": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=MC",
+        "note": "World Bank 미수록"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로 사용국(ECB 금리)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": null,
+          "monthly": null,
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/",
+          "note": "프랑스 수치에 포함(UN Comtrade 251 France, Monaco)"
+        }
+      }
+    },
+    {
+      "id": "AD",
+      "iso3": "AND",
+      "name": "안도라",
+      "nameEn": "Andorra",
+      "office": "마드리드",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": null,
+      "gdp": {
+        "value": 4500982731.80784,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=AD"
+      },
+      "gdpPerCapita": {
+        "value": 54291.5026031052,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=AD"
+      },
+      "gdpGrowth": {
+        "value": 3.86803450687808,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=AD"
+      },
+      "population": {
+        "value": 82904,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=AD"
+      },
+      "inflation": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=AD",
+        "note": "World Bank 미수록"
+      },
+      "unemployment": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=AD",
+        "note": "World Bank 미수록"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로 사용국(ECB 금리)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 149844.0,
+            "imports": 509557.0,
+            "balance": -359713.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 22136.0,
+            "imports": 26772.0,
+            "balance": -4636.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "SM",
+      "iso3": "SMR",
+      "name": "산마리노",
+      "nameEn": "San Marino",
+      "office": "밀라노",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": null,
+      "gdp": {
+        "value": 2027243193.5116,
+        "year": "2023",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=SM"
+      },
+      "gdpPerCapita": {
+        "value": 59871.3288101478,
+        "year": "2023",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=SM"
+      },
+      "gdpGrowth": {
+        "value": 0.401932371532837,
+        "year": "2023",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=SM"
+      },
+      "population": {
+        "value": 34109,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=SM"
+      },
+      "inflation": {
+        "value": 2.29519525025037,
+        "year": "2025",
+        "source": "World Bank WDI",
+        "license": "CC BY 4.0",
+        "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=SM",
+        "basis": "CPI 연간"
+      },
+      "unemployment": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=SM",
+        "note": "World Bank 미수록"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로 사용국(ECB 금리)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 229326.0,
+            "imports": 3022182.0,
+            "balance": -2792856.0
+          },
+          "monthly": {
+            "period": "2025-12",
+            "exports": 11360.0,
+            "imports": 124508.0,
+            "balance": -113148.0
+          },
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    },
+    {
+      "id": "VA",
+      "iso3": "VAT",
+      "name": "교황청",
+      "nameEn": "Holy See (Vatican City)",
+      "office": "밀라노",
+      "eu": false,
+      "euro": false,
+      "group": "비EU",
+      "centralBank": null,
+      "gdp": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=VA",
+        "note": "World Bank 미수록"
+      },
+      "gdpPerCapita": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=VA",
+        "note": "World Bank 미수록"
+      },
+      "gdpGrowth": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=VA",
+        "note": "World Bank 미수록"
+      },
+      "population": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=VA",
+        "note": "World Bank 미수록"
+      },
+      "inflation": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=VA",
+        "note": "World Bank 미수록"
+      },
+      "unemployment": {
+        "value": null,
+        "source": "World Bank",
+        "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=VA",
+        "note": "World Bank 미수록"
+      },
+      "policyRate": {
+        "value": 2.5,
+        "date": "2026-11-03",
+        "unit": "%",
+        "source": "BIS",
+        "basis": "유로 사용국(ECB 금리)",
+        "url": "https://data.bis.org/topics/CBPOL"
+      },
+      "trade": {
+        "comtrade": {
+          "annual": {
+            "period": "2025",
+            "exports": 23288.0,
+            "imports": 1575.0,
+            "balance": 21713.0
+          },
+          "monthly": null,
+          "source": "UN Comtrade (한국 보고 기준)",
+          "url": "https://comtradeplus.un.org/"
+        }
+      }
+    }
+  ]
+};
