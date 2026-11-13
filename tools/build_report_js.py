@@ -72,6 +72,8 @@ def validate(r):
     except ValueError:
         raise ValueError('generatedAt: ISO 8601 형식이어야 합니다.') from None
     string(r.get('coverage'), 'coverage')
+    if 'lead' in r:
+        string(r['lead'], 'lead')
     tops = r.get('topIssues')
     require(isinstance(tops, list) and len(tops) >= MIN_TOP, f'topIssues: {MIN_TOP}개 이상 필요합니다.')
     for i, t in enumerate(tops):

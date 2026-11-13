@@ -13,6 +13,7 @@
 import csv
 import io
 import json
+import socket
 import sys
 import time
 import urllib.error
@@ -28,7 +29,7 @@ KST = timezone(timedelta(hours=9))
 ROOT = Path(__file__).resolve().parent.parent
 OUT_JSON = ROOT / 'data/country-stats.json'
 OUT_JS = ROOT / 'data/country-stats.js'
-UA = 'eu-trade-brief-stats/1.0 (+https://trade-brief-kr.github.io/eu-trade-brief/)'
+UA = 'eu-trade-brief-stats/1.0 (+https://trade-brief-kr.github.io/eu-trade-brief/; research)'
 WB = {'gdp': 'NY.GDP.MKTP.CD', 'gdpPerCapita': 'NY.GDP.PCAP.CD', 'gdpGrowth': 'NY.GDP.MKTP.KD.ZG',
       'population': 'SP.POP.TOTL', 'inflationWB': 'FP.CPI.TOTL.ZG', 'unemploymentWB': 'SL.UEM.TOTL.ZS'}
 EUROSTAT = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
@@ -62,6 +63,10 @@ def http_get(url, timeout=60, retries=3, pause=2.0):
                 return r.read()
         except urllib.error.HTTPError as e:
             last = f'HTTP {e.code}'
+        except urllib.error.URLError as e:
+            if isinstance(e.reason, socket.gaierror):
+                raise RuntimeError(f'DNS 조회 실패: {e.reason}') from e
+            last = str(e.reason)
         except Exception as e:  # noqa: BLE001
             last = type(e).__name__
         time.sleep(pause * (i + 1))
@@ -79,25 +84,28 @@ def wb_bulk(ind):
     data = http_json(f'https://api.worldbank.org/v2/country/all/indicator/{ind}?format=json&per_page=20000', timeout=120, retries=5)
     if not (isinstance(data, list) and len(data) > 1 and isinstance(data[1], list)) or data[0].get('pages', 1) != 1:
         raise RuntimeError('형식 오류')
-    latest = {}
+    latest, series = {}, {}
     for row in data[1]:
         k = row.get('countryiso3code')
-        if k and row.get('value') is not None and (k not in latest or row['date'] > latest[k]['date']):
-            latest[k] = row
+        if k and row.get('value') is not None:
+            series.setdefault(k, []).append([row['date'], row['value']])
+            if k not in latest or row['date'] > latest[k]['date']:
+                latest[k] = dict(row)
+    for k in latest:
+        latest[k]['series'] = sorted(series[k])[-12:]
     return latest
 
 
 def eurostat_latest(dataset, params, geos):
-    """여러 국가를 한 번에 조회해 국가별 최신 유효값 {geo: (value, period)}."""
-    q = [(k, v) for k, v in params.items()] + [('geo', g) for g in geos] + [('sinceTimePeriod', params.pop('_since', '2024-01'))]
-    q = [x for x in q if x[0] != '_since']
+    """국가별 최신값과 짧은 원 관측 시계열. 보간·반올림하지 않음."""
+    q = [(k, v) for k, v in params.items() if k != '_since'] + [('geo', g) for g in geos] + [('sinceTimePeriod', params.get('_since', '2024-01'))]
     d = http_json(EUROSTAT + dataset + '?' + urllib.parse.urlencode(q), timeout=90)
     dims, size = d['id'], d['size']
     idx = {k: {v: i for v, i in d['dimension'][k]['category']['index'].items()} for k in dims}
     gi, ti = dims.index('geo'), dims.index('time')
     inv_geo = {i: g for g, i in idx['geo'].items()}
     inv_time = {i: t for t, i in idx['time'].items()}
-    out = {}
+    series = {}
     for flat, val in d.get('value', {}).items():
         flat = int(flat)
         coords = []
@@ -106,14 +114,18 @@ def eurostat_latest(dataset, params, geos):
             flat //= s
         coords.reverse()
         g, t = inv_geo[coords[gi]], inv_time[coords[ti]]
-        if val is not None and (g not in out or t > out[g][1]):
-            out[g] = (val, t)
+        if val is not None:
+            series.setdefault(g, []).append([t, val])
+    out = {}
+    for g, points in series.items():
+        points = sorted(points)[-12 if params.get('freq') == 'Q' else -24:]
+        out[g] = {'value': points[-1][1], 'period': points[-1][0], 'series': points}
     return out
 
 
-def bis_rates():
-    latest = {}
-    for row in csv.DictReader(io.StringIO(http_get(BIS_URL).decode('utf-8-sig'))):
+def bis_rates(url=BIS_URL):
+    latest, series = {}, {}
+    for row in csv.DictReader(io.StringIO(http_get(url).decode('utf-8-sig'))):
         v = (row.get('OBS_VALUE') or '').strip()
         try:
             fv = float(v)
@@ -122,8 +134,13 @@ def bis_rates():
         if fv != fv:  # NaN
             continue
         a, p = row.get('REF_AREA'), row.get('TIME_PERIOD')
+        if not a or not p:
+            continue
+        series.setdefault(a, []).append([p, fv])
         if a not in latest or p > latest[a]['date']:
             latest[a] = {'value': fv, 'date': p}
+    for a in latest:
+        latest[a]['series'] = sorted(series[a])[-24:]
     return latest
 
 
@@ -170,9 +187,10 @@ def comtrade(countries):
 def main(argv):
     dry = '--dry-run' in argv
     try:
-        prev = {c['id']: c for c in json.loads(OUT_JSON.read_text(encoding='utf-8')).get('countries', [])}
+        previous = json.loads(OUT_JSON.read_text(encoding='utf-8'))
+        prev = {c['id']: c for c in previous.get('countries', [])}
     except (OSError, ValueError):
-        prev = {}
+        previous, prev = {}, {}
     status, rows = {}, {}
 
     wb = {}
@@ -187,6 +205,7 @@ def main(argv):
     geos = [EUROSTAT_GEO.get(c[0], c[0]) for c in COUNTRIES]
     euro = {}
     for key, ds, params in (
+        ('gdpGrowth', 'namq_10_gdp', {'unit': 'CLV_PCH_SM', 's_adj': 'SCA', 'na_item': 'B1GQ', 'freq': 'Q', '_since': f'{datetime.now(KST).year - 3}-Q1'}),
         ('inflation', 'prc_hicp_minr', {'unit': 'RCH_A', 'coicop18': 'TOTAL', 'freq': 'M', '_since': '2025-01'}),
         ('unemployment', 'une_rt_m', {'s_adj': 'SA', 'age': 'TOTAL', 'sex': 'T', 'unit': 'PC_ACT', 'freq': 'M', '_since': '2025-01'}),
     ):
@@ -203,6 +222,12 @@ def main(argv):
         bis = None
         status['bis'] = f'실패({e})'
     try:
+        bis_monthly = bis_rates(BIS_URL.replace('/D.?lastNObservations=45', '/M.?lastNObservations=24'))
+        status['bis:series'] = f'ok({len(bis_monthly)}개 지역)'
+    except Exception as e:
+        bis_monthly = {}
+        status['bis:series'] = f'실패({e})'
+    try:
         trade, tmeta = comtrade(COUNTRIES)
         status['comtrade'] = f"ok(연간 {tmeta.get('annual')} {len(trade['annual'])}개국, 월간 {tmeta.get('monthly')} {len(trade['monthly'])}개국)"
     except Exception as e:  # noqa: BLE001
@@ -217,7 +242,11 @@ def main(argv):
         row = wb[key].get(c[1])
         if not row:
             return {'value': None, 'source': 'World Bank', 'url': url, 'note': 'World Bank 미수록'}
-        return {'value': row['value'], 'year': row['date'], 'source': 'World Bank WDI', 'license': 'CC BY 4.0', 'url': url}
+        item = {'value': row['value'], 'year': row['date'], 'source': 'World Bank WDI', 'license': 'CC BY 4.0', 'url': url}
+        if key in ('gdpGrowth', 'inflationWB', 'unemploymentWB'):
+            item['series'] = row['series']
+            item['seriesBasis'] = '연간 (%)'
+        return item
 
     out = []
     for c in COUNTRIES:
@@ -229,6 +258,13 @@ def main(argv):
              'centralBank': {'name': cb, 'url': cburl} if cb else None}
         for key in ('gdp', 'gdpPerCapita', 'gdpGrowth', 'population'):
             r[key] = wb_item(key, c, p.get(key))
+        growth = euro.get('gdpGrowth', {}).get(geo)
+        if growth:
+            r['gdpGrowth'] = dict(growth, basis='분기 전년동기비·계절 및 달력조정 (%)', seriesBasis='분기 전년동기비 (%)', source='Eurostat', url='https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table')
+        elif 'gdpGrowth' not in euro and (p.get('gdpGrowth') or {}).get('source') == 'Eurostat':
+            r['gdpGrowth'] = p['gdpGrowth']
+        if 'outlook' in p:
+            r['outlook'] = p['outlook']
         for key, ds, wbkey, page in (
             ('inflation', 'prc_hicp_minr', 'inflationWB', 'https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table'),
             ('unemployment', 'une_rt_m', 'unemploymentWB', 'https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table'),
@@ -238,7 +274,7 @@ def main(argv):
                 continue
             hit = euro[key].get(geo)
             if hit:
-                r[key] = {'value': hit[0], 'period': hit[1], 'basis': 'HICP 전년동월비' if key == 'inflation' else '월간·계절조정',
+                r[key] = {**hit, 'seriesBasis': '월간 전년동월비 (%)' if key == 'inflation' else '월간·계절조정 (%)', 'basis': 'HICP 전년동월비' if key == 'inflation' else '월간·계절조정',
                           'source': 'Eurostat', 'url': page}
             else:
                 w = wb_item(wbkey, c, p.get(key))
@@ -253,6 +289,13 @@ def main(argv):
             r['policyRate'] = ({'value': hit['value'], 'date': hit['date'], 'unit': '%', 'source': 'BIS',
                                 'basis': basis, 'url': BIS_PAGE}
                                if hit else {'value': None, 'source': 'BIS', 'url': BIS_PAGE, 'note': 'BIS 미수록'})
+            if hit:
+                monthly = bis_monthly.get(area)
+                r['policyRate']['series'] = monthly['series'] if monthly else hit['series']
+                r['policyRate']['seriesBasis'] = '월간 관측 (%)' if monthly else '일간 관측 (%)'
+                if not monthly and (p.get('policyRate') or {}).get('series'):
+                    r['policyRate']['series'] = p['policyRate']['series']
+                    r['policyRate']['seriesBasis'] = p['policyRate'].get('seriesBasis', '')
         if trade is None:
             r['trade'] = p.get('trade')
         else:
@@ -269,6 +312,14 @@ def main(argv):
                'bis': {'name': 'BIS Central bank policy rates', 'url': BIS_PAGE},
                'comtrade': {'name': 'UN Comtrade (public preview)', 'url': 'https://comtradeplus.un.org/', 'periods': tmeta}},
            'countries': out}
+    for key in ('aggregates', 'outlookGeneratedAt'):
+        if key in previous:
+            doc[key] = previous[key]
+    for key in ('ameco', 'imf'):
+        if key in previous.get('sources', {}):
+            doc['sources'][key] = previous['sources'][key]
+    if 'outlook' in previous.get('status', {}):
+        doc['status']['outlook'] = previous['status']['outlook']
     for k, v in status.items():
         log(f'{k}: {v}')
     if dry:

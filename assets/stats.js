@@ -22,10 +22,33 @@
   const GROUPS = ['전체','EU·유로','EU(비유로)','비EU'];
   let data = null, group = '전체', sort = '', descending = true, detailCountry = '';
   const panel = () => document.getElementById('country-info');
+  const YEARS = ['2025','2026','2027'];
+  function sparkline(item, title) {
+    const points = (item?.series || []).filter(p => Array.isArray(p) && typeof p[0] === 'string' && numeric(p[1])).slice(-24);
+    if (points.length < 2) return '';
+    const values = points.map(p => p[1]), low = Math.min(...values), high = Math.max(...values);
+    const coords = points.map((p,i) => `${(4 + i * 172 / (points.length - 1)).toFixed(2)},${(high === low ? 25 : 46 - (p[1] - low) * 42 / (high - low)).toFixed(2)}`).join(' ');
+    const label = `${title}: ${points[0][0]} ${number(points[0][1],2)}% → ${points.at(-1)[0]} ${number(points.at(-1)[1],2)}%`;
+    return `<figure class="stat-spark"><svg viewBox="0 0 180 50" role="img" aria-label="${esc(label)}"><title>${esc(label)}</title><polyline points="${coords}" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"/></svg><figcaption>${esc(points[0][0])} ~ ${esc(points.at(-1)[0])}${item.seriesBasis ? ` · ${esc(item.seriesBasis)}` : ''}</figcaption></figure>`;
+  }
+  function outlookSource(metric) {
+    if (!metric?.source) return '자료 없음';
+    return `${link(metric.url,metric.source)} · ${esc(metric.vintage || '')} · ${esc(metric.basis || '')}`;
+  }
+  function outlookCells(metric) {
+    return YEARS.map(year => {
+      const point = metric?.values?.[year];
+      return `<td class="${year === '2025' ? 'outlook-actual' : 'outlook-forecast'}">${numeric(point?.value) ? esc(number(point.value,1)) + '%' : '<span class="stats-missing">자료 없음</span>'}</td>`;
+    }).join('');
+  }
+  function outlookHTML(countries, detail = false) {
+    const rows = detail ? countries : [...(data.aggregates || []), ...countries];
+    return `<article class="${detail ? 'stat-card stat-card--wide' : 'card stats-table-card outlook-card'}"><h3>성장·물가 전망 <small>2025 실적 · 2026–2027 전망</small></h3>${!detail && data?.outlookGeneratedAt ? `<p class="stat-meta">전망 갱신 ${esc(kst(data.outlookGeneratedAt,true))}</p>` : ''}<div class="table-scroll" role="region" aria-label="성장·물가 전망표" tabindex="0"><table class="stats-table outlook-table"><caption class="sr-only">실질 GDP 성장률과 연평균 물가상승률. 단위 %. 2026·2027년은 전망.</caption><thead><tr><th scope="col" rowspan="2">${detail ? '지표' : '국가·지역'}</th>${detail ? '' : '<th scope="col" rowspan="2">지표</th>'}${YEARS.map(y => `<th scope="col" class="${y === '2025' ? 'outlook-actual' : 'outlook-forecast'}">${y}</th>`).join('')}</tr><tr>${YEARS.map(y => `<th scope="col" class="${y === '2025' ? 'outlook-actual' : 'outlook-forecast'}">${y === '2025' ? '실적' : '전망'}</th>`).join('')}</tr></thead><tbody>${rows.map(c => ['gdp','inflation'].map((key,i) => `<tr${!detail && c.name === app.getCountry() ? ' class="is-selected"' : ''}>${!detail && i === 0 ? `<th scope="rowgroup" rowspan="2">${esc(c.name)}</th>` : ''}<th scope="row">${key === 'gdp' ? '실질 GDP' : '물가'}</th>${outlookCells(c.outlook?.[key])}</tr>`).join('')).join('')}</tbody></table></div>${detail ? ['gdp','inflation'].map(key => `<p class="stat-meta">${key === 'gdp' ? '성장' : '물가'}: ${outlookSource(countries[0].outlook?.[key])}</p>`).join('') : `<details class="outlook-sources"><summary>지표별 출처·빈티지</summary>${rows.map(c => `<p class="stat-meta"><strong>${esc(c.name)}</strong><br>성장: ${outlookSource(c.outlook?.gdp)}<br>물가: ${outlookSource(c.outlook?.inflation)}</p>`).join('')}</details>`}<p class="stat-meta">AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음. 물가는 AMECO HICP 우선, 미수록 시 IMF CPI(정의 차이). AMECO Spring 2026 기준 2025 실적·2026–2027 전망 구분. IMF는 API에 판 정보가 없어 조회일만 표시.</p></article>`;
+  }
   function metricHTML(title, item, format) {
     const it = item || {}, available = numeric(it.value);
     const period = it.period || it.date || (it.year ? `${it.year}년` : '');
-    return `<article class="stat-card"><h4>${esc(title)}</h4><p class="stat-value${available ? '' : ' is-missing'}">${available ? esc(format(it.value)) : '자료 없음'}</p>${period || it.basis ? `<p class="stat-meta">${esc([period,it.basis].filter(Boolean).join(' · '))}</p>` : ''}${it.source || it.url ? `<p class="stat-meta">출처: ${link(it.url,it.source || '원자료')}${it.license ? ` · ${esc(it.license)}` : ''}</p>` : ''}${it.note ? `<p class="stat-note">${esc(it.note)}</p>` : ''}</article>`;
+    return `<article class="stat-card"><h4>${esc(title)}</h4><p class="stat-value${available ? '' : ' is-missing'}">${available ? esc(format(it.value)) : '자료 없음'}</p>${period || it.basis ? `<p class="stat-meta">${esc([period,it.basis].filter(Boolean).join(' · '))}</p>` : ''}${it.source || it.url ? `<p class="stat-meta">출처: ${link(it.url,it.source || '원자료')}${it.license ? ` · ${esc(it.license)}` : ''}</p>` : ''}${sparkline(it,title)}${it.note ? `<p class="stat-note">${esc(it.note)}</p>` : ''}</article>`;
   }
   function tradeBlock(label, record) {
     if (!record) return `<section class="trade-block"><h5>${esc(label)}</h5><p class="stat-meta">자료 없음</p></section>`;
@@ -39,7 +62,7 @@
   }
   function countryHTML(country, selected = '') {
     const bank = country.centralBank;
-    return `<article class="card stats-detail${country.name === selected ? ' is-selected' : ''}"><header class="stats-detail-head"><div><h3>${esc(country.name)} <small lang="en">${esc(country.nameEn || '')}</small></h3><p class="stat-meta">관할 무역관: ${esc(country.office || '자료 없음')}</p></div><span class="group-badge">${esc(groupName(country))}</span></header><div class="stat-cards">${metricHTML('명목 GDP',country.gdp,usd)}${metricHTML('1인당 GDP',country.gdpPerCapita,v => `${number(v,0)}달러`)}${metricHTML('실질 GDP 성장률',country.gdpGrowth,percent)}${metricHTML('인구',country.population,people)}${metricHTML('물가상승률',country.inflation,percent)}${metricHTML('실업률',country.unemployment,percent)}${metricHTML('정책금리',country.policyRate,percent)}${tradeHTML(country)}</div><footer class="central-bank">중앙은행: ${bank ? link(bank.url,bank.name || '중앙은행') : '<span class="muted">자료 없음</span>'}</footer></article>`;
+    return `<article class="card stats-detail${country.name === selected ? ' is-selected' : ''}"><header class="stats-detail-head"><div><h3>${esc(country.name)} <small lang="en">${esc(country.nameEn || '')}</small></h3><p class="stat-meta">관할 무역관: ${esc(country.office || '자료 없음')}</p></div><span class="group-badge">${esc(groupName(country))}</span></header><div class="stat-cards">${metricHTML('명목 GDP',country.gdp,usd)}${metricHTML('1인당 GDP',country.gdpPerCapita,v => `${number(v,0)}달러`)}${metricHTML('실질 GDP 성장률',country.gdpGrowth,percent)}${metricHTML('인구',country.population,people)}${metricHTML('물가상승률',country.inflation,percent)}${metricHTML('실업률',country.unemployment,percent)}${metricHTML('정책금리',country.policyRate,percent)}${tradeHTML(country)}${outlookHTML([country],true)}</div><footer class="central-bank">중앙은행: ${bank ? link(bank.url,bank.name || '중앙은행') : '<span class="muted">자료 없음</span>'}</footer></article>`;
   }
   function sortValue(country, key) {
     if (key === 'name') return country.name;
@@ -91,13 +114,12 @@
     if (!countries.some(c => c.name === detailCountry)) detailCountry = countries[0]?.name || '';
     const detail = countries.find(c => c.name === detailCountry);
     const errors = failures(data.status);
-    root.innerHTML = `<section class="card stats-picker"><div class="stats-head"><div><p class="eyebrow">COUNTRY PROFILE</p><h2>국가 정보 <small>${data.countries.length}개국</small></h2></div></div><p class="stats-updated">통계 기준: World Bank WDI, Eurostat, BIS, UN Comtrade(한국 보고 기준) · 갱신 ${esc(kst(data.generatedAt,true) || '시각 정보 없음')}</p>${errors.length ? `<p class="stat-note">일부 통계 갱신 실패: ${errors.map(esc).join(' / ')}</p>` : ''}<div class="chips" role="group" aria-label="국가 그룹 필터">${GROUPS.map(g => `<button class="country-chip" type="button" data-group="${g}" aria-pressed="${group === g}">${g}</button>`).join('')}</div><div class="stats-sort"><label for="stats-sort">정렬<select id="stats-sort">${SORTS.map(([value,label]) => `<option value="${value}"${value === sort ? ' selected' : ''}>${label}</option>`).join('')}</select></label><button id="stats-direction" type="button"${sort ? '' : ' disabled'} aria-label="${descending ? '오름차순으로 변경' : '내림차순으로 변경'}">${descending ? '내림차순 ↓' : '오름차순 ↑'}</button><p class="stat-meta" role="status">${countries.length}개국${selected ? ` · ${esc(selected)} 우선 표시` : ''}</p></div></section>${tableHTML(countries,selected)}<div id="stats-detail" class="country-profiles" role="region" aria-label="${esc(detailCountry)} 상세 정보" tabindex="-1">${detail ? countryHTML(detail,selected) : ''}</div><p class="stats-disclaimer muted">지표별 공표 시차와 기준이 다릅니다. 값이 없는 항목은 표에서 –로, 상세 카드에서 자료 없음으로 표시합니다. 한국 수출·수입·수지는 한국 보고 기준입니다.</p>`;
+    root.innerHTML = `<section class="card stats-picker"><div class="stats-head"><div><p class="eyebrow">COUNTRY PROFILE</p><h2>국가 정보 <small>${data.countries.length}개국</small></h2></div></div><p class="stats-updated">통계 기준: World Bank WDI, Eurostat, BIS, UN Comtrade(한국 보고 기준) · 갱신 ${esc(kst(data.generatedAt,true) || '시각 정보 없음')}</p>${errors.length ? `<details class="stat-note"><summary>일부 통계 갱신 실패 · 직전 값 또는 공식 원본 캐시 유지 (${errors.length}개)</summary><p>${errors.map(esc).join('<br>')}</p></details>` : ''}<div class="chips" role="group" aria-label="국가 그룹 필터">${GROUPS.map(g => `<button class="country-chip" type="button" data-group="${g}" aria-pressed="${group === g}">${g}</button>`).join('')}</div><div class="stats-sort"><label for="stats-sort">정렬<select id="stats-sort">${SORTS.map(([value,label]) => `<option value="${value}"${value === sort ? ' selected' : ''}>${label}</option>`).join('')}</select></label><button id="stats-direction" type="button"${sort ? '' : ' disabled'} aria-label="${descending ? '오름차순으로 변경' : '내림차순으로 변경'}">${descending ? '내림차순 ↓' : '오름차순 ↑'}</button><p class="stat-meta" role="status">${countries.length}개국${selected ? ` · ${esc(selected)} 우선 표시` : ''}</p></div></section>${outlookHTML(countries)}${tableHTML(countries,selected)}<div id="stats-detail" class="country-profiles" role="region" aria-label="${esc(detailCountry)} 상세 정보" tabindex="-1">${detail ? countryHTML(detail,selected) : ''}</div><p class="stats-disclaimer muted">지표별 공표 시차와 기준이 다릅니다. 값이 없는 항목은 표에서 –로, 상세 카드에서 자료 없음으로 표시합니다. 한국 수출·수입·수지는 한국 보고 기준입니다.</p>`;
   }
   function rerenderAndFocus(selector) {
-    const scrollLeft = panel().querySelector('.table-scroll')?.scrollLeft || 0;
+    const positions = [...panel().querySelectorAll('.table-scroll')].map(el => el.scrollLeft);
     render();
-    const tableScroll = panel().querySelector('.table-scroll');
-    if (tableScroll) tableScroll.scrollLeft = scrollLeft;
+    panel().querySelectorAll('.table-scroll').forEach((el,i) => { el.scrollLeft = positions[i] || 0; });
     panel().querySelector(selector)?.focus({preventScroll:true});
   }
   function showDetail(name) {
@@ -139,6 +161,6 @@
     });
     app.statsReady.then(value => { data = value; detailCountry = app.getCountry(); render(); });
   }
-  window.EuroTradeStats = {usd, people, metricHTML, countryHTML, sortedCountries, failures};
+  window.EuroTradeStats = {usd, people, metricHTML, countryHTML, sortedCountries, failures, sparkline, outlookHTML};
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',init); else init();
 })();

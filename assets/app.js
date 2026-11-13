@@ -76,7 +76,7 @@
     return `<article class="issue"><h4>${esc(item.title)}${category}${item.korea === true ? '<span class="badge korea-badge">한국 관련</span>' : ''}</h4><ul>${item.bullets.map(b => `<li class="bullet">${esc(b.text)} ${sourceHTML(b)}</li>`).join('')}</ul>${item.sources?.length ? `<p class="sources">출처: ${item.sources.map(s => sourceHTML(s)).join(' · ')}</p>` : ''}</article>`;
   }
   function reportHTML(report, selected = '', names = FALLBACK_COUNTRIES) {
-    let html = `<section class="card top"><h2>★ EU Top Issues</h2>${report.coverage ? `<p class="coverage">${esc(report.coverage)}</p>` : ''}<ul class="top-list">${report.topIssues.map(t => `<li class="bullet${selected && t.countries?.includes(selected) ? ' is-selected' : ''}">${esc(t.text)} ${sourceHTML(t)}</li>`).join('')}</ul></section>`;
+    let html = `<section class="card top">${typeof report.lead === 'string' && report.lead.trim() ? `<p class="lead">${esc(report.lead)}</p>` : ''}<h2>★ EU Top Issues</h2>${report.coverage ? `<p class="coverage">${esc(report.coverage)}</p>` : ''}<ul class="top-list">${report.topIssues.map(t => `<li class="bullet${selected && t.countries?.includes(selected) ? ' is-selected' : ''}">${esc(t.text)} ${sourceHTML(t)}</li>`).join('')}</ul></section>`;
     const news = orderNews(report, selected, names);
     html += `<section class="card news-block"><h2>★ 일일보도동향</h2>${news.length ? news.map(c => `<section class="country-section${selected === c.country ? ' is-selected' : ''}"><h3>□ ${esc(c.country)}</h3>${c.items.map(itemHTML).join('')}</section>`).join('') : '<p class="muted">이 보고서에 수록된 국가별 보도가 없습니다.</p>'}</section>`;
     if (report.notes?.length) html += `<footer class="notes">${report.notes.map(n => `<p>${esc(n)}</p>`).join('')}</footer>`;
@@ -87,7 +87,7 @@
   }
   function plainText(report, selected = '', names = FALLBACK_COUNTRIES) {
     if (!report) return '';
-    const out = ['유럽 통상 브리프', dotted(report.date), kst(report.generatedAt), report.coverage || '', '', '★ EU Top Issues'];
+    const out = ['유럽 통상 브리프', dotted(report.date), kst(report.generatedAt), report.coverage || '', '', ...(typeof report.lead === 'string' && report.lead.trim() ? [report.lead, ''] : []), '★ EU Top Issues'];
     report.topIssues.forEach(t => out.push(`ㅇ ${t.text} ${sourceText(t)}`.trim()));
     out.push('', '★ 일일보도동향');
     orderNews(report, selected, names).forEach(c => {
@@ -141,6 +141,7 @@
     $('archive-banner').hidden = activeTab !== 0 || !old;
     $('archive-banner-text').textContent = error ? error : `지난 보고서(${dotted(current)})를 보고 있습니다.`;
     $('archive-controls').hidden = activeTab !== 0;
+    $('copy').hidden = activeTab !== 0;
     $('copy').disabled = !report || loading || activeTab !== 0;
   }
   function render() {
@@ -175,12 +176,12 @@
   }
   function selectTab(index) {
     activeTab = index;
-    ['brief-tab','country-tab'].forEach((id,i) => {
+    ['brief-tab','country-tab','calendar-tab'].forEach((id,i) => {
       $(id).setAttribute('aria-selected', String(i === index)); $(id).tabIndex = i === index ? 0 : -1;
-      $(i === 0 ? 'brief' : 'country-info').hidden = i !== index;
+      $(['brief','country-info','calendar'][i]).hidden = i !== index;
     });
     $('search-results').hidden = true;
-    try { const u = new URL(location.href); u.hash = index === 1 ? 'country-info' : ''; history.replaceState(history.state, '', u); } catch (_) {}
+    try { const u = new URL(location.href); u.hash = ['', 'country-info', 'calendar'][index]; history.replaceState(history.state, '', u); } catch (_) {}
     updateChrome();
   }
   function renderSearch() {
@@ -229,12 +230,14 @@
     $('country').addEventListener('change', e => setCountry(e.target.value));
     $('reset').addEventListener('click', () => setCountry(''));
     $('copy').addEventListener('click', copyReport);
-    ['brief-tab','country-tab'].forEach((id,i) => $(id).addEventListener('click', () => selectTab(i)));
+    ['brief-tab','country-tab','calendar-tab'].forEach((id,i) => $(id).addEventListener('click', () => selectTab(i)));
     if (/^#(country-info|stats|country)$/.test(location.hash)) selectTab(1);
+    if (location.hash === '#calendar') selectTab(2);
+    window.addEventListener('hashchange', () => selectTab(location.hash === '#calendar' ? 2 : /^#(country-info|stats|country)$/.test(location.hash) ? 1 : 0));
     $('tabs').addEventListener('keydown', e => {
       if (!['ArrowLeft','ArrowRight','Home','End'].includes(e.key)) return;
-      e.preventDefault(); const n = e.key === 'Home' ? 0 : e.key === 'End' ? 1 : 1 - activeTab;
-      selectTab(n); $(n === 0 ? 'brief-tab' : 'country-tab').focus();
+      e.preventDefault(); const n = e.key === 'Home' ? 0 : e.key === 'End' ? 2 : (activeTab + (e.key === 'ArrowRight' ? 1 : 2)) % 3;
+      selectTab(n); $(['brief-tab','country-tab','calendar-tab'][n]).focus();
     });
     $('archive-date').addEventListener('change', e => showDate(e.target.value));
     [['prev-day',1],['next-day',-1]].forEach(([id,step]) => $(id).addEventListener('click', () => {

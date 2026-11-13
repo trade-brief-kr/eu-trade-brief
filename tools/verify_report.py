@@ -182,6 +182,8 @@ def main(argv):
     out = {'date': r['date'], 'generatedAt': r.get('generatedAt') or now.isoformat(timespec='seconds'),
            'coverage': r.get('coverage') or '최근 24시간 보도 중심', 'topIssues': tops, 'countryNews': news,
            'notes': [n for n in r.get('notes', []) if isinstance(n, str)]}
+    if isinstance(r.get('lead'), str) and r['lead'].strip():
+        out['lead'] = r['lead'].strip()
     if len(tops) < 5:
         log['warnings'].append(f'EU Top Issues {len(tops)}개(목표 5개)')
     if len(news) < 10:

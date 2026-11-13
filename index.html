@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="유럽 42개국의 통상·정책 보도와 주요 경제 통계를 한곳에서 확인하세요.">
   <title>유럽 통상 브리프</title>
-  <link rel="stylesheet" href="assets/style.css?v=20261113091200">
-  <link rel="stylesheet" href="assets/stats.css?v=20261113091200">
-  <script defer src="data/report.js?v=20261113091200"></script>
-  <script defer src="data/archive/index.js?v=20261113091200"></script>
-  <script defer src="data/country-stats.js?v=20261113091200"></script>
-  <script defer src="assets/app.js?v=20261113091200"></script>
-  <script defer src="assets/stats.js?v=20261113091200"></script>
+  <link rel="stylesheet" href="assets/style.css?v=20261113193540">
+  <link rel="stylesheet" href="assets/stats.css?v=20261113193540">
+  <script defer src="data/report.js?v=20261113193540"></script>
+  <script defer src="data/archive/index.js?v=20261113193540"></script>
+  <script defer src="data/country-stats.js?v=20261113193540"></script>
+  <script defer src="data/calendar.js?v=20261113193540"></script>
+  <script defer src="assets/app.js?v=20261113193540"></script>
+  <script defer src="assets/stats.js?v=20261113193540"></script>
+  <script defer src="assets/calendar.js?v=20261113193540"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문 바로가기</a>
@@ -42,6 +44,7 @@
       <nav id="tabs" role="tablist" aria-label="콘텐츠">
         <button id="brief-tab" type="button" role="tab" aria-selected="true" aria-controls="brief">일일 브리프</button>
         <button id="country-tab" type="button" role="tab" aria-selected="false" aria-controls="country-info" tabindex="-1">국가 정보</button>
+        <button id="calendar-tab" type="button" role="tab" aria-selected="false" aria-controls="calendar" tabindex="-1">주요 일정</button>
       </nav>
     </div>
   </header>
@@ -50,6 +53,7 @@
     <section id="search-results" class="card search-results" aria-label="지난 보고서 검색 결과" hidden></section>
     <section id="brief" role="tabpanel" aria-labelledby="brief-tab" tabindex="0" aria-busy="true"><p class="muted" role="status">보고서를 불러오고 있습니다.</p></section>
     <section id="country-info" role="tabpanel" aria-labelledby="country-tab" tabindex="0" aria-busy="true" hidden><p class="muted" role="status">국가 정보를 불러오고 있습니다.</p></section>
+    <section id="calendar" role="tabpanel" aria-labelledby="calendar-tab" tabindex="0" aria-busy="true" hidden><p class="muted" role="status">주요 일정을 불러오고 있습니다.</p></section>
     <p id="status" role="status" aria-live="polite"></p>
     <noscript><p class="card">보고서와 국가 정보를 보려면 JavaScript를 켜 주세요.</p></noscript>
   </main>

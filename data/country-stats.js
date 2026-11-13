@@ -1,5 +1,5 @@
 window.COUNTRY_STATS = {
-  "generatedAt": "2026-11-12T10:43:59+09:00",
+  "generatedAt": "2026-11-13T19:30:09+09:00",
   "status": {
     "worldBank:NY.GDP.MKTP.CD": "ok",
     "worldBank:NY.GDP.PCAP.CD": "ok",
@@ -7,10 +7,17 @@ window.COUNTRY_STATS = {
     "worldBank:SP.POP.TOTL": "ok",
     "worldBank:FP.CPI.TOTL.ZG": "ok",
     "worldBank:SL.UEM.TOTL.ZS": "ok",
+    "eurostat:namq_10_gdp": "ok(35개국)",
     "eurostat:prc_hicp_minr": "ok(35개국)",
     "eurostat:une_rt_m": "ok(32개국)",
     "bis": "ok(48개 지역)",
-    "comtrade": "ok(연간 2025 39개국, 월간 2025-12 38개국)"
+    "bis:series": "ok(49개 지역)",
+    "comtrade": "ok(연간 2025 39개국, 월간 2025-12 38개국)",
+    "outlook": {
+      "ameco0.zip": "ok",
+      "imf-NGDP_RPCH.json": "ok",
+      "imf-PCPIPCH.json": "ok"
+    }
   },
   "sources": {
     "worldBank": {
@@ -34,6 +41,22 @@ window.COUNTRY_STATS = {
         "annual": "2025",
         "monthly": "2025-12"
       }
+    },
+    "ameco": {
+      "name": "European Commission AMECO",
+      "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+      "vintage": "Spring 2026 (2026년 봄)",
+      "fileDate": "2026-06-02",
+      "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음."
+    },
+    "imf": {
+      "name": "IMF WEO (Datamapper)",
+      "url": "https://www.imf.org/external/datamapper/api/v1/",
+      "accessedAt": {
+        "NGDP_RPCH": "2026-11-13",
+        "PCPIPCH": "2026-11-13"
+      },
+      "note": "Datamapper API는 판(vintage) 필드를 제공하지 않음. CPI는 HICP와 정의 차이."
     }
   },
   "countries": [
@@ -65,11 +88,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=DE"
       },
       "gdpGrowth": {
-        "value": 0.239578342117881,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=DE"
+        "value": 1.2,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            -0.9
+          ],
+          [
+            "2024-Q1",
+            0.0
+          ],
+          [
+            "2024-Q2",
+            -0.1
+          ],
+          [
+            "2024-Q3",
+            -0.1
+          ],
+          [
+            "2024-Q4",
+            0.4
+          ],
+          [
+            "2025-Q1",
+            0.3
+          ],
+          [
+            "2025-Q2",
+            0.4
+          ],
+          [
+            "2025-Q3",
+            0.3
+          ],
+          [
+            "2025-Q4",
+            0.3
+          ],
+          [
+            "2026-Q1",
+            0.6
+          ],
+          [
+            "2026-Q2",
+            1.0
+          ],
+          [
+            "2026-Q3",
+            1.2
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 83491249,
@@ -78,9 +152,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=DE"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 0.2,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 0.6,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 0.9,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.3,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.9,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.7,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 2.8,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            2.8
+          ],
+          [
+            "2025-02",
+            2.6
+          ],
+          [
+            "2025-03",
+            2.3
+          ],
+          [
+            "2025-04",
+            2.2
+          ],
+          [
+            "2025-05",
+            2.1
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            1.9
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.3
+          ],
+          [
+            "2025-10",
+            2.3
+          ],
+          [
+            "2025-11",
+            2.5
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.1
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.8
+          ],
+          [
+            "2026-04",
+            2.9
+          ],
+          [
+            "2026-05",
+            2.7
+          ],
+          [
+            "2026-06",
+            2.4
+          ],
+          [
+            "2026-07",
+            2.8
+          ],
+          [
+            "2026-08",
+            2.9
+          ],
+          [
+            "2026-09",
+            3.3
+          ],
+          [
+            "2026-10",
+            2.8
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -88,17 +299,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 4.1,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            3.5
+          ],
+          [
+            "2025-02",
+            3.6
+          ],
+          [
+            "2025-03",
+            3.6
+          ],
+          [
+            "2025-04",
+            3.7
+          ],
+          [
+            "2025-05",
+            3.7
+          ],
+          [
+            "2025-06",
+            3.7
+          ],
+          [
+            "2025-07",
+            3.8
+          ],
+          [
+            "2025-08",
+            3.8
+          ],
+          [
+            "2025-09",
+            3.8
+          ],
+          [
+            "2025-10",
+            3.8
+          ],
+          [
+            "2025-11",
+            3.9
+          ],
+          [
+            "2025-12",
+            3.9
+          ],
+          [
+            "2026-01",
+            3.9
+          ],
+          [
+            "2026-02",
+            3.9
+          ],
+          [
+            "2026-03",
+            3.9
+          ],
+          [
+            "2026-04",
+            3.9
+          ],
+          [
+            "2026-05",
+            3.9
+          ],
+          [
+            "2026-06",
+            4.0
+          ],
+          [
+            "2026-07",
+            4.0
+          ],
+          [
+            "2026-08",
+            4.1
+          ],
+          [
+            "2026-09",
+            4.1
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -147,11 +544,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=FR"
       },
       "gdpGrowth": {
-        "value": 0.840949955479587,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=FR"
+        "value": -0.1,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            2.0
+          ],
+          [
+            "2024-Q1",
+            2.1
+          ],
+          [
+            "2024-Q2",
+            1.3
+          ],
+          [
+            "2024-Q3",
+            1.4
+          ],
+          [
+            "2024-Q4",
+            0.9
+          ],
+          [
+            "2025-Q1",
+            0.8
+          ],
+          [
+            "2025-Q2",
+            0.8
+          ],
+          [
+            "2025-Q3",
+            0.8
+          ],
+          [
+            "2025-Q4",
+            1.1
+          ],
+          [
+            "2026-Q1",
+            0.8
+          ],
+          [
+            "2026-Q2",
+            0.5
+          ],
+          [
+            "2026-Q3",
+            -0.1
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 68720337,
@@ -160,9 +608,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=FR"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 0.8,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 0.8,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.1,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 0.9,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.4,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.8,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 3.8,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            1.8
+          ],
+          [
+            "2025-02",
+            0.9
+          ],
+          [
+            "2025-03",
+            0.9
+          ],
+          [
+            "2025-04",
+            0.9
+          ],
+          [
+            "2025-05",
+            0.6
+          ],
+          [
+            "2025-06",
+            0.9
+          ],
+          [
+            "2025-07",
+            0.9
+          ],
+          [
+            "2025-08",
+            0.8
+          ],
+          [
+            "2025-09",
+            1.1
+          ],
+          [
+            "2025-10",
+            0.8
+          ],
+          [
+            "2025-11",
+            0.8
+          ],
+          [
+            "2025-12",
+            0.7
+          ],
+          [
+            "2026-01",
+            0.4
+          ],
+          [
+            "2026-02",
+            1.1
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.5
+          ],
+          [
+            "2026-05",
+            2.8
+          ],
+          [
+            "2026-06",
+            2.0
+          ],
+          [
+            "2026-07",
+            2.4
+          ],
+          [
+            "2026-08",
+            2.6
+          ],
+          [
+            "2026-09",
+            3.4
+          ],
+          [
+            "2026-10",
+            3.8
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -170,17 +755,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 8.5,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            7.3
+          ],
+          [
+            "2025-02",
+            7.5
+          ],
+          [
+            "2025-03",
+            7.6
+          ],
+          [
+            "2025-04",
+            7.5
+          ],
+          [
+            "2025-05",
+            7.6
+          ],
+          [
+            "2025-06",
+            7.7
+          ],
+          [
+            "2025-07",
+            7.8
+          ],
+          [
+            "2025-08",
+            7.8
+          ],
+          [
+            "2025-09",
+            7.9
+          ],
+          [
+            "2025-10",
+            8.0
+          ],
+          [
+            "2025-11",
+            7.9
+          ],
+          [
+            "2025-12",
+            8.0
+          ],
+          [
+            "2026-01",
+            8.0
+          ],
+          [
+            "2026-02",
+            8.2
+          ],
+          [
+            "2026-03",
+            8.2
+          ],
+          [
+            "2026-04",
+            8.3
+          ],
+          [
+            "2026-05",
+            8.4
+          ],
+          [
+            "2026-06",
+            8.3
+          ],
+          [
+            "2026-07",
+            8.3
+          ],
+          [
+            "2026-08",
+            8.3
+          ],
+          [
+            "2026-09",
+            8.5
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -233,7 +1004,58 @@ window.COUNTRY_STATS = {
         "year": "2025",
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=GB"
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=GB",
+        "series": [
+          [
+            "2014",
+            3.16017351468152
+          ],
+          [
+            "2015",
+            2.14040560033371
+          ],
+          [
+            "2016",
+            2.20652020635357
+          ],
+          [
+            "2017",
+            3.02322219840339
+          ],
+          [
+            "2018",
+            1.55133095078786
+          ],
+          [
+            "2019",
+            1.25629899760824
+          ],
+          [
+            "2020",
+            -10.047896637362
+          ],
+          [
+            "2021",
+            8.5431118453255
+          ],
+          [
+            "2022",
+            5.14970388522993
+          ],
+          [
+            "2023",
+            0.271650048355255
+          ],
+          [
+            "2024",
+            1.08027716858781
+          ],
+          [
+            "2025",
+            1.38844207858726
+          ]
+        ],
+        "seriesBasis": "연간 (%)"
       },
       "population": {
         "value": 69487000,
@@ -242,12 +1064,108 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=GB"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.4,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 0.7,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.2,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/PCPIPCH",
+          "indicator": "PCPIPCH",
+          "basis": "CPI 연평균 상승률 (%) · HICP와 정의 차이",
+          "values": {
+            "2025": {
+              "value": 3.4,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.3,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.8,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 3.88306881625999,
         "year": "2025",
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=GB",
+        "series": [
+          [
+            "2014",
+            1.45112016293279
+          ],
+          [
+            "2015",
+            0.36804684232536
+          ],
+          [
+            "2016",
+            1.00841736811409
+          ],
+          [
+            "2017",
+            2.55775577557747
+          ],
+          [
+            "2018",
+            2.29283990345937
+          ],
+          [
+            "2019",
+            1.73810460086512
+          ],
+          [
+            "2020",
+            0.989486703772491
+          ],
+          [
+            "2021",
+            2.51837109614213
+          ],
+          [
+            "2022",
+            7.92204883147902
+          ],
+          [
+            "2023",
+            6.79396706793962
+          ],
+          [
+            "2024",
+            3.2715729463592
+          ],
+          [
+            "2025",
+            3.88306881625999
+          ]
+        ],
+        "seriesBasis": "연간 (%)",
         "basis": "CPI 연간"
       },
       "unemployment": {
@@ -256,15 +1174,121 @@ window.COUNTRY_STATS = {
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=GB",
+        "series": [
+          [
+            "2025",
+            4.746
+          ]
+        ],
+        "seriesBasis": "연간 (%)",
         "basis": "연간(ILO 모형추정)"
       },
       "policyRate": {
-        "value": 3.75,
-        "date": "2026-11-02",
+        "value": 4.0,
+        "date": "2026-11-09",
         "unit": "%",
         "source": "BIS",
         "basis": "자국 중앙은행",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            4.75
+          ],
+          [
+            "2024-12",
+            4.75
+          ],
+          [
+            "2025-01",
+            4.75
+          ],
+          [
+            "2025-02",
+            4.5
+          ],
+          [
+            "2025-03",
+            4.5
+          ],
+          [
+            "2025-04",
+            4.5
+          ],
+          [
+            "2025-05",
+            4.25
+          ],
+          [
+            "2025-06",
+            4.25
+          ],
+          [
+            "2025-07",
+            4.25
+          ],
+          [
+            "2025-08",
+            4.0
+          ],
+          [
+            "2025-09",
+            4.0
+          ],
+          [
+            "2025-10",
+            4.0
+          ],
+          [
+            "2025-11",
+            4.0
+          ],
+          [
+            "2025-12",
+            3.75
+          ],
+          [
+            "2026-01",
+            3.75
+          ],
+          [
+            "2026-02",
+            3.75
+          ],
+          [
+            "2026-03",
+            3.75
+          ],
+          [
+            "2026-04",
+            3.75
+          ],
+          [
+            "2026-05",
+            3.75
+          ],
+          [
+            "2026-06",
+            3.75
+          ],
+          [
+            "2026-07",
+            3.75
+          ],
+          [
+            "2026-08",
+            3.75
+          ],
+          [
+            "2026-09",
+            3.75
+          ],
+          [
+            "2026-10",
+            3.75
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -313,11 +1337,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=IT"
       },
       "gdpGrowth": {
-        "value": 0.539583636778445,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=IT"
+        "value": 0.8,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            1.3
+          ],
+          [
+            "2024-Q1",
+            0.8
+          ],
+          [
+            "2024-Q2",
+            1.1
+          ],
+          [
+            "2024-Q3",
+            1.0
+          ],
+          [
+            "2024-Q4",
+            0.6
+          ],
+          [
+            "2025-Q1",
+            0.8
+          ],
+          [
+            "2025-Q2",
+            0.5
+          ],
+          [
+            "2025-Q3",
+            0.7
+          ],
+          [
+            "2025-Q4",
+            0.9
+          ],
+          [
+            "2026-Q1",
+            0.9
+          ],
+          [
+            "2026-Q2",
+            1.0
+          ],
+          [
+            "2026-Q3",
+            0.8
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 58915656,
@@ -326,9 +1401,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=IT"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 0.5,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 0.5,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 0.6,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.7,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.2,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.8,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 5.6,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            1.7
+          ],
+          [
+            "2025-02",
+            1.7
+          ],
+          [
+            "2025-03",
+            2.1
+          ],
+          [
+            "2025-04",
+            2.0
+          ],
+          [
+            "2025-05",
+            1.7
+          ],
+          [
+            "2025-06",
+            1.7
+          ],
+          [
+            "2025-07",
+            1.7
+          ],
+          [
+            "2025-08",
+            1.6
+          ],
+          [
+            "2025-09",
+            1.7
+          ],
+          [
+            "2025-10",
+            1.3
+          ],
+          [
+            "2025-11",
+            1.1
+          ],
+          [
+            "2025-12",
+            1.2
+          ],
+          [
+            "2026-01",
+            1.0
+          ],
+          [
+            "2026-02",
+            1.5
+          ],
+          [
+            "2026-03",
+            1.6
+          ],
+          [
+            "2026-04",
+            2.8
+          ],
+          [
+            "2026-05",
+            3.2
+          ],
+          [
+            "2026-06",
+            3.0
+          ],
+          [
+            "2026-07",
+            2.9
+          ],
+          [
+            "2026-08",
+            3.2
+          ],
+          [
+            "2026-09",
+            4.2
+          ],
+          [
+            "2026-10",
+            5.6
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -336,17 +1548,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 6.3,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            6.5
+          ],
+          [
+            "2025-02",
+            6.1
+          ],
+          [
+            "2025-03",
+            6.3
+          ],
+          [
+            "2025-04",
+            6.2
+          ],
+          [
+            "2025-05",
+            6.5
+          ],
+          [
+            "2025-06",
+            5.9
+          ],
+          [
+            "2025-07",
+            5.9
+          ],
+          [
+            "2025-08",
+            5.8
+          ],
+          [
+            "2025-09",
+            5.9
+          ],
+          [
+            "2025-10",
+            5.8
+          ],
+          [
+            "2025-11",
+            5.7
+          ],
+          [
+            "2025-12",
+            5.7
+          ],
+          [
+            "2026-01",
+            5.5
+          ],
+          [
+            "2026-02",
+            5.6
+          ],
+          [
+            "2026-03",
+            5.6
+          ],
+          [
+            "2026-04",
+            5.7
+          ],
+          [
+            "2026-05",
+            5.6
+          ],
+          [
+            "2026-06",
+            6.1
+          ],
+          [
+            "2026-07",
+            6.1
+          ],
+          [
+            "2026-08",
+            6.2
+          ],
+          [
+            "2026-09",
+            6.3
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -395,11 +1793,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=ES"
       },
       "gdpGrowth": {
-        "value": 2.82495400578509,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=ES"
+        "value": 2.7,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            2.2
+          ],
+          [
+            "2024-Q1",
+            3.1
+          ],
+          [
+            "2024-Q2",
+            4.0
+          ],
+          [
+            "2024-Q3",
+            3.9
+          ],
+          [
+            "2024-Q4",
+            3.7
+          ],
+          [
+            "2025-Q1",
+            2.9
+          ],
+          [
+            "2025-Q2",
+            2.6
+          ],
+          [
+            "2025-Q3",
+            2.4
+          ],
+          [
+            "2025-Q4",
+            2.5
+          ],
+          [
+            "2026-Q1",
+            2.6
+          ],
+          [
+            "2026-Q2",
+            2.6
+          ],
+          [
+            "2026-Q3",
+            2.7
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 49355143,
@@ -408,9 +1857,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=ES"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.8,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.4,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.9,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.7,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.0,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.5,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 4.9,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            2.9
+          ],
+          [
+            "2025-02",
+            2.9
+          ],
+          [
+            "2025-03",
+            2.2
+          ],
+          [
+            "2025-04",
+            2.2
+          ],
+          [
+            "2025-05",
+            2.0
+          ],
+          [
+            "2025-06",
+            2.3
+          ],
+          [
+            "2025-07",
+            2.7
+          ],
+          [
+            "2025-08",
+            2.7
+          ],
+          [
+            "2025-09",
+            3.0
+          ],
+          [
+            "2025-10",
+            3.2
+          ],
+          [
+            "2025-11",
+            3.2
+          ],
+          [
+            "2025-12",
+            3.0
+          ],
+          [
+            "2026-01",
+            2.4
+          ],
+          [
+            "2026-02",
+            2.5
+          ],
+          [
+            "2026-03",
+            3.4
+          ],
+          [
+            "2026-04",
+            3.5
+          ],
+          [
+            "2026-05",
+            3.6
+          ],
+          [
+            "2026-06",
+            3.6
+          ],
+          [
+            "2026-07",
+            3.9
+          ],
+          [
+            "2026-08",
+            4.6
+          ],
+          [
+            "2026-09",
+            5.0
+          ],
+          [
+            "2026-10",
+            4.9
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -418,17 +2004,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 10.3,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            10.8
+          ],
+          [
+            "2025-02",
+            10.8
+          ],
+          [
+            "2025-03",
+            10.8
+          ],
+          [
+            "2025-04",
+            10.6
+          ],
+          [
+            "2025-05",
+            10.6
+          ],
+          [
+            "2025-06",
+            10.6
+          ],
+          [
+            "2025-07",
+            10.6
+          ],
+          [
+            "2025-08",
+            10.5
+          ],
+          [
+            "2025-09",
+            10.4
+          ],
+          [
+            "2025-10",
+            10.2
+          ],
+          [
+            "2025-11",
+            10.1
+          ],
+          [
+            "2025-12",
+            10.2
+          ],
+          [
+            "2026-01",
+            10.3
+          ],
+          [
+            "2026-02",
+            10.3
+          ],
+          [
+            "2026-03",
+            10.3
+          ],
+          [
+            "2026-04",
+            10.2
+          ],
+          [
+            "2026-05",
+            10.2
+          ],
+          [
+            "2026-06",
+            10.2
+          ],
+          [
+            "2026-07",
+            10.2
+          ],
+          [
+            "2026-08",
+            10.2
+          ],
+          [
+            "2026-09",
+            10.3
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -477,11 +2249,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=NL"
       },
       "gdpGrowth": {
-        "value": 1.78463214703797,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=NL"
+        "value": 2.1,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            -1.3
+          ],
+          [
+            "2024-Q1",
+            -0.6
+          ],
+          [
+            "2024-Q2",
+            0.7
+          ],
+          [
+            "2024-Q3",
+            2.0
+          ],
+          [
+            "2024-Q4",
+            2.1
+          ],
+          [
+            "2025-Q1",
+            2.0
+          ],
+          [
+            "2025-Q2",
+            1.5
+          ],
+          [
+            "2025-Q3",
+            1.3
+          ],
+          [
+            "2025-Q4",
+            1.4
+          ],
+          [
+            "2026-Q1",
+            1.4
+          ],
+          [
+            "2026-Q2",
+            1.8
+          ],
+          [
+            "2026-Q3",
+            2.1
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 18087633,
@@ -490,9 +2313,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=NL"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.8,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.0,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.1,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.0,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.2,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.5,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 3.3,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            3.5
+          ],
+          [
+            "2025-03",
+            3.4
+          ],
+          [
+            "2025-04",
+            4.1
+          ],
+          [
+            "2025-05",
+            2.9
+          ],
+          [
+            "2025-06",
+            2.7
+          ],
+          [
+            "2025-07",
+            2.6
+          ],
+          [
+            "2025-08",
+            2.4
+          ],
+          [
+            "2025-09",
+            3.0
+          ],
+          [
+            "2025-10",
+            3.0
+          ],
+          [
+            "2025-11",
+            2.6
+          ],
+          [
+            "2025-12",
+            2.7
+          ],
+          [
+            "2026-01",
+            2.2
+          ],
+          [
+            "2026-02",
+            2.3
+          ],
+          [
+            "2026-03",
+            2.6
+          ],
+          [
+            "2026-04",
+            2.5
+          ],
+          [
+            "2026-05",
+            3.4
+          ],
+          [
+            "2026-06",
+            2.5
+          ],
+          [
+            "2026-07",
+            3.0
+          ],
+          [
+            "2026-08",
+            2.8
+          ],
+          [
+            "2026-09",
+            3.0
+          ],
+          [
+            "2026-10",
+            3.3
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -500,17 +2460,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 4.0,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            3.8
+          ],
+          [
+            "2025-02",
+            3.8
+          ],
+          [
+            "2025-03",
+            3.9
+          ],
+          [
+            "2025-04",
+            3.8
+          ],
+          [
+            "2025-05",
+            3.8
+          ],
+          [
+            "2025-06",
+            3.8
+          ],
+          [
+            "2025-07",
+            3.8
+          ],
+          [
+            "2025-08",
+            3.9
+          ],
+          [
+            "2025-09",
+            4.0
+          ],
+          [
+            "2025-10",
+            4.0
+          ],
+          [
+            "2025-11",
+            4.0
+          ],
+          [
+            "2025-12",
+            4.0
+          ],
+          [
+            "2026-01",
+            4.0
+          ],
+          [
+            "2026-02",
+            4.1
+          ],
+          [
+            "2026-03",
+            4.0
+          ],
+          [
+            "2026-04",
+            3.9
+          ],
+          [
+            "2026-05",
+            3.9
+          ],
+          [
+            "2026-06",
+            3.8
+          ],
+          [
+            "2026-07",
+            4.0
+          ],
+          [
+            "2026-08",
+            4.0
+          ],
+          [
+            "2026-09",
+            4.0
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -559,11 +2705,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=PL"
       },
       "gdpGrowth": {
-        "value": 3.5727250346774,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=PL"
+        "value": 3.6,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            1.9
+          ],
+          [
+            "2024-Q1",
+            2.0
+          ],
+          [
+            "2024-Q2",
+            4.2
+          ],
+          [
+            "2024-Q3",
+            2.2
+          ],
+          [
+            "2024-Q4",
+            4.0
+          ],
+          [
+            "2025-Q1",
+            3.9
+          ],
+          [
+            "2025-Q2",
+            3.0
+          ],
+          [
+            "2025-Q3",
+            4.3
+          ],
+          [
+            "2025-Q4",
+            4.0
+          ],
+          [
+            "2026-Q1",
+            3.6
+          ],
+          [
+            "2026-Q2",
+            4.0
+          ],
+          [
+            "2026-Q3",
+            3.6
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 36435861,
@@ -572,9 +2769,142 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=PL"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.6,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.5,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.8,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.3,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.6,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.9,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 4.0,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            4.3
+          ],
+          [
+            "2025-02",
+            4.4
+          ],
+          [
+            "2025-03",
+            4.4
+          ],
+          [
+            "2025-04",
+            3.7
+          ],
+          [
+            "2025-05",
+            3.6
+          ],
+          [
+            "2025-06",
+            3.4
+          ],
+          [
+            "2025-07",
+            2.9
+          ],
+          [
+            "2025-08",
+            2.8
+          ],
+          [
+            "2025-09",
+            2.9
+          ],
+          [
+            "2025-10",
+            2.8
+          ],
+          [
+            "2025-11",
+            2.6
+          ],
+          [
+            "2025-12",
+            2.6
+          ],
+          [
+            "2026-01",
+            2.5
+          ],
+          [
+            "2026-02",
+            2.5
+          ],
+          [
+            "2026-03",
+            3.2
+          ],
+          [
+            "2026-04",
+            3.4
+          ],
+          [
+            "2026-05",
+            3.3
+          ],
+          [
+            "2026-06",
+            3.0
+          ],
+          [
+            "2026-07",
+            3.1
+          ],
+          [
+            "2026-08",
+            3.5
+          ],
+          [
+            "2026-09",
+            4.0
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -582,17 +2912,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 3.4,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            3.1
+          ],
+          [
+            "2025-02",
+            3.2
+          ],
+          [
+            "2025-03",
+            3.2
+          ],
+          [
+            "2025-04",
+            3.0
+          ],
+          [
+            "2025-05",
+            3.0
+          ],
+          [
+            "2025-06",
+            3.0
+          ],
+          [
+            "2025-07",
+            3.1
+          ],
+          [
+            "2025-08",
+            3.2
+          ],
+          [
+            "2025-09",
+            3.3
+          ],
+          [
+            "2025-10",
+            3.3
+          ],
+          [
+            "2025-11",
+            3.2
+          ],
+          [
+            "2025-12",
+            3.1
+          ],
+          [
+            "2026-01",
+            3.0
+          ],
+          [
+            "2026-02",
+            3.0
+          ],
+          [
+            "2026-03",
+            3.1
+          ],
+          [
+            "2026-04",
+            3.3
+          ],
+          [
+            "2026-05",
+            3.4
+          ],
+          [
+            "2026-06",
+            3.4
+          ],
+          [
+            "2026-07",
+            3.4
+          ],
+          [
+            "2026-08",
+            3.4
+          ],
+          [
+            "2026-09",
+            3.4
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 3.75,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "자국 중앙은행",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            5.75
+          ],
+          [
+            "2024-12",
+            5.75
+          ],
+          [
+            "2025-01",
+            5.75
+          ],
+          [
+            "2025-02",
+            5.75
+          ],
+          [
+            "2025-03",
+            5.75
+          ],
+          [
+            "2025-04",
+            5.75
+          ],
+          [
+            "2025-05",
+            5.25
+          ],
+          [
+            "2025-06",
+            5.25
+          ],
+          [
+            "2025-07",
+            5.0
+          ],
+          [
+            "2025-08",
+            5.0
+          ],
+          [
+            "2025-09",
+            4.75
+          ],
+          [
+            "2025-10",
+            4.5
+          ],
+          [
+            "2025-11",
+            4.25
+          ],
+          [
+            "2025-12",
+            4.0
+          ],
+          [
+            "2026-01",
+            4.0
+          ],
+          [
+            "2026-02",
+            4.0
+          ],
+          [
+            "2026-03",
+            3.75
+          ],
+          [
+            "2026-04",
+            3.75
+          ],
+          [
+            "2026-05",
+            3.75
+          ],
+          [
+            "2026-06",
+            3.75
+          ],
+          [
+            "2026-07",
+            3.75
+          ],
+          [
+            "2026-08",
+            3.75
+          ],
+          [
+            "2026-09",
+            3.75
+          ],
+          [
+            "2026-10",
+            3.75
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -641,11 +3157,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BE"
       },
       "gdpGrowth": {
-        "value": 0.983117967125935,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=BE"
+        "value": 0.7,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            1.2
+          ],
+          [
+            "2024-Q1",
+            1.2
+          ],
+          [
+            "2024-Q2",
+            0.9
+          ],
+          [
+            "2024-Q3",
+            0.9
+          ],
+          [
+            "2024-Q4",
+            0.6
+          ],
+          [
+            "2025-Q1",
+            0.7
+          ],
+          [
+            "2025-Q2",
+            0.9
+          ],
+          [
+            "2025-Q3",
+            1.0
+          ],
+          [
+            "2025-Q4",
+            1.0
+          ],
+          [
+            "2026-Q1",
+            0.8
+          ],
+          [
+            "2026-Q2",
+            0.7
+          ],
+          [
+            "2026-Q3",
+            0.7
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 11941781,
@@ -654,9 +3221,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=BE"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.0,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 0.7,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 0.9,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.0,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.4,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.6,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 5.2,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            4.4
+          ],
+          [
+            "2025-02",
+            4.4
+          ],
+          [
+            "2025-03",
+            3.6
+          ],
+          [
+            "2025-04",
+            3.1
+          ],
+          [
+            "2025-05",
+            2.8
+          ],
+          [
+            "2025-06",
+            2.9
+          ],
+          [
+            "2025-07",
+            2.6
+          ],
+          [
+            "2025-08",
+            2.6
+          ],
+          [
+            "2025-09",
+            2.7
+          ],
+          [
+            "2025-10",
+            2.5
+          ],
+          [
+            "2025-11",
+            2.6
+          ],
+          [
+            "2025-12",
+            2.2
+          ],
+          [
+            "2026-01",
+            1.4
+          ],
+          [
+            "2026-02",
+            1.4
+          ],
+          [
+            "2026-03",
+            2.2
+          ],
+          [
+            "2026-04",
+            4.2
+          ],
+          [
+            "2026-05",
+            4.0
+          ],
+          [
+            "2026-06",
+            3.3
+          ],
+          [
+            "2026-07",
+            3.6
+          ],
+          [
+            "2026-08",
+            4.2
+          ],
+          [
+            "2026-09",
+            4.5
+          ],
+          [
+            "2026-10",
+            5.2
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -664,17 +3368,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 6.0,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            6.1
+          ],
+          [
+            "2025-02",
+            6.2
+          ],
+          [
+            "2025-03",
+            6.1
+          ],
+          [
+            "2025-04",
+            6.1
+          ],
+          [
+            "2025-05",
+            6.0
+          ],
+          [
+            "2025-06",
+            6.1
+          ],
+          [
+            "2025-07",
+            6.1
+          ],
+          [
+            "2025-08",
+            6.1
+          ],
+          [
+            "2025-09",
+            6.3
+          ],
+          [
+            "2025-10",
+            6.4
+          ],
+          [
+            "2025-11",
+            6.4
+          ],
+          [
+            "2025-12",
+            6.4
+          ],
+          [
+            "2026-01",
+            6.3
+          ],
+          [
+            "2026-02",
+            6.2
+          ],
+          [
+            "2026-03",
+            6.2
+          ],
+          [
+            "2026-04",
+            6.3
+          ],
+          [
+            "2026-05",
+            6.3
+          ],
+          [
+            "2026-06",
+            6.3
+          ],
+          [
+            "2026-07",
+            6.0
+          ],
+          [
+            "2026-08",
+            5.9
+          ],
+          [
+            "2026-09",
+            6.0
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -723,11 +3613,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=SE"
       },
       "gdpGrowth": {
-        "value": 1.54316373266217,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=SE"
+        "value": 2.8,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            0.1
+          ],
+          [
+            "2024-Q1",
+            1.9
+          ],
+          [
+            "2024-Q2",
+            1.5
+          ],
+          [
+            "2024-Q3",
+            0.8
+          ],
+          [
+            "2024-Q4",
+            3.6
+          ],
+          [
+            "2025-Q1",
+            0.1
+          ],
+          [
+            "2025-Q2",
+            2.2
+          ],
+          [
+            "2025-Q3",
+            2.2
+          ],
+          [
+            "2025-Q4",
+            2.0
+          ],
+          [
+            "2026-Q1",
+            2.3
+          ],
+          [
+            "2026-Q2",
+            3.2
+          ],
+          [
+            "2026-Q3",
+            2.8
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 10596620,
@@ -736,9 +3677,142 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=SE"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.5,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.8,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.2,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.6,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.5,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.8,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 1.0,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            2.0
+          ],
+          [
+            "2025-02",
+            2.8
+          ],
+          [
+            "2025-03",
+            2.1
+          ],
+          [
+            "2025-04",
+            2.1
+          ],
+          [
+            "2025-05",
+            2.3
+          ],
+          [
+            "2025-06",
+            2.9
+          ],
+          [
+            "2025-07",
+            3.1
+          ],
+          [
+            "2025-08",
+            3.4
+          ],
+          [
+            "2025-09",
+            3.2
+          ],
+          [
+            "2025-10",
+            3.1
+          ],
+          [
+            "2025-11",
+            2.2
+          ],
+          [
+            "2025-12",
+            2.1
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            1.7
+          ],
+          [
+            "2026-03",
+            1.5
+          ],
+          [
+            "2026-04",
+            0.5
+          ],
+          [
+            "2026-05",
+            1.1
+          ],
+          [
+            "2026-06",
+            1.0
+          ],
+          [
+            "2026-07",
+            0.3
+          ],
+          [
+            "2026-08",
+            0.3
+          ],
+          [
+            "2026-09",
+            1.0
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -746,17 +3820,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 8.6,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            9.8
+          ],
+          [
+            "2025-02",
+            9.0
+          ],
+          [
+            "2025-03",
+            8.0
+          ],
+          [
+            "2025-04",
+            8.6
+          ],
+          [
+            "2025-05",
+            9.1
+          ],
+          [
+            "2025-06",
+            8.3
+          ],
+          [
+            "2025-07",
+            8.9
+          ],
+          [
+            "2025-08",
+            8.7
+          ],
+          [
+            "2025-09",
+            8.8
+          ],
+          [
+            "2025-10",
+            9.3
+          ],
+          [
+            "2025-11",
+            9.0
+          ],
+          [
+            "2025-12",
+            8.8
+          ],
+          [
+            "2026-01",
+            8.1
+          ],
+          [
+            "2026-02",
+            8.4
+          ],
+          [
+            "2026-03",
+            9.3
+          ],
+          [
+            "2026-04",
+            8.5
+          ],
+          [
+            "2026-05",
+            8.8
+          ],
+          [
+            "2026-06",
+            8.9
+          ],
+          [
+            "2026-07",
+            8.6
+          ],
+          [
+            "2026-08",
+            8.9
+          ],
+          [
+            "2026-09",
+            8.6
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 1.75,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "자국 중앙은행",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            2.75
+          ],
+          [
+            "2024-12",
+            2.75
+          ],
+          [
+            "2025-01",
+            2.5
+          ],
+          [
+            "2025-02",
+            2.25
+          ],
+          [
+            "2025-03",
+            2.25
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            1.75
+          ],
+          [
+            "2025-11",
+            1.75
+          ],
+          [
+            "2025-12",
+            1.75
+          ],
+          [
+            "2026-01",
+            1.75
+          ],
+          [
+            "2026-02",
+            1.75
+          ],
+          [
+            "2026-03",
+            1.75
+          ],
+          [
+            "2026-04",
+            1.75
+          ],
+          [
+            "2026-05",
+            1.75
+          ],
+          [
+            "2026-06",
+            1.75
+          ],
+          [
+            "2026-07",
+            1.75
+          ],
+          [
+            "2026-08",
+            1.75
+          ],
+          [
+            "2026-09",
+            1.75
+          ],
+          [
+            "2026-10",
+            1.75
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -805,11 +4065,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CH"
       },
       "gdpGrowth": {
-        "value": 1.30007790958307,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=CH"
+        "value": 2.6,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            0.5
+          ],
+          [
+            "2023-Q4",
+            0.9
+          ],
+          [
+            "2024-Q1",
+            0.5
+          ],
+          [
+            "2024-Q2",
+            1.8
+          ],
+          [
+            "2024-Q3",
+            1.9
+          ],
+          [
+            "2024-Q4",
+            1.8
+          ],
+          [
+            "2025-Q1",
+            2.7
+          ],
+          [
+            "2025-Q2",
+            1.8
+          ],
+          [
+            "2025-Q3",
+            0.9
+          ],
+          [
+            "2025-Q4",
+            1.0
+          ],
+          [
+            "2026-Q1",
+            0.7
+          ],
+          [
+            "2026-Q2",
+            2.6
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 9092436,
@@ -818,9 +4129,142 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CH"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.3,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.1,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.3,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 0.1,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 0.8,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 0.7,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 1.2,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            0.2
+          ],
+          [
+            "2025-02",
+            0.1
+          ],
+          [
+            "2025-03",
+            0.1
+          ],
+          [
+            "2025-04",
+            0.3
+          ],
+          [
+            "2025-05",
+            -0.2
+          ],
+          [
+            "2025-06",
+            0.2
+          ],
+          [
+            "2025-07",
+            0.1
+          ],
+          [
+            "2025-08",
+            0.0
+          ],
+          [
+            "2025-09",
+            0.0
+          ],
+          [
+            "2025-10",
+            0.1
+          ],
+          [
+            "2025-11",
+            0.0
+          ],
+          [
+            "2025-12",
+            0.2
+          ],
+          [
+            "2026-01",
+            0.2
+          ],
+          [
+            "2026-02",
+            0.5
+          ],
+          [
+            "2026-03",
+            0.6
+          ],
+          [
+            "2026-04",
+            0.5
+          ],
+          [
+            "2026-05",
+            0.9
+          ],
+          [
+            "2026-06",
+            0.7
+          ],
+          [
+            "2026-07",
+            0.7
+          ],
+          [
+            "2026-08",
+            0.9
+          ],
+          [
+            "2026-09",
+            1.2
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -828,17 +4272,191 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 5.1,
         "period": "2026-06",
+        "series": [
+          [
+            "2025-01",
+            4.4
+          ],
+          [
+            "2025-02",
+            4.4
+          ],
+          [
+            "2025-03",
+            4.5
+          ],
+          [
+            "2025-04",
+            4.8
+          ],
+          [
+            "2025-05",
+            4.9
+          ],
+          [
+            "2025-06",
+            4.9
+          ],
+          [
+            "2025-07",
+            4.9
+          ],
+          [
+            "2025-08",
+            4.9
+          ],
+          [
+            "2025-09",
+            5.0
+          ],
+          [
+            "2025-10",
+            5.1
+          ],
+          [
+            "2025-11",
+            5.2
+          ],
+          [
+            "2025-12",
+            5.1
+          ],
+          [
+            "2026-01",
+            4.9
+          ],
+          [
+            "2026-02",
+            4.8
+          ],
+          [
+            "2026-03",
+            5.0
+          ],
+          [
+            "2026-04",
+            5.1
+          ],
+          [
+            "2026-05",
+            5.1
+          ],
+          [
+            "2026-06",
+            5.1
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 0.0,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "자국 중앙은행",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            1.0
+          ],
+          [
+            "2024-12",
+            0.5
+          ],
+          [
+            "2025-01",
+            0.5
+          ],
+          [
+            "2025-02",
+            0.5
+          ],
+          [
+            "2025-03",
+            0.25
+          ],
+          [
+            "2025-04",
+            0.25
+          ],
+          [
+            "2025-05",
+            0.25
+          ],
+          [
+            "2025-06",
+            0.0
+          ],
+          [
+            "2025-07",
+            0.0
+          ],
+          [
+            "2025-08",
+            0.0
+          ],
+          [
+            "2025-09",
+            0.0
+          ],
+          [
+            "2025-10",
+            0.0
+          ],
+          [
+            "2025-11",
+            0.0
+          ],
+          [
+            "2025-12",
+            0.0
+          ],
+          [
+            "2026-01",
+            0.0
+          ],
+          [
+            "2026-02",
+            0.0
+          ],
+          [
+            "2026-03",
+            0.0
+          ],
+          [
+            "2026-04",
+            0.0
+          ],
+          [
+            "2026-05",
+            0.0
+          ],
+          [
+            "2026-06",
+            0.0
+          ],
+          [
+            "2026-07",
+            0.0
+          ],
+          [
+            "2026-08",
+            0.0
+          ],
+          [
+            "2026-09",
+            0.0
+          ],
+          [
+            "2026-10",
+            0.0
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -887,11 +4505,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=AT"
       },
       "gdpGrowth": {
-        "value": 0.615747280959056,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=AT"
+        "value": 0.6,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            -1.8
+          ],
+          [
+            "2024-Q1",
+            -1.5
+          ],
+          [
+            "2024-Q2",
+            -0.7
+          ],
+          [
+            "2024-Q3",
+            -0.1
+          ],
+          [
+            "2024-Q4",
+            0.3
+          ],
+          [
+            "2025-Q1",
+            0.4
+          ],
+          [
+            "2025-Q2",
+            0.7
+          ],
+          [
+            "2025-Q3",
+            1.0
+          ],
+          [
+            "2025-Q4",
+            1.1
+          ],
+          [
+            "2026-Q1",
+            1.2
+          ],
+          [
+            "2026-Q2",
+            0.8
+          ],
+          [
+            "2026-Q3",
+            0.6
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 9208163,
@@ -900,9 +4569,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=AT"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 0.6,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 0.6,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 0.9,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.6,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.0,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.5,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 3.5,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            3.4
+          ],
+          [
+            "2025-02",
+            3.4
+          ],
+          [
+            "2025-03",
+            3.1
+          ],
+          [
+            "2025-04",
+            3.3
+          ],
+          [
+            "2025-05",
+            3.0
+          ],
+          [
+            "2025-06",
+            3.2
+          ],
+          [
+            "2025-07",
+            3.7
+          ],
+          [
+            "2025-08",
+            4.1
+          ],
+          [
+            "2025-09",
+            3.9
+          ],
+          [
+            "2025-10",
+            4.0
+          ],
+          [
+            "2025-11",
+            4.0
+          ],
+          [
+            "2025-12",
+            3.8
+          ],
+          [
+            "2026-01",
+            2.1
+          ],
+          [
+            "2026-02",
+            2.3
+          ],
+          [
+            "2026-03",
+            3.2
+          ],
+          [
+            "2026-04",
+            3.4
+          ],
+          [
+            "2026-05",
+            3.7
+          ],
+          [
+            "2026-06",
+            3.2
+          ],
+          [
+            "2026-07",
+            2.7
+          ],
+          [
+            "2026-08",
+            2.9
+          ],
+          [
+            "2026-09",
+            3.6
+          ],
+          [
+            "2026-10",
+            3.5
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -910,17 +4716,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 6.3,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            5.5
+          ],
+          [
+            "2025-02",
+            5.3
+          ],
+          [
+            "2025-03",
+            5.6
+          ],
+          [
+            "2025-04",
+            5.6
+          ],
+          [
+            "2025-05",
+            5.6
+          ],
+          [
+            "2025-06",
+            6.0
+          ],
+          [
+            "2025-07",
+            5.6
+          ],
+          [
+            "2025-08",
+            6.0
+          ],
+          [
+            "2025-09",
+            5.5
+          ],
+          [
+            "2025-10",
+            5.8
+          ],
+          [
+            "2025-11",
+            5.9
+          ],
+          [
+            "2025-12",
+            5.8
+          ],
+          [
+            "2026-01",
+            5.6
+          ],
+          [
+            "2026-02",
+            6.0
+          ],
+          [
+            "2026-03",
+            5.7
+          ],
+          [
+            "2026-04",
+            5.9
+          ],
+          [
+            "2026-05",
+            6.0
+          ],
+          [
+            "2026-06",
+            5.8
+          ],
+          [
+            "2026-07",
+            6.2
+          ],
+          [
+            "2026-08",
+            6.7
+          ],
+          [
+            "2026-09",
+            6.3
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -969,11 +4961,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CZ"
       },
       "gdpGrowth": {
-        "value": 2.58046673293437,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=CZ"
+        "value": 1.6,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            0.5
+          ],
+          [
+            "2024-Q1",
+            0.6
+          ],
+          [
+            "2024-Q2",
+            0.5
+          ],
+          [
+            "2024-Q3",
+            1.6
+          ],
+          [
+            "2024-Q4",
+            2.0
+          ],
+          [
+            "2025-Q1",
+            2.5
+          ],
+          [
+            "2025-Q2",
+            2.8
+          ],
+          [
+            "2025-Q3",
+            2.8
+          ],
+          [
+            "2025-Q4",
+            2.8
+          ],
+          [
+            "2026-Q1",
+            2.1
+          ],
+          [
+            "2026-Q2",
+            1.8
+          ],
+          [
+            "2026-Q3",
+            1.6
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 10886878,
@@ -982,9 +5025,142 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CZ"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.6,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.8,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.4,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.3,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.7,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.8,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 2.2,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            2.9
+          ],
+          [
+            "2025-02",
+            2.7
+          ],
+          [
+            "2025-03",
+            2.6
+          ],
+          [
+            "2025-04",
+            1.7
+          ],
+          [
+            "2025-05",
+            2.3
+          ],
+          [
+            "2025-06",
+            2.7
+          ],
+          [
+            "2025-07",
+            2.5
+          ],
+          [
+            "2025-08",
+            2.3
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.3
+          ],
+          [
+            "2025-11",
+            1.8
+          ],
+          [
+            "2025-12",
+            1.7
+          ],
+          [
+            "2026-01",
+            1.2
+          ],
+          [
+            "2026-02",
+            1.0
+          ],
+          [
+            "2026-03",
+            1.5
+          ],
+          [
+            "2026-04",
+            2.1
+          ],
+          [
+            "2026-05",
+            1.8
+          ],
+          [
+            "2026-06",
+            1.1
+          ],
+          [
+            "2026-07",
+            1.3
+          ],
+          [
+            "2026-08",
+            1.5
+          ],
+          [
+            "2026-09",
+            2.2
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -992,17 +5168,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 2.8,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            2.5
+          ],
+          [
+            "2025-02",
+            2.7
+          ],
+          [
+            "2025-03",
+            2.6
+          ],
+          [
+            "2025-04",
+            2.7
+          ],
+          [
+            "2025-05",
+            2.9
+          ],
+          [
+            "2025-06",
+            2.9
+          ],
+          [
+            "2025-07",
+            2.8
+          ],
+          [
+            "2025-08",
+            3.1
+          ],
+          [
+            "2025-09",
+            3.1
+          ],
+          [
+            "2025-10",
+            3.2
+          ],
+          [
+            "2025-11",
+            3.1
+          ],
+          [
+            "2025-12",
+            3.2
+          ],
+          [
+            "2026-01",
+            3.2
+          ],
+          [
+            "2026-02",
+            3.1
+          ],
+          [
+            "2026-03",
+            3.2
+          ],
+          [
+            "2026-04",
+            3.1
+          ],
+          [
+            "2026-05",
+            2.9
+          ],
+          [
+            "2026-06",
+            3.2
+          ],
+          [
+            "2026-07",
+            3.3
+          ],
+          [
+            "2026-08",
+            3.1
+          ],
+          [
+            "2026-09",
+            2.8
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
-        "value": 3.75,
-        "date": "2026-11-02",
+        "value": 4.0,
+        "date": "2026-11-09",
         "unit": "%",
         "source": "BIS",
         "basis": "자국 중앙은행",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            4.0
+          ],
+          [
+            "2024-12",
+            4.0
+          ],
+          [
+            "2025-01",
+            4.0
+          ],
+          [
+            "2025-02",
+            3.75
+          ],
+          [
+            "2025-03",
+            3.75
+          ],
+          [
+            "2025-04",
+            3.75
+          ],
+          [
+            "2025-05",
+            3.5
+          ],
+          [
+            "2025-06",
+            3.5
+          ],
+          [
+            "2025-07",
+            3.5
+          ],
+          [
+            "2025-08",
+            3.5
+          ],
+          [
+            "2025-09",
+            3.5
+          ],
+          [
+            "2025-10",
+            3.5
+          ],
+          [
+            "2025-11",
+            3.5
+          ],
+          [
+            "2025-12",
+            3.5
+          ],
+          [
+            "2026-01",
+            3.5
+          ],
+          [
+            "2026-02",
+            3.5
+          ],
+          [
+            "2026-03",
+            3.5
+          ],
+          [
+            "2026-04",
+            3.5
+          ],
+          [
+            "2026-05",
+            3.5
+          ],
+          [
+            "2026-06",
+            3.75
+          ],
+          [
+            "2026-07",
+            3.75
+          ],
+          [
+            "2026-08",
+            3.75
+          ],
+          [
+            "2026-09",
+            3.75
+          ],
+          [
+            "2026-10",
+            3.75
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -1051,11 +5413,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=HU"
       },
       "gdpGrowth": {
-        "value": 0.509542309726868,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=HU"
+        "value": 1.5,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            1.3
+          ],
+          [
+            "2024-Q1",
+            1.8
+          ],
+          [
+            "2024-Q2",
+            1.3
+          ],
+          [
+            "2024-Q3",
+            -0.3
+          ],
+          [
+            "2024-Q4",
+            -0.1
+          ],
+          [
+            "2025-Q1",
+            -0.5
+          ],
+          [
+            "2025-Q2",
+            0.7
+          ],
+          [
+            "2025-Q3",
+            1.2
+          ],
+          [
+            "2025-Q4",
+            1.1
+          ],
+          [
+            "2026-Q1",
+            1.9
+          ],
+          [
+            "2026-Q2",
+            1.7
+          ],
+          [
+            "2026-Q3",
+            1.5
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 9514251,
@@ -1064,9 +5477,142 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=HU"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 0.5,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.8,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.1,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 4.4,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.2,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.1,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 2.1,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            5.7
+          ],
+          [
+            "2025-02",
+            5.7
+          ],
+          [
+            "2025-03",
+            4.8
+          ],
+          [
+            "2025-04",
+            4.2
+          ],
+          [
+            "2025-05",
+            4.5
+          ],
+          [
+            "2025-06",
+            4.6
+          ],
+          [
+            "2025-07",
+            4.2
+          ],
+          [
+            "2025-08",
+            4.2
+          ],
+          [
+            "2025-09",
+            4.3
+          ],
+          [
+            "2025-10",
+            4.2
+          ],
+          [
+            "2025-11",
+            3.7
+          ],
+          [
+            "2025-12",
+            3.3
+          ],
+          [
+            "2026-01",
+            2.3
+          ],
+          [
+            "2026-02",
+            1.6
+          ],
+          [
+            "2026-03",
+            2.1
+          ],
+          [
+            "2026-04",
+            2.6
+          ],
+          [
+            "2026-05",
+            2.3
+          ],
+          [
+            "2026-06",
+            2.1
+          ],
+          [
+            "2026-07",
+            1.6
+          ],
+          [
+            "2026-08",
+            1.8
+          ],
+          [
+            "2026-09",
+            2.1
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -1074,17 +5620,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 4.6,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            4.3
+          ],
+          [
+            "2025-02",
+            4.3
+          ],
+          [
+            "2025-03",
+            4.2
+          ],
+          [
+            "2025-04",
+            4.3
+          ],
+          [
+            "2025-05",
+            4.3
+          ],
+          [
+            "2025-06",
+            4.4
+          ],
+          [
+            "2025-07",
+            4.3
+          ],
+          [
+            "2025-08",
+            4.3
+          ],
+          [
+            "2025-09",
+            4.5
+          ],
+          [
+            "2025-10",
+            4.5
+          ],
+          [
+            "2025-11",
+            4.4
+          ],
+          [
+            "2025-12",
+            4.5
+          ],
+          [
+            "2026-01",
+            4.5
+          ],
+          [
+            "2026-02",
+            4.6
+          ],
+          [
+            "2026-03",
+            4.4
+          ],
+          [
+            "2026-04",
+            4.6
+          ],
+          [
+            "2026-05",
+            4.4
+          ],
+          [
+            "2026-06",
+            4.5
+          ],
+          [
+            "2026-07",
+            4.5
+          ],
+          [
+            "2026-08",
+            4.7
+          ],
+          [
+            "2026-09",
+            4.6
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 5.5,
-        "date": "2026-10-28",
+        "date": "2026-11-04",
         "unit": "%",
         "source": "BIS",
         "basis": "자국 중앙은행",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            6.5
+          ],
+          [
+            "2024-12",
+            6.5
+          ],
+          [
+            "2025-01",
+            6.5
+          ],
+          [
+            "2025-02",
+            6.5
+          ],
+          [
+            "2025-03",
+            6.5
+          ],
+          [
+            "2025-04",
+            6.5
+          ],
+          [
+            "2025-05",
+            6.5
+          ],
+          [
+            "2025-06",
+            6.5
+          ],
+          [
+            "2025-07",
+            6.5
+          ],
+          [
+            "2025-08",
+            6.5
+          ],
+          [
+            "2025-09",
+            6.5
+          ],
+          [
+            "2025-10",
+            6.5
+          ],
+          [
+            "2025-11",
+            6.5
+          ],
+          [
+            "2025-12",
+            6.5
+          ],
+          [
+            "2026-01",
+            6.5
+          ],
+          [
+            "2026-02",
+            6.25
+          ],
+          [
+            "2026-03",
+            6.25
+          ],
+          [
+            "2026-04",
+            6.25
+          ],
+          [
+            "2026-05",
+            6.25
+          ],
+          [
+            "2026-06",
+            6.25
+          ],
+          [
+            "2026-07",
+            5.75
+          ],
+          [
+            "2026-08",
+            5.5
+          ],
+          [
+            "2026-09",
+            5.5
+          ],
+          [
+            "2026-10",
+            5.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -1133,11 +5865,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=SK"
       },
       "gdpGrowth": {
-        "value": 0.807418690144758,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=SK"
+        "value": 0.5,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            3.3
+          ],
+          [
+            "2024-Q1",
+            3.6
+          ],
+          [
+            "2024-Q2",
+            2.8
+          ],
+          [
+            "2024-Q3",
+            2.2
+          ],
+          [
+            "2024-Q4",
+            1.9
+          ],
+          [
+            "2025-Q1",
+            1.0
+          ],
+          [
+            "2025-Q2",
+            0.9
+          ],
+          [
+            "2025-Q3",
+            0.9
+          ],
+          [
+            "2025-Q4",
+            0.8
+          ],
+          [
+            "2026-Q1",
+            0.9
+          ],
+          [
+            "2026-Q2",
+            0.7
+          ],
+          [
+            "2026-Q3",
+            0.5
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 5413813,
@@ -1146,9 +5929,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=SK"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 0.8,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 0.8,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.5,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 4.2,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 4.3,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.2,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 2.9,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            4.3
+          ],
+          [
+            "2025-02",
+            4.1
+          ],
+          [
+            "2025-03",
+            4.2
+          ],
+          [
+            "2025-04",
+            3.9
+          ],
+          [
+            "2025-05",
+            4.3
+          ],
+          [
+            "2025-06",
+            4.6
+          ],
+          [
+            "2025-07",
+            4.6
+          ],
+          [
+            "2025-08",
+            4.4
+          ],
+          [
+            "2025-09",
+            4.6
+          ],
+          [
+            "2025-10",
+            3.9
+          ],
+          [
+            "2025-11",
+            3.9
+          ],
+          [
+            "2025-12",
+            4.1
+          ],
+          [
+            "2026-01",
+            4.3
+          ],
+          [
+            "2026-02",
+            4.0
+          ],
+          [
+            "2026-03",
+            3.7
+          ],
+          [
+            "2026-04",
+            4.1
+          ],
+          [
+            "2026-05",
+            4.0
+          ],
+          [
+            "2026-06",
+            3.5
+          ],
+          [
+            "2026-07",
+            3.2
+          ],
+          [
+            "2026-08",
+            3.1
+          ],
+          [
+            "2026-09",
+            3.0
+          ],
+          [
+            "2026-10",
+            2.9
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -1156,17 +6076,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 5.7,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            5.2
+          ],
+          [
+            "2025-02",
+            5.2
+          ],
+          [
+            "2025-03",
+            5.3
+          ],
+          [
+            "2025-04",
+            5.4
+          ],
+          [
+            "2025-05",
+            5.4
+          ],
+          [
+            "2025-06",
+            5.5
+          ],
+          [
+            "2025-07",
+            5.5
+          ],
+          [
+            "2025-08",
+            5.5
+          ],
+          [
+            "2025-09",
+            5.5
+          ],
+          [
+            "2025-10",
+            5.5
+          ],
+          [
+            "2025-11",
+            5.6
+          ],
+          [
+            "2025-12",
+            5.7
+          ],
+          [
+            "2026-01",
+            5.7
+          ],
+          [
+            "2026-02",
+            5.8
+          ],
+          [
+            "2026-03",
+            5.8
+          ],
+          [
+            "2026-04",
+            5.8
+          ],
+          [
+            "2026-05",
+            5.7
+          ],
+          [
+            "2026-06",
+            5.7
+          ],
+          [
+            "2026-07",
+            5.7
+          ],
+          [
+            "2026-08",
+            5.7
+          ],
+          [
+            "2026-09",
+            5.7
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -1215,11 +6321,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=RO"
       },
       "gdpGrowth": {
-        "value": 0.677829835052762,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=RO"
+        "value": 0.3,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            2.6
+          ],
+          [
+            "2024-Q1",
+            2.1
+          ],
+          [
+            "2024-Q2",
+            1.0
+          ],
+          [
+            "2024-Q3",
+            0.6
+          ],
+          [
+            "2024-Q4",
+            0.8
+          ],
+          [
+            "2025-Q1",
+            1.0
+          ],
+          [
+            "2025-Q2",
+            1.7
+          ],
+          [
+            "2025-Q3",
+            1.5
+          ],
+          [
+            "2025-Q4",
+            -1.1
+          ],
+          [
+            "2026-Q1",
+            -1.4
+          ],
+          [
+            "2026-Q2",
+            -1.9
+          ],
+          [
+            "2026-Q3",
+            0.3
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 19020271,
@@ -1228,9 +6385,140 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=RO"
       },
+      "outlook": {
+        "gdp": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH",
+          "indicator": "NGDP_RPCH",
+          "basis": "실질 GDP 전년비 (%)",
+          "values": {
+            "2025": {
+              "value": 0.7,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": -0.5,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.2,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/PCPIPCH",
+          "indicator": "PCPIPCH",
+          "basis": "CPI 연평균 상승률 (%) · HICP와 정의 차이",
+          "values": {
+            "2025": {
+              "value": 7.3,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 8.2,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 4.1,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 6.5,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            5.3
+          ],
+          [
+            "2025-02",
+            5.2
+          ],
+          [
+            "2025-03",
+            5.1
+          ],
+          [
+            "2025-04",
+            4.9
+          ],
+          [
+            "2025-05",
+            5.4
+          ],
+          [
+            "2025-06",
+            5.8
+          ],
+          [
+            "2025-07",
+            6.6
+          ],
+          [
+            "2025-08",
+            8.5
+          ],
+          [
+            "2025-09",
+            8.6
+          ],
+          [
+            "2025-10",
+            8.4
+          ],
+          [
+            "2025-11",
+            8.6
+          ],
+          [
+            "2025-12",
+            8.6
+          ],
+          [
+            "2026-01",
+            8.5
+          ],
+          [
+            "2026-02",
+            8.3
+          ],
+          [
+            "2026-03",
+            9.0
+          ],
+          [
+            "2026-04",
+            9.5
+          ],
+          [
+            "2026-05",
+            9.7
+          ],
+          [
+            "2026-06",
+            9.2
+          ],
+          [
+            "2026-07",
+            8.2
+          ],
+          [
+            "2026-08",
+            6.3
+          ],
+          [
+            "2026-09",
+            6.5
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -1238,17 +6526,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 6.3,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            6.0
+          ],
+          [
+            "2025-02",
+            6.1
+          ],
+          [
+            "2025-03",
+            6.2
+          ],
+          [
+            "2025-04",
+            6.1
+          ],
+          [
+            "2025-05",
+            6.2
+          ],
+          [
+            "2025-06",
+            6.2
+          ],
+          [
+            "2025-07",
+            5.9
+          ],
+          [
+            "2025-08",
+            6.1
+          ],
+          [
+            "2025-09",
+            6.0
+          ],
+          [
+            "2025-10",
+            6.1
+          ],
+          [
+            "2025-11",
+            6.3
+          ],
+          [
+            "2025-12",
+            6.1
+          ],
+          [
+            "2026-01",
+            6.3
+          ],
+          [
+            "2026-02",
+            6.3
+          ],
+          [
+            "2026-03",
+            6.5
+          ],
+          [
+            "2026-04",
+            6.8
+          ],
+          [
+            "2026-05",
+            6.7
+          ],
+          [
+            "2026-06",
+            6.8
+          ],
+          [
+            "2026-07",
+            6.4
+          ],
+          [
+            "2026-08",
+            6.4
+          ],
+          [
+            "2026-09",
+            6.3
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 6.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "자국 중앙은행",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            6.5
+          ],
+          [
+            "2024-12",
+            6.5
+          ],
+          [
+            "2025-01",
+            6.5
+          ],
+          [
+            "2025-02",
+            6.5
+          ],
+          [
+            "2025-03",
+            6.5
+          ],
+          [
+            "2025-04",
+            6.5
+          ],
+          [
+            "2025-05",
+            6.5
+          ],
+          [
+            "2025-06",
+            6.5
+          ],
+          [
+            "2025-07",
+            6.5
+          ],
+          [
+            "2025-08",
+            6.5
+          ],
+          [
+            "2025-09",
+            6.5
+          ],
+          [
+            "2025-10",
+            6.5
+          ],
+          [
+            "2025-11",
+            6.5
+          ],
+          [
+            "2025-12",
+            6.5
+          ],
+          [
+            "2026-01",
+            6.5
+          ],
+          [
+            "2026-02",
+            6.5
+          ],
+          [
+            "2026-03",
+            6.5
+          ],
+          [
+            "2026-04",
+            6.5
+          ],
+          [
+            "2026-05",
+            6.5
+          ],
+          [
+            "2026-06",
+            6.5
+          ],
+          [
+            "2026-07",
+            6.5
+          ],
+          [
+            "2026-08",
+            6.5
+          ],
+          [
+            "2026-09",
+            6.5
+          ],
+          [
+            "2026-10",
+            6.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -1297,11 +6771,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=DK"
       },
       "gdpGrowth": {
-        "value": 2.92843280014236,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=DK"
+        "value": 5.7,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            -1.2
+          ],
+          [
+            "2023-Q4",
+            2.1
+          ],
+          [
+            "2024-Q1",
+            0.9
+          ],
+          [
+            "2024-Q2",
+            4.2
+          ],
+          [
+            "2024-Q3",
+            5.2
+          ],
+          [
+            "2024-Q4",
+            5.1
+          ],
+          [
+            "2025-Q1",
+            3.1
+          ],
+          [
+            "2025-Q2",
+            2.9
+          ],
+          [
+            "2025-Q3",
+            4.6
+          ],
+          [
+            "2025-Q4",
+            3.2
+          ],
+          [
+            "2026-Q1",
+            6.4
+          ],
+          [
+            "2026-Q2",
+            5.7
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 6009169,
@@ -1310,9 +6835,142 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=DK"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.9,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.9,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.8,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.8,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.8,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.9,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 2.1,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            1.4
+          ],
+          [
+            "2025-02",
+            2.0
+          ],
+          [
+            "2025-03",
+            1.4
+          ],
+          [
+            "2025-04",
+            1.5
+          ],
+          [
+            "2025-05",
+            1.5
+          ],
+          [
+            "2025-06",
+            1.8
+          ],
+          [
+            "2025-07",
+            2.2
+          ],
+          [
+            "2025-08",
+            1.9
+          ],
+          [
+            "2025-09",
+            2.2
+          ],
+          [
+            "2025-10",
+            2.1
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            1.9
+          ],
+          [
+            "2026-01",
+            0.6
+          ],
+          [
+            "2026-02",
+            0.5
+          ],
+          [
+            "2026-03",
+            1.0
+          ],
+          [
+            "2026-04",
+            1.2
+          ],
+          [
+            "2026-05",
+            1.8
+          ],
+          [
+            "2026-06",
+            1.8
+          ],
+          [
+            "2026-07",
+            1.6
+          ],
+          [
+            "2026-08",
+            2.0
+          ],
+          [
+            "2026-09",
+            2.1
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -1320,17 +6978,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 6.8,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            6.6
+          ],
+          [
+            "2025-02",
+            5.4
+          ],
+          [
+            "2025-03",
+            7.1
+          ],
+          [
+            "2025-04",
+            6.8
+          ],
+          [
+            "2025-05",
+            5.3
+          ],
+          [
+            "2025-06",
+            6.7
+          ],
+          [
+            "2025-07",
+            6.5
+          ],
+          [
+            "2025-08",
+            6.5
+          ],
+          [
+            "2025-09",
+            6.3
+          ],
+          [
+            "2025-10",
+            6.8
+          ],
+          [
+            "2025-11",
+            6.6
+          ],
+          [
+            "2025-12",
+            6.0
+          ],
+          [
+            "2026-01",
+            7.1
+          ],
+          [
+            "2026-02",
+            7.2
+          ],
+          [
+            "2026-03",
+            6.6
+          ],
+          [
+            "2026-04",
+            7.0
+          ],
+          [
+            "2026-05",
+            6.9
+          ],
+          [
+            "2026-06",
+            6.6
+          ],
+          [
+            "2026-07",
+            6.7
+          ],
+          [
+            "2026-08",
+            5.8
+          ],
+          [
+            "2026-09",
+            6.8
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.1,
-        "date": "2026-11-02",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "자국 중앙은행",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            2.85
+          ],
+          [
+            "2024-12",
+            2.6
+          ],
+          [
+            "2025-01",
+            2.35
+          ],
+          [
+            "2025-02",
+            2.35
+          ],
+          [
+            "2025-03",
+            2.1
+          ],
+          [
+            "2025-04",
+            1.85
+          ],
+          [
+            "2025-05",
+            1.85
+          ],
+          [
+            "2025-06",
+            1.6
+          ],
+          [
+            "2025-07",
+            1.6
+          ],
+          [
+            "2025-08",
+            1.6
+          ],
+          [
+            "2025-09",
+            1.6
+          ],
+          [
+            "2025-10",
+            1.6
+          ],
+          [
+            "2025-11",
+            1.6
+          ],
+          [
+            "2025-12",
+            1.6
+          ],
+          [
+            "2026-01",
+            1.6
+          ],
+          [
+            "2026-02",
+            1.6
+          ],
+          [
+            "2026-03",
+            1.6
+          ],
+          [
+            "2026-04",
+            1.6
+          ],
+          [
+            "2026-05",
+            1.6
+          ],
+          [
+            "2026-06",
+            1.85
+          ],
+          [
+            "2026-07",
+            1.85
+          ],
+          [
+            "2026-08",
+            1.85
+          ],
+          [
+            "2026-09",
+            2.1
+          ],
+          [
+            "2026-10",
+            2.1
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -1379,11 +7223,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=FI"
       },
       "gdpGrowth": {
-        "value": 0.173444509584499,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=FI"
+        "value": 2.1,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            -1.2
+          ],
+          [
+            "2024-Q1",
+            -0.2
+          ],
+          [
+            "2024-Q2",
+            -0.1
+          ],
+          [
+            "2024-Q3",
+            2.1
+          ],
+          [
+            "2024-Q4",
+            2.2
+          ],
+          [
+            "2025-Q1",
+            1.3
+          ],
+          [
+            "2025-Q2",
+            1.1
+          ],
+          [
+            "2025-Q3",
+            0.3
+          ],
+          [
+            "2025-Q4",
+            0.7
+          ],
+          [
+            "2026-Q1",
+            1.1
+          ],
+          [
+            "2026-Q2",
+            1.5
+          ],
+          [
+            "2026-Q3",
+            2.1
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 5646436,
@@ -1392,9 +7287,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=FI"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 0.2,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 0.8,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.4,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.8,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.4,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.9,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 3.4,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            1.7
+          ],
+          [
+            "2025-02",
+            1.5
+          ],
+          [
+            "2025-03",
+            1.8
+          ],
+          [
+            "2025-04",
+            1.9
+          ],
+          [
+            "2025-05",
+            2.0
+          ],
+          [
+            "2025-06",
+            1.9
+          ],
+          [
+            "2025-07",
+            1.9
+          ],
+          [
+            "2025-08",
+            2.3
+          ],
+          [
+            "2025-09",
+            2.2
+          ],
+          [
+            "2025-10",
+            1.4
+          ],
+          [
+            "2025-11",
+            1.5
+          ],
+          [
+            "2025-12",
+            1.7
+          ],
+          [
+            "2026-01",
+            1.0
+          ],
+          [
+            "2026-02",
+            1.8
+          ],
+          [
+            "2026-03",
+            2.5
+          ],
+          [
+            "2026-04",
+            2.4
+          ],
+          [
+            "2026-05",
+            2.8
+          ],
+          [
+            "2026-06",
+            2.7
+          ],
+          [
+            "2026-07",
+            2.5
+          ],
+          [
+            "2026-08",
+            2.4
+          ],
+          [
+            "2026-09",
+            2.7
+          ],
+          [
+            "2026-10",
+            3.4
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -1402,17 +7434,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 11.0,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            9.1
+          ],
+          [
+            "2025-02",
+            9.2
+          ],
+          [
+            "2025-03",
+            9.5
+          ],
+          [
+            "2025-04",
+            9.1
+          ],
+          [
+            "2025-05",
+            8.5
+          ],
+          [
+            "2025-06",
+            10.0
+          ],
+          [
+            "2025-07",
+            9.9
+          ],
+          [
+            "2025-08",
+            10.1
+          ],
+          [
+            "2025-09",
+            9.7
+          ],
+          [
+            "2025-10",
+            10.2
+          ],
+          [
+            "2025-11",
+            10.6
+          ],
+          [
+            "2025-12",
+            10.3
+          ],
+          [
+            "2026-01",
+            9.9
+          ],
+          [
+            "2026-02",
+            10.6
+          ],
+          [
+            "2026-03",
+            10.5
+          ],
+          [
+            "2026-04",
+            10.6
+          ],
+          [
+            "2026-05",
+            10.8
+          ],
+          [
+            "2026-06",
+            10.2
+          ],
+          [
+            "2026-07",
+            10.5
+          ],
+          [
+            "2026-08",
+            9.9
+          ],
+          [
+            "2026-09",
+            11.0
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -1461,11 +7679,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=NO"
       },
       "gdpGrowth": {
-        "value": 1.08528185031417,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=NO"
+        "value": 1.6,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            -1.9
+          ],
+          [
+            "2023-Q4",
+            0.9
+          ],
+          [
+            "2024-Q1",
+            0.7
+          ],
+          [
+            "2024-Q2",
+            2.5
+          ],
+          [
+            "2024-Q3",
+            2.5
+          ],
+          [
+            "2024-Q4",
+            0.1
+          ],
+          [
+            "2025-Q1",
+            0.3
+          ],
+          [
+            "2025-Q2",
+            0.2
+          ],
+          [
+            "2025-Q3",
+            2.3
+          ],
+          [
+            "2025-Q4",
+            2.0
+          ],
+          [
+            "2026-Q1",
+            1.9
+          ],
+          [
+            "2026-Q2",
+            1.6
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 5610870,
@@ -1474,9 +7743,142 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=NO"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.1,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.4,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.0,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.8,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.2,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.5,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 3.4,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            1.9
+          ],
+          [
+            "2025-02",
+            3.2
+          ],
+          [
+            "2025-03",
+            2.3
+          ],
+          [
+            "2025-04",
+            2.1
+          ],
+          [
+            "2025-05",
+            2.8
+          ],
+          [
+            "2025-06",
+            2.7
+          ],
+          [
+            "2025-07",
+            3.1
+          ],
+          [
+            "2025-08",
+            3.5
+          ],
+          [
+            "2025-09",
+            3.6
+          ],
+          [
+            "2025-10",
+            2.9
+          ],
+          [
+            "2025-11",
+            2.7
+          ],
+          [
+            "2025-12",
+            3.0
+          ],
+          [
+            "2026-01",
+            3.5
+          ],
+          [
+            "2026-02",
+            2.6
+          ],
+          [
+            "2026-03",
+            3.6
+          ],
+          [
+            "2026-04",
+            3.4
+          ],
+          [
+            "2026-05",
+            3.1
+          ],
+          [
+            "2026-06",
+            2.6
+          ],
+          [
+            "2026-07",
+            2.9
+          ],
+          [
+            "2026-08",
+            3.2
+          ],
+          [
+            "2026-09",
+            3.4
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -1484,17 +7886,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 5.0,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            3.8
+          ],
+          [
+            "2025-02",
+            4.1
+          ],
+          [
+            "2025-03",
+            4.3
+          ],
+          [
+            "2025-04",
+            4.4
+          ],
+          [
+            "2025-05",
+            4.6
+          ],
+          [
+            "2025-06",
+            5.3
+          ],
+          [
+            "2025-07",
+            4.5
+          ],
+          [
+            "2025-08",
+            4.9
+          ],
+          [
+            "2025-09",
+            4.7
+          ],
+          [
+            "2025-10",
+            4.5
+          ],
+          [
+            "2025-11",
+            4.6
+          ],
+          [
+            "2025-12",
+            4.2
+          ],
+          [
+            "2026-01",
+            4.6
+          ],
+          [
+            "2026-02",
+            4.8
+          ],
+          [
+            "2026-03",
+            4.8
+          ],
+          [
+            "2026-04",
+            4.6
+          ],
+          [
+            "2026-05",
+            4.5
+          ],
+          [
+            "2026-06",
+            4.6
+          ],
+          [
+            "2026-07",
+            4.1
+          ],
+          [
+            "2026-08",
+            4.6
+          ],
+          [
+            "2026-09",
+            5.0
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 4.5,
-        "date": "2026-11-02",
+        "date": "2026-11-05",
         "unit": "%",
         "source": "BIS",
         "basis": "자국 중앙은행",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            4.5
+          ],
+          [
+            "2024-12",
+            4.5
+          ],
+          [
+            "2025-01",
+            4.5
+          ],
+          [
+            "2025-02",
+            4.5
+          ],
+          [
+            "2025-03",
+            4.5
+          ],
+          [
+            "2025-04",
+            4.5
+          ],
+          [
+            "2025-05",
+            4.5
+          ],
+          [
+            "2025-06",
+            4.25
+          ],
+          [
+            "2025-07",
+            4.25
+          ],
+          [
+            "2025-08",
+            4.25
+          ],
+          [
+            "2025-09",
+            4.0
+          ],
+          [
+            "2025-10",
+            4.0
+          ],
+          [
+            "2025-11",
+            4.0
+          ],
+          [
+            "2025-12",
+            4.0
+          ],
+          [
+            "2026-01",
+            4.0
+          ],
+          [
+            "2026-02",
+            4.0
+          ],
+          [
+            "2026-03",
+            4.0
+          ],
+          [
+            "2026-04",
+            4.0
+          ],
+          [
+            "2026-05",
+            4.25
+          ],
+          [
+            "2026-06",
+            4.25
+          ],
+          [
+            "2026-07",
+            4.25
+          ],
+          [
+            "2026-08",
+            4.25
+          ],
+          [
+            "2026-09",
+            4.5
+          ],
+          [
+            "2026-10",
+            4.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -1543,11 +8131,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=IE"
       },
       "gdpGrowth": {
-        "value": 12.3375990291434,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=IE"
+        "value": 3.6,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            -7.8
+          ],
+          [
+            "2024-Q1",
+            -0.8
+          ],
+          [
+            "2024-Q2",
+            -1.4
+          ],
+          [
+            "2024-Q3",
+            4.9
+          ],
+          [
+            "2024-Q4",
+            12.2
+          ],
+          [
+            "2025-Q1",
+            16.6
+          ],
+          [
+            "2025-Q2",
+            11.7
+          ],
+          [
+            "2025-Q3",
+            5.1
+          ],
+          [
+            "2025-Q4",
+            -0.1
+          ],
+          [
+            "2026-Q1",
+            -13.4
+          ],
+          [
+            "2026-Q2",
+            -0.4
+          ],
+          [
+            "2026-Q3",
+            3.6
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 5484367,
@@ -1556,9 +8195,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=IE"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 12.3,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": -1.2,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.4,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.1,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.5,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.6,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 4.0,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            1.7
+          ],
+          [
+            "2025-02",
+            1.5
+          ],
+          [
+            "2025-03",
+            1.8
+          ],
+          [
+            "2025-04",
+            2.1
+          ],
+          [
+            "2025-05",
+            1.4
+          ],
+          [
+            "2025-06",
+            1.6
+          ],
+          [
+            "2025-07",
+            1.6
+          ],
+          [
+            "2025-08",
+            1.9
+          ],
+          [
+            "2025-09",
+            2.7
+          ],
+          [
+            "2025-10",
+            2.8
+          ],
+          [
+            "2025-11",
+            3.1
+          ],
+          [
+            "2025-12",
+            2.7
+          ],
+          [
+            "2026-01",
+            2.5
+          ],
+          [
+            "2026-02",
+            2.5
+          ],
+          [
+            "2026-03",
+            3.6
+          ],
+          [
+            "2026-04",
+            3.6
+          ],
+          [
+            "2026-05",
+            3.5
+          ],
+          [
+            "2026-06",
+            3.2
+          ],
+          [
+            "2026-07",
+            3.1
+          ],
+          [
+            "2026-08",
+            3.4
+          ],
+          [
+            "2026-09",
+            3.8
+          ],
+          [
+            "2026-10",
+            4.0
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -1566,17 +8342,207 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 4.8,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            4.4
+          ],
+          [
+            "2025-02",
+            4.4
+          ],
+          [
+            "2025-03",
+            4.5
+          ],
+          [
+            "2025-04",
+            4.6
+          ],
+          [
+            "2025-05",
+            4.6
+          ],
+          [
+            "2025-06",
+            4.6
+          ],
+          [
+            "2025-07",
+            5.0
+          ],
+          [
+            "2025-08",
+            5.0
+          ],
+          [
+            "2025-09",
+            4.9
+          ],
+          [
+            "2025-10",
+            4.7
+          ],
+          [
+            "2025-11",
+            4.6
+          ],
+          [
+            "2025-12",
+            4.7
+          ],
+          [
+            "2026-01",
+            5.0
+          ],
+          [
+            "2026-02",
+            5.0
+          ],
+          [
+            "2026-03",
+            5.1
+          ],
+          [
+            "2026-04",
+            4.9
+          ],
+          [
+            "2026-05",
+            4.9
+          ],
+          [
+            "2026-06",
+            4.8
+          ],
+          [
+            "2026-07",
+            4.8
+          ],
+          [
+            "2026-08",
+            4.7
+          ],
+          [
+            "2026-09",
+            4.7
+          ],
+          [
+            "2026-10",
+            4.8
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -1625,11 +8591,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=PT"
       },
       "gdpGrowth": {
-        "value": 1.86448007464475,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=PT"
+        "value": 2.4,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            2.7
+          ],
+          [
+            "2024-Q1",
+            2.4
+          ],
+          [
+            "2024-Q2",
+            2.6
+          ],
+          [
+            "2024-Q3",
+            2.7
+          ],
+          [
+            "2024-Q4",
+            3.0
+          ],
+          [
+            "2025-Q1",
+            1.8
+          ],
+          [
+            "2025-Q2",
+            1.8
+          ],
+          [
+            "2025-Q3",
+            2.1
+          ],
+          [
+            "2025-Q4",
+            1.9
+          ],
+          [
+            "2026-Q1",
+            2.4
+          ],
+          [
+            "2026-Q2",
+            2.6
+          ],
+          [
+            "2026-Q3",
+            2.4
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 10804871,
@@ -1638,9 +8655,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=PT"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.9,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.7,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.8,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.2,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.0,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.3,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 3.9,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            2.7
+          ],
+          [
+            "2025-02",
+            2.5
+          ],
+          [
+            "2025-03",
+            1.9
+          ],
+          [
+            "2025-04",
+            2.1
+          ],
+          [
+            "2025-05",
+            1.7
+          ],
+          [
+            "2025-06",
+            2.1
+          ],
+          [
+            "2025-07",
+            2.5
+          ],
+          [
+            "2025-08",
+            2.5
+          ],
+          [
+            "2025-09",
+            1.9
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.1
+          ],
+          [
+            "2025-12",
+            2.4
+          ],
+          [
+            "2026-01",
+            1.9
+          ],
+          [
+            "2026-02",
+            2.1
+          ],
+          [
+            "2026-03",
+            2.7
+          ],
+          [
+            "2026-04",
+            3.3
+          ],
+          [
+            "2026-05",
+            3.1
+          ],
+          [
+            "2026-06",
+            3.1
+          ],
+          [
+            "2026-07",
+            3.1
+          ],
+          [
+            "2026-08",
+            3.6
+          ],
+          [
+            "2026-09",
+            3.6
+          ],
+          [
+            "2026-10",
+            3.9
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -1648,17 +8802,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 5.6,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            6.5
+          ],
+          [
+            "2025-02",
+            6.4
+          ],
+          [
+            "2025-03",
+            6.4
+          ],
+          [
+            "2025-04",
+            6.3
+          ],
+          [
+            "2025-05",
+            6.2
+          ],
+          [
+            "2025-06",
+            6.0
+          ],
+          [
+            "2025-07",
+            5.8
+          ],
+          [
+            "2025-08",
+            5.8
+          ],
+          [
+            "2025-09",
+            5.9
+          ],
+          [
+            "2025-10",
+            5.8
+          ],
+          [
+            "2025-11",
+            5.7
+          ],
+          [
+            "2025-12",
+            5.7
+          ],
+          [
+            "2026-01",
+            5.8
+          ],
+          [
+            "2026-02",
+            6.0
+          ],
+          [
+            "2026-03",
+            5.9
+          ],
+          [
+            "2026-04",
+            5.7
+          ],
+          [
+            "2026-05",
+            5.6
+          ],
+          [
+            "2026-06",
+            5.7
+          ],
+          [
+            "2026-07",
+            5.7
+          ],
+          [
+            "2026-08",
+            5.6
+          ],
+          [
+            "2026-09",
+            5.6
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -1707,11 +9047,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=GR"
       },
       "gdpGrowth": {
-        "value": 2.07306882481713,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=GR"
+        "value": 1.9,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            1.8
+          ],
+          [
+            "2023-Q4",
+            1.5
+          ],
+          [
+            "2024-Q1",
+            1.8
+          ],
+          [
+            "2024-Q2",
+            1.8
+          ],
+          [
+            "2024-Q3",
+            2.4
+          ],
+          [
+            "2024-Q4",
+            2.2
+          ],
+          [
+            "2025-Q1",
+            2.4
+          ],
+          [
+            "2025-Q2",
+            1.8
+          ],
+          [
+            "2025-Q3",
+            2.1
+          ],
+          [
+            "2025-Q4",
+            2.3
+          ],
+          [
+            "2026-Q1",
+            2.0
+          ],
+          [
+            "2026-Q2",
+            1.9
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 10413962,
@@ -1720,9 +9111,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=GR"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.1,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.8,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.6,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.9,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.7,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.4,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 5.6,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            3.1
+          ],
+          [
+            "2025-02",
+            3.0
+          ],
+          [
+            "2025-03",
+            3.1
+          ],
+          [
+            "2025-04",
+            2.6
+          ],
+          [
+            "2025-05",
+            3.3
+          ],
+          [
+            "2025-06",
+            3.6
+          ],
+          [
+            "2025-07",
+            3.7
+          ],
+          [
+            "2025-08",
+            3.1
+          ],
+          [
+            "2025-09",
+            1.8
+          ],
+          [
+            "2025-10",
+            1.6
+          ],
+          [
+            "2025-11",
+            2.8
+          ],
+          [
+            "2025-12",
+            2.9
+          ],
+          [
+            "2026-01",
+            2.9
+          ],
+          [
+            "2026-02",
+            3.1
+          ],
+          [
+            "2026-03",
+            3.4
+          ],
+          [
+            "2026-04",
+            4.6
+          ],
+          [
+            "2026-05",
+            4.9
+          ],
+          [
+            "2026-06",
+            3.9
+          ],
+          [
+            "2026-07",
+            2.7
+          ],
+          [
+            "2026-08",
+            3.7
+          ],
+          [
+            "2026-09",
+            5.1
+          ],
+          [
+            "2026-10",
+            5.6
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -1730,17 +9258,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 7.6,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            9.7
+          ],
+          [
+            "2025-02",
+            9.1
+          ],
+          [
+            "2025-03",
+            9.2
+          ],
+          [
+            "2025-04",
+            8.9
+          ],
+          [
+            "2025-05",
+            8.7
+          ],
+          [
+            "2025-06",
+            9.2
+          ],
+          [
+            "2025-07",
+            8.8
+          ],
+          [
+            "2025-08",
+            8.8
+          ],
+          [
+            "2025-09",
+            8.8
+          ],
+          [
+            "2025-10",
+            8.9
+          ],
+          [
+            "2025-11",
+            8.6
+          ],
+          [
+            "2025-12",
+            8.1
+          ],
+          [
+            "2026-01",
+            8.9
+          ],
+          [
+            "2026-02",
+            9.9
+          ],
+          [
+            "2026-03",
+            10.3
+          ],
+          [
+            "2026-04",
+            9.0
+          ],
+          [
+            "2026-05",
+            7.8
+          ],
+          [
+            "2026-06",
+            8.0
+          ],
+          [
+            "2026-07",
+            7.9
+          ],
+          [
+            "2026-08",
+            7.4
+          ],
+          [
+            "2026-09",
+            7.6
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -1789,11 +9503,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BG"
       },
       "gdpGrowth": {
-        "value": 3.0963663917961,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=BG"
+        "value": 2.5,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            2.0
+          ],
+          [
+            "2024-Q1",
+            2.3
+          ],
+          [
+            "2024-Q2",
+            3.1
+          ],
+          [
+            "2024-Q3",
+            3.4
+          ],
+          [
+            "2024-Q4",
+            3.6
+          ],
+          [
+            "2025-Q1",
+            3.4
+          ],
+          [
+            "2025-Q2",
+            3.2
+          ],
+          [
+            "2025-Q3",
+            3.1
+          ],
+          [
+            "2025-Q4",
+            2.9
+          ],
+          [
+            "2026-Q1",
+            2.9
+          ],
+          [
+            "2026-Q2",
+            2.6
+          ],
+          [
+            "2026-Q3",
+            2.5
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 6433302,
@@ -1802,9 +9567,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=BG"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.1,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.5,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.2,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.5,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 4.2,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.6,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 6.0,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            3.8
+          ],
+          [
+            "2025-02",
+            3.9
+          ],
+          [
+            "2025-03",
+            4.0
+          ],
+          [
+            "2025-04",
+            2.8
+          ],
+          [
+            "2025-05",
+            2.9
+          ],
+          [
+            "2025-06",
+            3.1
+          ],
+          [
+            "2025-07",
+            3.4
+          ],
+          [
+            "2025-08",
+            3.5
+          ],
+          [
+            "2025-09",
+            4.0
+          ],
+          [
+            "2025-10",
+            3.8
+          ],
+          [
+            "2025-11",
+            3.7
+          ],
+          [
+            "2025-12",
+            3.5
+          ],
+          [
+            "2026-01",
+            2.3
+          ],
+          [
+            "2026-02",
+            2.1
+          ],
+          [
+            "2026-03",
+            2.8
+          ],
+          [
+            "2026-04",
+            6.0
+          ],
+          [
+            "2026-05",
+            6.3
+          ],
+          [
+            "2026-06",
+            5.2
+          ],
+          [
+            "2026-07",
+            4.4
+          ],
+          [
+            "2026-08",
+            5.0
+          ],
+          [
+            "2026-09",
+            5.6
+          ],
+          [
+            "2026-10",
+            6.0
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -1812,17 +9714,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 3.4,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            3.7
+          ],
+          [
+            "2025-02",
+            3.6
+          ],
+          [
+            "2025-03",
+            3.5
+          ],
+          [
+            "2025-04",
+            3.4
+          ],
+          [
+            "2025-05",
+            3.4
+          ],
+          [
+            "2025-06",
+            3.6
+          ],
+          [
+            "2025-07",
+            3.8
+          ],
+          [
+            "2025-08",
+            3.7
+          ],
+          [
+            "2025-09",
+            3.6
+          ],
+          [
+            "2025-10",
+            3.5
+          ],
+          [
+            "2025-11",
+            3.3
+          ],
+          [
+            "2025-12",
+            3.1
+          ],
+          [
+            "2026-01",
+            3.0
+          ],
+          [
+            "2026-02",
+            3.0
+          ],
+          [
+            "2026-03",
+            3.0
+          ],
+          [
+            "2026-04",
+            3.2
+          ],
+          [
+            "2026-05",
+            3.4
+          ],
+          [
+            "2026-06",
+            3.5
+          ],
+          [
+            "2026-07",
+            3.5
+          ],
+          [
+            "2026-08",
+            3.5
+          ],
+          [
+            "2026-09",
+            3.4
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -1871,11 +9959,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=HR"
       },
       "gdpGrowth": {
-        "value": 3.40307537181749,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=HR"
+        "value": 1.7,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            2.8
+          ],
+          [
+            "2023-Q4",
+            6.0
+          ],
+          [
+            "2024-Q1",
+            4.6
+          ],
+          [
+            "2024-Q2",
+            3.7
+          ],
+          [
+            "2024-Q3",
+            4.3
+          ],
+          [
+            "2024-Q4",
+            3.1
+          ],
+          [
+            "2025-Q1",
+            3.8
+          ],
+          [
+            "2025-Q2",
+            3.9
+          ],
+          [
+            "2025-Q3",
+            3.3
+          ],
+          [
+            "2025-Q4",
+            3.3
+          ],
+          [
+            "2026-Q1",
+            2.3
+          ],
+          [
+            "2026-Q2",
+            1.7
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 3876200,
@@ -1884,9 +10023,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=HR"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.4,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.7,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.5,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 4.4,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 4.6,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.7,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 4.4,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            5.1
+          ],
+          [
+            "2025-02",
+            4.7
+          ],
+          [
+            "2025-03",
+            4.3
+          ],
+          [
+            "2025-04",
+            4.0
+          ],
+          [
+            "2025-05",
+            4.3
+          ],
+          [
+            "2025-06",
+            4.3
+          ],
+          [
+            "2025-07",
+            4.5
+          ],
+          [
+            "2025-08",
+            4.6
+          ],
+          [
+            "2025-09",
+            4.6
+          ],
+          [
+            "2025-10",
+            4.0
+          ],
+          [
+            "2025-11",
+            4.3
+          ],
+          [
+            "2025-12",
+            3.8
+          ],
+          [
+            "2026-01",
+            3.6
+          ],
+          [
+            "2026-02",
+            3.9
+          ],
+          [
+            "2026-03",
+            4.6
+          ],
+          [
+            "2026-04",
+            5.4
+          ],
+          [
+            "2026-05",
+            4.9
+          ],
+          [
+            "2026-06",
+            4.2
+          ],
+          [
+            "2026-07",
+            3.6
+          ],
+          [
+            "2026-08",
+            3.7
+          ],
+          [
+            "2026-09",
+            4.3
+          ],
+          [
+            "2026-10",
+            4.4
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -1894,17 +10170,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 4.3,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            4.9
+          ],
+          [
+            "2025-02",
+            5.0
+          ],
+          [
+            "2025-03",
+            5.0
+          ],
+          [
+            "2025-04",
+            4.9
+          ],
+          [
+            "2025-05",
+            4.9
+          ],
+          [
+            "2025-06",
+            4.8
+          ],
+          [
+            "2025-07",
+            4.9
+          ],
+          [
+            "2025-08",
+            4.9
+          ],
+          [
+            "2025-09",
+            5.0
+          ],
+          [
+            "2025-10",
+            4.9
+          ],
+          [
+            "2025-11",
+            4.9
+          ],
+          [
+            "2025-12",
+            4.8
+          ],
+          [
+            "2026-01",
+            4.8
+          ],
+          [
+            "2026-02",
+            4.6
+          ],
+          [
+            "2026-03",
+            4.5
+          ],
+          [
+            "2026-04",
+            4.4
+          ],
+          [
+            "2026-05",
+            4.4
+          ],
+          [
+            "2026-06",
+            4.4
+          ],
+          [
+            "2026-07",
+            4.4
+          ],
+          [
+            "2026-08",
+            4.3
+          ],
+          [
+            "2026-09",
+            4.3
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -1953,11 +10415,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=SI"
       },
       "gdpGrowth": {
-        "value": 1.05992996255246,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=SI"
+        "value": 4.9,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            3.0
+          ],
+          [
+            "2023-Q4",
+            3.2
+          ],
+          [
+            "2024-Q1",
+            3.5
+          ],
+          [
+            "2024-Q2",
+            1.4
+          ],
+          [
+            "2024-Q3",
+            1.7
+          ],
+          [
+            "2024-Q4",
+            1.4
+          ],
+          [
+            "2025-Q1",
+            0.0
+          ],
+          [
+            "2025-Q2",
+            1.2
+          ],
+          [
+            "2025-Q3",
+            2.2
+          ],
+          [
+            "2025-Q4",
+            2.3
+          ],
+          [
+            "2026-Q1",
+            3.4
+          ],
+          [
+            "2026-Q2",
+            4.9
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 2130986,
@@ -1966,9 +10479,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=SI"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.1,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.9,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.3,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.5,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.5,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.5,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 3.8,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            2.3
+          ],
+          [
+            "2025-02",
+            1.9
+          ],
+          [
+            "2025-03",
+            2.2
+          ],
+          [
+            "2025-04",
+            2.3
+          ],
+          [
+            "2025-05",
+            1.9
+          ],
+          [
+            "2025-06",
+            2.5
+          ],
+          [
+            "2025-07",
+            2.9
+          ],
+          [
+            "2025-08",
+            3.0
+          ],
+          [
+            "2025-09",
+            2.8
+          ],
+          [
+            "2025-10",
+            3.1
+          ],
+          [
+            "2025-11",
+            2.4
+          ],
+          [
+            "2025-12",
+            2.6
+          ],
+          [
+            "2026-01",
+            2.4
+          ],
+          [
+            "2026-02",
+            2.8
+          ],
+          [
+            "2026-03",
+            2.4
+          ],
+          [
+            "2026-04",
+            3.4
+          ],
+          [
+            "2026-05",
+            3.8
+          ],
+          [
+            "2026-06",
+            3.7
+          ],
+          [
+            "2026-07",
+            3.0
+          ],
+          [
+            "2026-08",
+            3.4
+          ],
+          [
+            "2026-09",
+            3.7
+          ],
+          [
+            "2026-10",
+            3.8
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -1976,17 +10626,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 3.6,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            3.8
+          ],
+          [
+            "2025-02",
+            3.9
+          ],
+          [
+            "2025-03",
+            3.8
+          ],
+          [
+            "2025-04",
+            3.5
+          ],
+          [
+            "2025-05",
+            3.3
+          ],
+          [
+            "2025-06",
+            3.4
+          ],
+          [
+            "2025-07",
+            3.8
+          ],
+          [
+            "2025-08",
+            4.0
+          ],
+          [
+            "2025-09",
+            4.2
+          ],
+          [
+            "2025-10",
+            4.2
+          ],
+          [
+            "2025-11",
+            4.2
+          ],
+          [
+            "2025-12",
+            4.1
+          ],
+          [
+            "2026-01",
+            4.0
+          ],
+          [
+            "2026-02",
+            4.0
+          ],
+          [
+            "2026-03",
+            4.0
+          ],
+          [
+            "2026-04",
+            4.1
+          ],
+          [
+            "2026-05",
+            4.0
+          ],
+          [
+            "2026-06",
+            3.8
+          ],
+          [
+            "2026-07",
+            3.5
+          ],
+          [
+            "2026-08",
+            3.4
+          ],
+          [
+            "2026-09",
+            3.6
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -2035,11 +10871,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=RS"
       },
       "gdpGrowth": {
-        "value": 2.03039196235113,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=RS"
+        "value": 3.8,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            4.9
+          ],
+          [
+            "2023-Q4",
+            5.1
+          ],
+          [
+            "2024-Q1",
+            4.4
+          ],
+          [
+            "2024-Q2",
+            4.4
+          ],
+          [
+            "2024-Q3",
+            3.6
+          ],
+          [
+            "2024-Q4",
+            3.4
+          ],
+          [
+            "2025-Q1",
+            1.9
+          ],
+          [
+            "2025-Q2",
+            2.0
+          ],
+          [
+            "2025-Q3",
+            2.1
+          ],
+          [
+            "2025-Q4",
+            2.2
+          ],
+          [
+            "2026-Q1",
+            3.2
+          ],
+          [
+            "2026-Q2",
+            3.8
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 6549143,
@@ -2048,9 +10935,142 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=RS"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.0,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.8,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.9,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 4.1,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 4.1,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.9,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 4.2,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            4.8
+          ],
+          [
+            "2025-02",
+            4.7
+          ],
+          [
+            "2025-03",
+            4.5
+          ],
+          [
+            "2025-04",
+            4.0
+          ],
+          [
+            "2025-05",
+            3.9
+          ],
+          [
+            "2025-06",
+            4.7
+          ],
+          [
+            "2025-07",
+            5.0
+          ],
+          [
+            "2025-08",
+            4.8
+          ],
+          [
+            "2025-09",
+            3.2
+          ],
+          [
+            "2025-10",
+            3.1
+          ],
+          [
+            "2025-11",
+            3.1
+          ],
+          [
+            "2025-12",
+            3.0
+          ],
+          [
+            "2026-01",
+            2.7
+          ],
+          [
+            "2026-02",
+            2.6
+          ],
+          [
+            "2026-03",
+            3.1
+          ],
+          [
+            "2026-04",
+            3.6
+          ],
+          [
+            "2026-05",
+            3.8
+          ],
+          [
+            "2026-06",
+            3.0
+          ],
+          [
+            "2026-07",
+            2.2
+          ],
+          [
+            "2026-08",
+            2.5
+          ],
+          [
+            "2026-09",
+            4.2
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -2061,6 +11081,13 @@ window.COUNTRY_STATS = {
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=RS",
+        "series": [
+          [
+            "2025",
+            7.123
+          ]
+        ],
+        "seriesBasis": "연간 (%)",
         "basis": "연간(ILO 모형추정)"
       },
       "policyRate": {
@@ -2069,7 +11096,106 @@ window.COUNTRY_STATS = {
         "unit": "%",
         "source": "BIS",
         "basis": "자국 중앙은행",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            5.75
+          ],
+          [
+            "2024-12",
+            5.75
+          ],
+          [
+            "2025-01",
+            5.75
+          ],
+          [
+            "2025-02",
+            5.75
+          ],
+          [
+            "2025-03",
+            5.75
+          ],
+          [
+            "2025-04",
+            5.75
+          ],
+          [
+            "2025-05",
+            5.75
+          ],
+          [
+            "2025-06",
+            5.75
+          ],
+          [
+            "2025-07",
+            5.75
+          ],
+          [
+            "2025-08",
+            5.75
+          ],
+          [
+            "2025-09",
+            5.75
+          ],
+          [
+            "2025-10",
+            5.75
+          ],
+          [
+            "2025-11",
+            5.75
+          ],
+          [
+            "2025-12",
+            5.75
+          ],
+          [
+            "2026-01",
+            5.75
+          ],
+          [
+            "2026-02",
+            5.75
+          ],
+          [
+            "2026-03",
+            5.75
+          ],
+          [
+            "2026-04",
+            5.75
+          ],
+          [
+            "2026-05",
+            5.75
+          ],
+          [
+            "2026-06",
+            5.75
+          ],
+          [
+            "2026-07",
+            5.75
+          ],
+          [
+            "2026-08",
+            5.75
+          ],
+          [
+            "2026-09",
+            5.75
+          ],
+          [
+            "2026-10",
+            5.75
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -2118,11 +11244,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=LT"
       },
       "gdpGrowth": {
-        "value": 2.92007656461696,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=LT"
+        "value": 2.3,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            5.0
+          ],
+          [
+            "2024-Q1",
+            3.8
+          ],
+          [
+            "2024-Q2",
+            2.1
+          ],
+          [
+            "2024-Q3",
+            2.3
+          ],
+          [
+            "2024-Q4",
+            3.6
+          ],
+          [
+            "2025-Q1",
+            3.1
+          ],
+          [
+            "2025-Q2",
+            3.1
+          ],
+          [
+            "2025-Q3",
+            2.7
+          ],
+          [
+            "2025-Q4",
+            3.1
+          ],
+          [
+            "2026-Q1",
+            2.8
+          ],
+          [
+            "2026-Q2",
+            3.9
+          ],
+          [
+            "2026-Q3",
+            2.3
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 2888774,
@@ -2131,9 +11308,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=LT"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.9,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.0,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.1,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.4,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 4.4,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.7,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 6.1,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            3.4
+          ],
+          [
+            "2025-02",
+            3.2
+          ],
+          [
+            "2025-03",
+            3.7
+          ],
+          [
+            "2025-04",
+            3.6
+          ],
+          [
+            "2025-05",
+            3.0
+          ],
+          [
+            "2025-06",
+            3.2
+          ],
+          [
+            "2025-07",
+            3.4
+          ],
+          [
+            "2025-08",
+            3.6
+          ],
+          [
+            "2025-09",
+            3.7
+          ],
+          [
+            "2025-10",
+            3.7
+          ],
+          [
+            "2025-11",
+            3.6
+          ],
+          [
+            "2025-12",
+            3.2
+          ],
+          [
+            "2026-01",
+            2.8
+          ],
+          [
+            "2026-02",
+            3.3
+          ],
+          [
+            "2026-03",
+            4.4
+          ],
+          [
+            "2026-04",
+            4.9
+          ],
+          [
+            "2026-05",
+            5.1
+          ],
+          [
+            "2026-06",
+            5.4
+          ],
+          [
+            "2026-07",
+            5.4
+          ],
+          [
+            "2026-08",
+            5.6
+          ],
+          [
+            "2026-09",
+            6.1
+          ],
+          [
+            "2026-10",
+            6.1
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -2141,17 +11455,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 6.2,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            6.8
+          ],
+          [
+            "2025-02",
+            6.8
+          ],
+          [
+            "2025-03",
+            6.6
+          ],
+          [
+            "2025-04",
+            6.9
+          ],
+          [
+            "2025-05",
+            7.0
+          ],
+          [
+            "2025-06",
+            7.0
+          ],
+          [
+            "2025-07",
+            6.8
+          ],
+          [
+            "2025-08",
+            6.9
+          ],
+          [
+            "2025-09",
+            6.6
+          ],
+          [
+            "2025-10",
+            6.7
+          ],
+          [
+            "2025-11",
+            6.7
+          ],
+          [
+            "2025-12",
+            6.7
+          ],
+          [
+            "2026-01",
+            7.1
+          ],
+          [
+            "2026-02",
+            7.1
+          ],
+          [
+            "2026-03",
+            7.0
+          ],
+          [
+            "2026-04",
+            6.4
+          ],
+          [
+            "2026-05",
+            6.4
+          ],
+          [
+            "2026-06",
+            6.2
+          ],
+          [
+            "2026-07",
+            6.2
+          ],
+          [
+            "2026-08",
+            6.1
+          ],
+          [
+            "2026-09",
+            6.2
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -2200,11 +11700,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=LV"
       },
       "gdpGrowth": {
-        "value": 2.13786855731288,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=LV"
+        "value": 3.5,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            -1.3
+          ],
+          [
+            "2023-Q4",
+            -1.8
+          ],
+          [
+            "2024-Q1",
+            -1.7
+          ],
+          [
+            "2024-Q2",
+            0.2
+          ],
+          [
+            "2024-Q3",
+            0.8
+          ],
+          [
+            "2024-Q4",
+            1.5
+          ],
+          [
+            "2025-Q1",
+            2.0
+          ],
+          [
+            "2025-Q2",
+            1.7
+          ],
+          [
+            "2025-Q3",
+            2.4
+          ],
+          [
+            "2025-Q4",
+            2.8
+          ],
+          [
+            "2026-Q1",
+            2.9
+          ],
+          [
+            "2026-Q2",
+            3.5
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 1847785,
@@ -2213,9 +11764,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=LV"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.1,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.4,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.6,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.8,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.6,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.2,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 3.0,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            3.1
+          ],
+          [
+            "2025-02",
+            3.7
+          ],
+          [
+            "2025-03",
+            3.5
+          ],
+          [
+            "2025-04",
+            4.0
+          ],
+          [
+            "2025-05",
+            3.7
+          ],
+          [
+            "2025-06",
+            3.9
+          ],
+          [
+            "2025-07",
+            3.9
+          ],
+          [
+            "2025-08",
+            4.2
+          ],
+          [
+            "2025-09",
+            4.2
+          ],
+          [
+            "2025-10",
+            4.3
+          ],
+          [
+            "2025-11",
+            3.8
+          ],
+          [
+            "2025-12",
+            3.4
+          ],
+          [
+            "2026-01",
+            2.9
+          ],
+          [
+            "2026-02",
+            2.4
+          ],
+          [
+            "2026-03",
+            3.4
+          ],
+          [
+            "2026-04",
+            2.9
+          ],
+          [
+            "2026-05",
+            3.5
+          ],
+          [
+            "2026-06",
+            3.3
+          ],
+          [
+            "2026-07",
+            2.5
+          ],
+          [
+            "2026-08",
+            3.0
+          ],
+          [
+            "2026-09",
+            3.0
+          ],
+          [
+            "2026-10",
+            3.0
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -2223,17 +11911,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 7.3,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            7.2
+          ],
+          [
+            "2025-02",
+            7.2
+          ],
+          [
+            "2025-03",
+            6.9
+          ],
+          [
+            "2025-04",
+            6.6
+          ],
+          [
+            "2025-05",
+            6.6
+          ],
+          [
+            "2025-06",
+            6.8
+          ],
+          [
+            "2025-07",
+            7.1
+          ],
+          [
+            "2025-08",
+            7.2
+          ],
+          [
+            "2025-09",
+            7.0
+          ],
+          [
+            "2025-10",
+            6.9
+          ],
+          [
+            "2025-11",
+            6.9
+          ],
+          [
+            "2025-12",
+            6.9
+          ],
+          [
+            "2026-01",
+            6.8
+          ],
+          [
+            "2026-02",
+            6.7
+          ],
+          [
+            "2026-03",
+            6.7
+          ],
+          [
+            "2026-04",
+            6.8
+          ],
+          [
+            "2026-05",
+            6.9
+          ],
+          [
+            "2026-06",
+            7.1
+          ],
+          [
+            "2026-07",
+            7.3
+          ],
+          [
+            "2026-08",
+            7.3
+          ],
+          [
+            "2026-09",
+            7.3
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -2282,11 +12156,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=EE"
       },
       "gdpGrowth": {
-        "value": 0.584308464789387,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=EE"
+        "value": 2.2,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            -1.0
+          ],
+          [
+            "2024-Q1",
+            0.3
+          ],
+          [
+            "2024-Q2",
+            -0.2
+          ],
+          [
+            "2024-Q3",
+            0.5
+          ],
+          [
+            "2024-Q4",
+            0.2
+          ],
+          [
+            "2025-Q1",
+            0.1
+          ],
+          [
+            "2025-Q2",
+            1.9
+          ],
+          [
+            "2025-Q3",
+            1.5
+          ],
+          [
+            "2025-Q4",
+            1.6
+          ],
+          [
+            "2026-Q1",
+            2.7
+          ],
+          [
+            "2026-Q2",
+            1.8
+          ],
+          [
+            "2026-Q3",
+            2.2
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 1366475,
@@ -2295,9 +12220,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=EE"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 0.6,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.6,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.7,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 4.8,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 4.4,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.9,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 3.6,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            3.8
+          ],
+          [
+            "2025-02",
+            5.1
+          ],
+          [
+            "2025-03",
+            4.3
+          ],
+          [
+            "2025-04",
+            4.4
+          ],
+          [
+            "2025-05",
+            4.6
+          ],
+          [
+            "2025-06",
+            5.2
+          ],
+          [
+            "2025-07",
+            5.6
+          ],
+          [
+            "2025-08",
+            6.2
+          ],
+          [
+            "2025-09",
+            5.3
+          ],
+          [
+            "2025-10",
+            4.5
+          ],
+          [
+            "2025-11",
+            4.7
+          ],
+          [
+            "2025-12",
+            4.0
+          ],
+          [
+            "2026-01",
+            3.8
+          ],
+          [
+            "2026-02",
+            3.2
+          ],
+          [
+            "2026-03",
+            3.5
+          ],
+          [
+            "2026-04",
+            3.2
+          ],
+          [
+            "2026-05",
+            3.6
+          ],
+          [
+            "2026-06",
+            2.0
+          ],
+          [
+            "2026-07",
+            2.0
+          ],
+          [
+            "2026-08",
+            1.3
+          ],
+          [
+            "2026-09",
+            3.1
+          ],
+          [
+            "2026-10",
+            3.6
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -2305,17 +12367,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 8.0,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            7.8
+          ],
+          [
+            "2025-02",
+            8.6
+          ],
+          [
+            "2025-03",
+            8.3
+          ],
+          [
+            "2025-04",
+            8.0
+          ],
+          [
+            "2025-05",
+            7.8
+          ],
+          [
+            "2025-06",
+            7.2
+          ],
+          [
+            "2025-07",
+            7.6
+          ],
+          [
+            "2025-08",
+            7.1
+          ],
+          [
+            "2025-09",
+            7.1
+          ],
+          [
+            "2025-10",
+            6.8
+          ],
+          [
+            "2025-11",
+            6.5
+          ],
+          [
+            "2025-12",
+            6.6
+          ],
+          [
+            "2026-01",
+            6.4
+          ],
+          [
+            "2026-02",
+            7.1
+          ],
+          [
+            "2026-03",
+            6.5
+          ],
+          [
+            "2026-04",
+            6.6
+          ],
+          [
+            "2026-05",
+            6.6
+          ],
+          [
+            "2026-06",
+            6.7
+          ],
+          [
+            "2026-07",
+            7.7
+          ],
+          [
+            "2026-08",
+            7.8
+          ],
+          [
+            "2026-09",
+            8.0
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -2364,11 +12612,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=LU"
       },
       "gdpGrowth": {
-        "value": 0.63787818818335,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=LU"
+        "value": 1.3,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            0.5
+          ],
+          [
+            "2023-Q4",
+            -0.4
+          ],
+          [
+            "2024-Q1",
+            3.0
+          ],
+          [
+            "2024-Q2",
+            2.1
+          ],
+          [
+            "2024-Q3",
+            0.0
+          ],
+          [
+            "2024-Q4",
+            3.1
+          ],
+          [
+            "2025-Q1",
+            -0.6
+          ],
+          [
+            "2025-Q2",
+            0.1
+          ],
+          [
+            "2025-Q3",
+            3.4
+          ],
+          [
+            "2025-Q4",
+            2.7
+          ],
+          [
+            "2026-Q1",
+            2.8
+          ],
+          [
+            "2026-Q2",
+            1.3
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 686970,
@@ -2377,9 +12676,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=LU"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 0.6,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.6,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.0,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.5,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.7,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.8,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 4.9,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            2.4
+          ],
+          [
+            "2025-02",
+            1.9
+          ],
+          [
+            "2025-03",
+            1.6
+          ],
+          [
+            "2025-04",
+            1.7
+          ],
+          [
+            "2025-05",
+            2.1
+          ],
+          [
+            "2025-06",
+            2.4
+          ],
+          [
+            "2025-07",
+            2.6
+          ],
+          [
+            "2025-08",
+            2.8
+          ],
+          [
+            "2025-09",
+            3.1
+          ],
+          [
+            "2025-10",
+            3.0
+          ],
+          [
+            "2025-11",
+            3.5
+          ],
+          [
+            "2025-12",
+            3.3
+          ],
+          [
+            "2026-01",
+            1.6
+          ],
+          [
+            "2026-02",
+            1.8
+          ],
+          [
+            "2026-03",
+            3.8
+          ],
+          [
+            "2026-04",
+            5.2
+          ],
+          [
+            "2026-05",
+            4.5
+          ],
+          [
+            "2026-06",
+            3.7
+          ],
+          [
+            "2026-07",
+            3.4
+          ],
+          [
+            "2026-08",
+            4.0
+          ],
+          [
+            "2026-09",
+            5.2
+          ],
+          [
+            "2026-10",
+            4.9
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -2387,17 +12823,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 7.3,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            6.5
+          ],
+          [
+            "2025-02",
+            6.5
+          ],
+          [
+            "2025-03",
+            6.5
+          ],
+          [
+            "2025-04",
+            6.5
+          ],
+          [
+            "2025-05",
+            6.5
+          ],
+          [
+            "2025-06",
+            6.5
+          ],
+          [
+            "2025-07",
+            6.4
+          ],
+          [
+            "2025-08",
+            6.4
+          ],
+          [
+            "2025-09",
+            6.7
+          ],
+          [
+            "2025-10",
+            6.6
+          ],
+          [
+            "2025-11",
+            6.9
+          ],
+          [
+            "2025-12",
+            6.9
+          ],
+          [
+            "2026-01",
+            7.0
+          ],
+          [
+            "2026-02",
+            7.0
+          ],
+          [
+            "2026-03",
+            7.1
+          ],
+          [
+            "2026-04",
+            7.1
+          ],
+          [
+            "2026-05",
+            7.0
+          ],
+          [
+            "2026-06",
+            7.1
+          ],
+          [
+            "2026-07",
+            7.1
+          ],
+          [
+            "2026-08",
+            7.3
+          ],
+          [
+            "2026-09",
+            7.3
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -2446,11 +13068,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CY"
       },
       "gdpGrowth": {
-        "value": 3.77325347982725,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=CY"
+        "value": 3.1,
+        "period": "2026-Q3",
+        "series": [
+          [
+            "2023-Q4",
+            7.0
+          ],
+          [
+            "2024-Q1",
+            7.2
+          ],
+          [
+            "2024-Q2",
+            6.6
+          ],
+          [
+            "2024-Q3",
+            6.9
+          ],
+          [
+            "2024-Q4",
+            5.8
+          ],
+          [
+            "2025-Q1",
+            5.3
+          ],
+          [
+            "2025-Q2",
+            5.1
+          ],
+          [
+            "2025-Q3",
+            4.2
+          ],
+          [
+            "2025-Q4",
+            4.5
+          ],
+          [
+            "2026-Q1",
+            3.1
+          ],
+          [
+            "2026-Q2",
+            3.4
+          ],
+          [
+            "2026-Q3",
+            3.1
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 1370754,
@@ -2459,9 +13132,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CY"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.8,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.3,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.7,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 0.8,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.6,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.2,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 5.4,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            2.9
+          ],
+          [
+            "2025-02",
+            2.3
+          ],
+          [
+            "2025-03",
+            2.1
+          ],
+          [
+            "2025-04",
+            1.4
+          ],
+          [
+            "2025-05",
+            0.4
+          ],
+          [
+            "2025-06",
+            0.5
+          ],
+          [
+            "2025-07",
+            0.1
+          ],
+          [
+            "2025-08",
+            0.0
+          ],
+          [
+            "2025-09",
+            0.0
+          ],
+          [
+            "2025-10",
+            0.2
+          ],
+          [
+            "2025-11",
+            0.1
+          ],
+          [
+            "2025-12",
+            0.1
+          ],
+          [
+            "2026-01",
+            1.2
+          ],
+          [
+            "2026-02",
+            0.9
+          ],
+          [
+            "2026-03",
+            1.5
+          ],
+          [
+            "2026-04",
+            3.0
+          ],
+          [
+            "2026-05",
+            3.5
+          ],
+          [
+            "2026-06",
+            4.1
+          ],
+          [
+            "2026-07",
+            4.4
+          ],
+          [
+            "2026-08",
+            5.2
+          ],
+          [
+            "2026-09",
+            5.2
+          ],
+          [
+            "2026-10",
+            5.4
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -2469,17 +13279,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 4.0,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            4.5
+          ],
+          [
+            "2025-02",
+            4.6
+          ],
+          [
+            "2025-03",
+            4.7
+          ],
+          [
+            "2025-04",
+            4.5
+          ],
+          [
+            "2025-05",
+            4.5
+          ],
+          [
+            "2025-06",
+            4.4
+          ],
+          [
+            "2025-07",
+            4.4
+          ],
+          [
+            "2025-08",
+            4.2
+          ],
+          [
+            "2025-09",
+            4.2
+          ],
+          [
+            "2025-10",
+            4.1
+          ],
+          [
+            "2025-11",
+            4.2
+          ],
+          [
+            "2025-12",
+            4.0
+          ],
+          [
+            "2026-01",
+            3.8
+          ],
+          [
+            "2026-02",
+            3.6
+          ],
+          [
+            "2026-03",
+            3.6
+          ],
+          [
+            "2026-04",
+            3.8
+          ],
+          [
+            "2026-05",
+            3.7
+          ],
+          [
+            "2026-06",
+            3.8
+          ],
+          [
+            "2026-07",
+            3.9
+          ],
+          [
+            "2026-08",
+            4.0
+          ],
+          [
+            "2026-09",
+            4.0
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -2528,11 +13524,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=MT"
       },
       "gdpGrowth": {
-        "value": 3.96156139018959,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=MT"
+        "value": 5.0,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            7.7
+          ],
+          [
+            "2023-Q4",
+            7.0
+          ],
+          [
+            "2024-Q1",
+            7.3
+          ],
+          [
+            "2024-Q2",
+            7.1
+          ],
+          [
+            "2024-Q3",
+            4.0
+          ],
+          [
+            "2024-Q4",
+            2.9
+          ],
+          [
+            "2025-Q1",
+            3.8
+          ],
+          [
+            "2025-Q2",
+            2.6
+          ],
+          [
+            "2025-Q3",
+            4.7
+          ],
+          [
+            "2025-Q4",
+            6.2
+          ],
+          [
+            "2026-Q1",
+            4.6
+          ],
+          [
+            "2026-Q2",
+            5.0
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 579704,
@@ -2541,9 +13588,146 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=MT"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 4.0,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.7,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.6,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.4,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.7,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.3,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 2.3,
         "period": "2026-10",
+        "series": [
+          [
+            "2025-01",
+            1.8
+          ],
+          [
+            "2025-02",
+            2.0
+          ],
+          [
+            "2025-03",
+            2.2
+          ],
+          [
+            "2025-04",
+            2.6
+          ],
+          [
+            "2025-05",
+            2.7
+          ],
+          [
+            "2025-06",
+            2.5
+          ],
+          [
+            "2025-07",
+            2.5
+          ],
+          [
+            "2025-08",
+            2.7
+          ],
+          [
+            "2025-09",
+            2.4
+          ],
+          [
+            "2025-10",
+            2.5
+          ],
+          [
+            "2025-11",
+            2.4
+          ],
+          [
+            "2025-12",
+            2.5
+          ],
+          [
+            "2026-01",
+            2.3
+          ],
+          [
+            "2026-02",
+            2.3
+          ],
+          [
+            "2026-03",
+            2.3
+          ],
+          [
+            "2026-04",
+            2.5
+          ],
+          [
+            "2026-05",
+            2.1
+          ],
+          [
+            "2026-06",
+            2.0
+          ],
+          [
+            "2026-07",
+            2.1
+          ],
+          [
+            "2026-08",
+            2.0
+          ],
+          [
+            "2026-09",
+            2.4
+          ],
+          [
+            "2026-10",
+            2.3
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -2551,17 +13735,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 3.4,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            3.5
+          ],
+          [
+            "2025-02",
+            3.5
+          ],
+          [
+            "2025-03",
+            3.3
+          ],
+          [
+            "2025-04",
+            3.0
+          ],
+          [
+            "2025-05",
+            2.8
+          ],
+          [
+            "2025-06",
+            2.7
+          ],
+          [
+            "2025-07",
+            2.5
+          ],
+          [
+            "2025-08",
+            2.5
+          ],
+          [
+            "2025-09",
+            2.7
+          ],
+          [
+            "2025-10",
+            3.0
+          ],
+          [
+            "2025-11",
+            3.2
+          ],
+          [
+            "2025-12",
+            3.4
+          ],
+          [
+            "2026-01",
+            3.5
+          ],
+          [
+            "2026-02",
+            3.5
+          ],
+          [
+            "2026-03",
+            3.5
+          ],
+          [
+            "2026-04",
+            3.6
+          ],
+          [
+            "2026-05",
+            3.6
+          ],
+          [
+            "2026-06",
+            3.5
+          ],
+          [
+            "2026-07",
+            3.4
+          ],
+          [
+            "2026-08",
+            3.5
+          ],
+          [
+            "2026-09",
+            3.4
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로지역(ECB)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -2610,11 +13980,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=IS"
       },
       "gdpGrowth": {
-        "value": 1.27946207863934,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=IS"
+        "value": 0.3,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            3.3
+          ],
+          [
+            "2023-Q4",
+            -0.4
+          ],
+          [
+            "2024-Q1",
+            -1.2
+          ],
+          [
+            "2024-Q2",
+            -1.7
+          ],
+          [
+            "2024-Q3",
+            1.1
+          ],
+          [
+            "2024-Q4",
+            -1.7
+          ],
+          [
+            "2025-Q1",
+            1.4
+          ],
+          [
+            "2025-Q2",
+            -0.3
+          ],
+          [
+            "2025-Q3",
+            1.0
+          ],
+          [
+            "2025-Q4",
+            2.3
+          ],
+          [
+            "2026-Q1",
+            3.7
+          ],
+          [
+            "2026-Q2",
+            0.3
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 392404,
@@ -2623,9 +14044,142 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=IS"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.3,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.7,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.4,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.7,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 5.0,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.6,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 5.4,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            3.7
+          ],
+          [
+            "2025-02",
+            3.4
+          ],
+          [
+            "2025-03",
+            3.4
+          ],
+          [
+            "2025-04",
+            3.9
+          ],
+          [
+            "2025-05",
+            3.5
+          ],
+          [
+            "2025-06",
+            3.9
+          ],
+          [
+            "2025-07",
+            3.7
+          ],
+          [
+            "2025-08",
+            3.7
+          ],
+          [
+            "2025-09",
+            4.2
+          ],
+          [
+            "2025-10",
+            3.9
+          ],
+          [
+            "2025-11",
+            3.4
+          ],
+          [
+            "2025-12",
+            4.0
+          ],
+          [
+            "2026-01",
+            4.4
+          ],
+          [
+            "2026-02",
+            4.7
+          ],
+          [
+            "2026-03",
+            5.0
+          ],
+          [
+            "2026-04",
+            4.9
+          ],
+          [
+            "2026-05",
+            4.8
+          ],
+          [
+            "2026-06",
+            5.1
+          ],
+          [
+            "2026-07",
+            5.6
+          ],
+          [
+            "2026-08",
+            6.1
+          ],
+          [
+            "2026-09",
+            5.4
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -2633,17 +14187,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 5.9,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            3.9
+          ],
+          [
+            "2025-02",
+            4.0
+          ],
+          [
+            "2025-03",
+            4.0
+          ],
+          [
+            "2025-04",
+            4.0
+          ],
+          [
+            "2025-05",
+            4.1
+          ],
+          [
+            "2025-06",
+            4.2
+          ],
+          [
+            "2025-07",
+            4.4
+          ],
+          [
+            "2025-08",
+            4.6
+          ],
+          [
+            "2025-09",
+            4.8
+          ],
+          [
+            "2025-10",
+            5.0
+          ],
+          [
+            "2025-11",
+            5.2
+          ],
+          [
+            "2025-12",
+            5.4
+          ],
+          [
+            "2026-01",
+            5.6
+          ],
+          [
+            "2026-02",
+            5.7
+          ],
+          [
+            "2026-03",
+            5.8
+          ],
+          [
+            "2026-04",
+            5.8
+          ],
+          [
+            "2026-05",
+            5.8
+          ],
+          [
+            "2026-06",
+            5.8
+          ],
+          [
+            "2026-07",
+            5.9
+          ],
+          [
+            "2026-08",
+            5.9
+          ],
+          [
+            "2026-09",
+            5.9
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 8.0,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "자국 중앙은행",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            8.5
+          ],
+          [
+            "2024-12",
+            8.5
+          ],
+          [
+            "2025-01",
+            8.5
+          ],
+          [
+            "2025-02",
+            8.0
+          ],
+          [
+            "2025-03",
+            7.75
+          ],
+          [
+            "2025-04",
+            7.75
+          ],
+          [
+            "2025-05",
+            7.5
+          ],
+          [
+            "2025-06",
+            7.5
+          ],
+          [
+            "2025-07",
+            7.5
+          ],
+          [
+            "2025-08",
+            7.5
+          ],
+          [
+            "2025-09",
+            7.5
+          ],
+          [
+            "2025-10",
+            7.5
+          ],
+          [
+            "2025-11",
+            7.25
+          ],
+          [
+            "2025-12",
+            7.25
+          ],
+          [
+            "2026-01",
+            7.25
+          ],
+          [
+            "2026-02",
+            7.25
+          ],
+          [
+            "2026-03",
+            7.5
+          ],
+          [
+            "2026-04",
+            7.5
+          ],
+          [
+            "2026-05",
+            7.75
+          ],
+          [
+            "2026-06",
+            7.75
+          ],
+          [
+            "2026-07",
+            7.75
+          ],
+          [
+            "2026-08",
+            8.0
+          ],
+          [
+            "2026-09",
+            8.0
+          ],
+          [
+            "2026-10",
+            8.0
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -2692,11 +14432,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=AL"
       },
       "gdpGrowth": {
-        "value": 3.78893836241024,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=AL"
+        "value": 3.6,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            4.1
+          ],
+          [
+            "2023-Q4",
+            3.7
+          ],
+          [
+            "2024-Q1",
+            4.1
+          ],
+          [
+            "2024-Q2",
+            4.0
+          ],
+          [
+            "2024-Q3",
+            4.2
+          ],
+          [
+            "2024-Q4",
+            3.8
+          ],
+          [
+            "2025-Q1",
+            3.8
+          ],
+          [
+            "2025-Q2",
+            3.6
+          ],
+          [
+            "2025-Q3",
+            3.3
+          ],
+          [
+            "2025-Q4",
+            4.0
+          ],
+          [
+            "2026-Q1",
+            3.7
+          ],
+          [
+            "2026-Q2",
+            3.6
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 2349580,
@@ -2705,9 +14496,141 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=AL"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.8,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.3,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.3,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/PCPIPCH",
+          "indicator": "PCPIPCH",
+          "basis": "CPI 연평균 상승률 (%) · HICP와 정의 차이",
+          "values": {
+            "2025": {
+              "value": 2.2,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.2,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.2,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 2.7,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            2.4
+          ],
+          [
+            "2025-02",
+            2.4
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.6
+          ],
+          [
+            "2025-05",
+            2.3
+          ],
+          [
+            "2025-06",
+            2.5
+          ],
+          [
+            "2025-07",
+            2.4
+          ],
+          [
+            "2025-08",
+            2.3
+          ],
+          [
+            "2025-09",
+            2.3
+          ],
+          [
+            "2025-10",
+            2.2
+          ],
+          [
+            "2025-11",
+            2.1
+          ],
+          [
+            "2025-12",
+            2.1
+          ],
+          [
+            "2026-01",
+            2.3
+          ],
+          [
+            "2026-02",
+            2.5
+          ],
+          [
+            "2026-03",
+            2.5
+          ],
+          [
+            "2026-04",
+            2.8
+          ],
+          [
+            "2026-05",
+            3.3
+          ],
+          [
+            "2026-06",
+            3.2
+          ],
+          [
+            "2026-07",
+            3.4
+          ],
+          [
+            "2026-08",
+            3.0
+          ],
+          [
+            "2026-09",
+            2.7
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -2718,6 +14641,13 @@ window.COUNTRY_STATS = {
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=AL",
+        "series": [
+          [
+            "2025",
+            10.926
+          ]
+        ],
+        "seriesBasis": "연간 (%)",
         "basis": "연간(ILO 모형추정)"
       },
       "policyRate": {
@@ -2773,11 +14703,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=MK"
       },
       "gdpGrowth": {
-        "value": 3.48706619829503,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=MK"
+        "value": 4.0,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            2.9
+          ],
+          [
+            "2023-Q4",
+            3.0
+          ],
+          [
+            "2024-Q1",
+            2.5
+          ],
+          [
+            "2024-Q2",
+            2.9
+          ],
+          [
+            "2024-Q3",
+            2.9
+          ],
+          [
+            "2024-Q4",
+            3.6
+          ],
+          [
+            "2025-Q1",
+            3.5
+          ],
+          [
+            "2025-Q2",
+            3.3
+          ],
+          [
+            "2025-Q3",
+            3.8
+          ],
+          [
+            "2025-Q4",
+            3.5
+          ],
+          [
+            "2026-Q1",
+            3.5
+          ],
+          [
+            "2026-Q2",
+            4.0
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 1820909,
@@ -2786,9 +14767,142 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=MK"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 3.5,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.2,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.1,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 4.3,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 4.4,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.1,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 3.5,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            5.8
+          ],
+          [
+            "2025-02",
+            6.0
+          ],
+          [
+            "2025-03",
+            3.8
+          ],
+          [
+            "2025-04",
+            3.5
+          ],
+          [
+            "2025-05",
+            4.1
+          ],
+          [
+            "2025-06",
+            5.1
+          ],
+          [
+            "2025-07",
+            4.6
+          ],
+          [
+            "2025-08",
+            4.4
+          ],
+          [
+            "2025-09",
+            3.3
+          ],
+          [
+            "2025-10",
+            4.4
+          ],
+          [
+            "2025-11",
+            3.6
+          ],
+          [
+            "2025-12",
+            3.6
+          ],
+          [
+            "2026-01",
+            2.9
+          ],
+          [
+            "2026-02",
+            2.6
+          ],
+          [
+            "2026-03",
+            4.9
+          ],
+          [
+            "2026-04",
+            5.7
+          ],
+          [
+            "2026-05",
+            4.9
+          ],
+          [
+            "2026-06",
+            3.5
+          ],
+          [
+            "2026-07",
+            2.4
+          ],
+          [
+            "2026-08",
+            2.6
+          ],
+          [
+            "2026-09",
+            3.5
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -2796,17 +14910,203 @@ window.COUNTRY_STATS = {
       "unemployment": {
         "value": 10.7,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            11.7
+          ],
+          [
+            "2025-02",
+            11.7
+          ],
+          [
+            "2025-03",
+            11.5
+          ],
+          [
+            "2025-04",
+            11.4
+          ],
+          [
+            "2025-05",
+            11.5
+          ],
+          [
+            "2025-06",
+            11.9
+          ],
+          [
+            "2025-07",
+            12.0
+          ],
+          [
+            "2025-08",
+            11.8
+          ],
+          [
+            "2025-09",
+            11.8
+          ],
+          [
+            "2025-10",
+            11.7
+          ],
+          [
+            "2025-11",
+            11.3
+          ],
+          [
+            "2025-12",
+            11.2
+          ],
+          [
+            "2026-01",
+            11.1
+          ],
+          [
+            "2026-02",
+            10.9
+          ],
+          [
+            "2026-03",
+            10.8
+          ],
+          [
+            "2026-04",
+            10.8
+          ],
+          [
+            "2026-05",
+            10.7
+          ],
+          [
+            "2026-06",
+            11.0
+          ],
+          [
+            "2026-07",
+            11.1
+          ],
+          [
+            "2026-08",
+            11.0
+          ],
+          [
+            "2026-09",
+            10.7
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "policyRate": {
         "value": 4.25,
-        "date": "2026-11-02",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "자국 중앙은행",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            5.8
+          ],
+          [
+            "2024-12",
+            5.55
+          ],
+          [
+            "2025-01",
+            5.55
+          ],
+          [
+            "2025-02",
+            5.35
+          ],
+          [
+            "2025-03",
+            5.35
+          ],
+          [
+            "2025-04",
+            5.35
+          ],
+          [
+            "2025-05",
+            5.35
+          ],
+          [
+            "2025-06",
+            5.35
+          ],
+          [
+            "2025-07",
+            5.35
+          ],
+          [
+            "2025-08",
+            5.35
+          ],
+          [
+            "2025-09",
+            5.35
+          ],
+          [
+            "2025-10",
+            5.35
+          ],
+          [
+            "2025-11",
+            5.35
+          ],
+          [
+            "2025-12",
+            4.0
+          ],
+          [
+            "2026-01",
+            4.0
+          ],
+          [
+            "2026-02",
+            4.0
+          ],
+          [
+            "2026-03",
+            4.0
+          ],
+          [
+            "2026-04",
+            4.0
+          ],
+          [
+            "2026-05",
+            4.0
+          ],
+          [
+            "2026-06",
+            4.25
+          ],
+          [
+            "2026-07",
+            4.25
+          ],
+          [
+            "2026-08",
+            4.25
+          ],
+          [
+            "2026-09",
+            4.25
+          ],
+          [
+            "2026-10",
+            4.25
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -2855,11 +15155,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BA"
       },
       "gdpGrowth": {
-        "value": 2.12861913138053,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=BA"
+        "value": 2.4,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            2.4
+          ],
+          [
+            "2023-Q4",
+            2.1
+          ],
+          [
+            "2024-Q1",
+            2.9
+          ],
+          [
+            "2024-Q2",
+            3.1
+          ],
+          [
+            "2024-Q3",
+            3.7
+          ],
+          [
+            "2024-Q4",
+            3.1
+          ],
+          [
+            "2025-Q1",
+            2.5
+          ],
+          [
+            "2025-Q2",
+            2.5
+          ],
+          [
+            "2025-Q3",
+            2.8
+          ],
+          [
+            "2025-Q4",
+            2.0
+          ],
+          [
+            "2026-Q1",
+            2.2
+          ],
+          [
+            "2026-Q2",
+            2.4
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 3140095,
@@ -2868,17 +15219,195 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=BA"
       },
+      "outlook": {
+        "gdp": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH",
+          "indicator": "NGDP_RPCH",
+          "basis": "실질 GDP 전년비 (%)",
+          "values": {
+            "2025": {
+              "value": 2.4,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.3,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.6,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/PCPIPCH",
+          "indicator": "PCPIPCH",
+          "basis": "CPI 연평균 상승률 (%) · HICP와 정의 차이",
+          "values": {
+            "2025": {
+              "value": 4.0,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 5.0,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.3,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 3.97821271880433,
         "year": "2025",
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=BA",
+        "series": [
+          [
+            "2014",
+            -0.897194054194149
+          ],
+          [
+            "2015",
+            -1.03602303425427
+          ],
+          [
+            "2016",
+            -1.58410000000001
+          ],
+          [
+            "2017",
+            0.810133321953037
+          ],
+          [
+            "2018",
+            1.41710814018033
+          ],
+          [
+            "2019",
+            0.562782154061229
+          ],
+          [
+            "2020",
+            -1.05129600763489
+          ],
+          [
+            "2021",
+            1.98163900587621
+          ],
+          [
+            "2022",
+            14.020844082677
+          ],
+          [
+            "2023",
+            6.10590112848287
+          ],
+          [
+            "2024",
+            1.69212733599715
+          ],
+          [
+            "2025",
+            3.97821271880433
+          ]
+        ],
+        "seriesBasis": "연간 (%)",
         "basis": "CPI 연간"
       },
       "unemployment": {
         "value": 11.4,
         "period": "2026-08",
+        "series": [
+          [
+            "2025-01",
+            12.5
+          ],
+          [
+            "2025-02",
+            12.5
+          ],
+          [
+            "2025-03",
+            12.5
+          ],
+          [
+            "2025-04",
+            12.3
+          ],
+          [
+            "2025-05",
+            12.3
+          ],
+          [
+            "2025-06",
+            12.2
+          ],
+          [
+            "2025-07",
+            12.1
+          ],
+          [
+            "2025-08",
+            12.0
+          ],
+          [
+            "2025-09",
+            11.8
+          ],
+          [
+            "2025-10",
+            11.7
+          ],
+          [
+            "2025-11",
+            11.6
+          ],
+          [
+            "2025-12",
+            11.6
+          ],
+          [
+            "2026-01",
+            11.6
+          ],
+          [
+            "2026-02",
+            11.5
+          ],
+          [
+            "2026-03",
+            11.5
+          ],
+          [
+            "2026-04",
+            11.4
+          ],
+          [
+            "2026-05",
+            11.4
+          ],
+          [
+            "2026-06",
+            11.4
+          ],
+          [
+            "2026-07",
+            11.4
+          ],
+          [
+            "2026-08",
+            11.4
+          ]
+        ],
+        "seriesBasis": "월간·계절조정 (%)",
         "basis": "월간·계절조정",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
@@ -2936,11 +15465,62 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=ME"
       },
       "gdpGrowth": {
-        "value": 2.74455354258522,
-        "year": "2025",
-        "source": "World Bank WDI",
-        "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=ME"
+        "value": 3.0,
+        "period": "2026-Q2",
+        "series": [
+          [
+            "2023-Q3",
+            6.2
+          ],
+          [
+            "2023-Q4",
+            5.6
+          ],
+          [
+            "2024-Q1",
+            4.6
+          ],
+          [
+            "2024-Q2",
+            3.5
+          ],
+          [
+            "2024-Q3",
+            3.0
+          ],
+          [
+            "2024-Q4",
+            3.0
+          ],
+          [
+            "2025-Q1",
+            3.1
+          ],
+          [
+            "2025-Q2",
+            3.3
+          ],
+          [
+            "2025-Q3",
+            3.2
+          ],
+          [
+            "2025-Q4",
+            3.0
+          ],
+          [
+            "2026-Q1",
+            2.9
+          ],
+          [
+            "2026-Q2",
+            3.0
+          ]
+        ],
+        "basis": "분기 전년동기비·계절 및 달력조정 (%)",
+        "seriesBasis": "분기 전년동기비 (%)",
+        "source": "Eurostat",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table"
       },
       "population": {
         "value": 623129,
@@ -2949,9 +15529,141 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=ME"
       },
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.7,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.8,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.0,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/PCPIPCH",
+          "indicator": "PCPIPCH",
+          "basis": "CPI 연평균 상승률 (%) · HICP와 정의 차이",
+          "values": {
+            "2025": {
+              "value": 3.9,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.5,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.3,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 5.5,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            3.3
+          ],
+          [
+            "2025-02",
+            3.2
+          ],
+          [
+            "2025-03",
+            3.2
+          ],
+          [
+            "2025-04",
+            3.8
+          ],
+          [
+            "2025-05",
+            4.5
+          ],
+          [
+            "2025-06",
+            4.6
+          ],
+          [
+            "2025-07",
+            4.7
+          ],
+          [
+            "2025-08",
+            4.7
+          ],
+          [
+            "2025-09",
+            4.7
+          ],
+          [
+            "2025-10",
+            4.6
+          ],
+          [
+            "2025-11",
+            3.9
+          ],
+          [
+            "2025-12",
+            3.7
+          ],
+          [
+            "2026-01",
+            2.7
+          ],
+          [
+            "2026-02",
+            2.6
+          ],
+          [
+            "2026-03",
+            2.9
+          ],
+          [
+            "2026-04",
+            3.6
+          ],
+          [
+            "2026-05",
+            3.4
+          ],
+          [
+            "2026-06",
+            3.6
+          ],
+          [
+            "2026-07",
+            3.9
+          ],
+          [
+            "2026-08",
+            4.6
+          ],
+          [
+            "2026-09",
+            5.5
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -2962,15 +15674,121 @@ window.COUNTRY_STATS = {
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS?locations=ME",
+        "series": [
+          [
+            "2025",
+            13.572
+          ]
+        ],
+        "seriesBasis": "연간 (%)",
         "basis": "연간(ILO 모형추정)"
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로 사용국(ECB 금리)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -3023,7 +15841,58 @@ window.COUNTRY_STATS = {
         "year": "2025",
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=XK"
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=XK",
+        "series": [
+          [
+            "2014",
+            3.34880478431623
+          ],
+          [
+            "2015",
+            5.91623128345211
+          ],
+          [
+            "2016",
+            5.57177504731632
+          ],
+          [
+            "2017",
+            4.82565565298054
+          ],
+          [
+            "2018",
+            3.40663227056285
+          ],
+          [
+            "2019",
+            4.75680057007834
+          ],
+          [
+            "2020",
+            -5.34027547826166
+          ],
+          [
+            "2021",
+            10.7456560819583
+          ],
+          [
+            "2022",
+            4.27849895827543
+          ],
+          [
+            "2023",
+            4.06762701436438
+          ],
+          [
+            "2024",
+            4.5730971681166
+          ],
+          [
+            "2025",
+            3.59217142544483
+          ]
+        ],
+        "seriesBasis": "연간 (%)"
       },
       "population": {
         "value": 1576876,
@@ -3032,9 +15901,140 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=XK"
       },
+      "outlook": {
+        "gdp": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH",
+          "indicator": "NGDP_RPCH",
+          "basis": "실질 GDP 전년비 (%)",
+          "values": {
+            "2025": {
+              "value": 3.6,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.5,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.6,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/PCPIPCH",
+          "indicator": "PCPIPCH",
+          "basis": "CPI 연평균 상승률 (%) · HICP와 정의 차이",
+          "values": {
+            "2025": {
+              "value": 3.9,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 6.8,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 4.5,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 7.8,
         "period": "2026-09",
+        "series": [
+          [
+            "2025-01",
+            1.5
+          ],
+          [
+            "2025-02",
+            1.8
+          ],
+          [
+            "2025-03",
+            2.9
+          ],
+          [
+            "2025-04",
+            3.0
+          ],
+          [
+            "2025-05",
+            3.6
+          ],
+          [
+            "2025-06",
+            4.3
+          ],
+          [
+            "2025-07",
+            4.3
+          ],
+          [
+            "2025-08",
+            4.5
+          ],
+          [
+            "2025-09",
+            4.7
+          ],
+          [
+            "2025-10",
+            5.1
+          ],
+          [
+            "2025-11",
+            5.3
+          ],
+          [
+            "2025-12",
+            5.3
+          ],
+          [
+            "2026-01",
+            5.8
+          ],
+          [
+            "2026-02",
+            5.8
+          ],
+          [
+            "2026-03",
+            6.5
+          ],
+          [
+            "2026-04",
+            7.5
+          ],
+          [
+            "2026-05",
+            6.8
+          ],
+          [
+            "2026-06",
+            6.0
+          ],
+          [
+            "2026-07",
+            6.5
+          ],
+          [
+            "2026-08",
+            7.3
+          ],
+          [
+            "2026-09",
+            7.8
+          ]
+        ],
+        "seriesBasis": "월간 전년동월비 (%)",
         "basis": "HICP 전년동월비",
         "source": "Eurostat",
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
@@ -3047,11 +16047,110 @@ window.COUNTRY_STATS = {
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로 사용국(ECB 금리)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -3091,7 +16190,58 @@ window.COUNTRY_STATS = {
         "year": "2009",
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=LI"
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=LI",
+        "series": [
+          [
+            "1998",
+            7.76126283694691
+          ],
+          [
+            "1999",
+            10.4109232010236
+          ],
+          [
+            "2000",
+            3.22019308239609
+          ],
+          [
+            "2001",
+            -0.733092455297992
+          ],
+          [
+            "2002",
+            -0.993919947159299
+          ],
+          [
+            "2003",
+            -1.93756534125014
+          ],
+          [
+            "2004",
+            3.03917210306501
+          ],
+          [
+            "2005",
+            4.82807677743524
+          ],
+          [
+            "2006",
+            8.64496857267281
+          ],
+          [
+            "2007",
+            3.325963509369
+          ],
+          [
+            "2008",
+            1.79808847836411
+          ],
+          [
+            "2009",
+            -1.15748291975636
+          ]
+        ],
+        "seriesBasis": "연간 (%)"
       },
       "population": {
         "value": 41024,
@@ -3099,6 +16249,50 @@ window.COUNTRY_STATS = {
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=LI"
+      },
+      "outlook": {
+        "gdp": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH",
+          "indicator": "NGDP_RPCH",
+          "basis": "실질 GDP 전년비 (%)",
+          "values": {
+            "2025": {
+              "value": 0.0,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.0,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.0,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/PCPIPCH",
+          "indicator": "PCPIPCH",
+          "basis": "CPI 연평균 상승률 (%) · HICP와 정의 차이",
+          "values": {
+            "2025": {
+              "value": 0.2,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 0.7,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 0.8,
+              "kind": "forecast"
+            }
+          }
+        }
       },
       "inflation": {
         "value": null,
@@ -3114,18 +16308,118 @@ window.COUNTRY_STATS = {
       },
       "policyRate": {
         "value": 0.0,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "스위스 프랑 사용국(SNB 금리)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            1.0
+          ],
+          [
+            "2024-12",
+            0.5
+          ],
+          [
+            "2025-01",
+            0.5
+          ],
+          [
+            "2025-02",
+            0.5
+          ],
+          [
+            "2025-03",
+            0.25
+          ],
+          [
+            "2025-04",
+            0.25
+          ],
+          [
+            "2025-05",
+            0.25
+          ],
+          [
+            "2025-06",
+            0.0
+          ],
+          [
+            "2025-07",
+            0.0
+          ],
+          [
+            "2025-08",
+            0.0
+          ],
+          [
+            "2025-09",
+            0.0
+          ],
+          [
+            "2025-10",
+            0.0
+          ],
+          [
+            "2025-11",
+            0.0
+          ],
+          [
+            "2025-12",
+            0.0
+          ],
+          [
+            "2026-01",
+            0.0
+          ],
+          [
+            "2026-02",
+            0.0
+          ],
+          [
+            "2026-03",
+            0.0
+          ],
+          [
+            "2026-04",
+            0.0
+          ],
+          [
+            "2026-05",
+            0.0
+          ],
+          [
+            "2026-06",
+            0.0
+          ],
+          [
+            "2026-07",
+            0.0
+          ],
+          [
+            "2026-08",
+            0.0
+          ],
+          [
+            "2026-09",
+            0.0
+          ],
+          [
+            "2026-10",
+            0.0
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
           "annual": null,
           "monthly": null,
           "source": "UN Comtrade (한국 보고 기준)",
-          "url": "https://comtradeplus.un.org/"
+          "url": "https://comtradeplus.un.org/",
+          "note": "스위스 수치에 포함(UN Comtrade 757 Switzerland, Liechtenstein)"
         }
       }
     },
@@ -3158,7 +16452,58 @@ window.COUNTRY_STATS = {
         "year": "2024",
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=MC"
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=MC",
+        "series": [
+          [
+            "2013",
+            9.57709832354816
+          ],
+          [
+            "2014",
+            7.18702777537968
+          ],
+          [
+            "2015",
+            4.91037176536236
+          ],
+          [
+            "2016",
+            3.00844358752744
+          ],
+          [
+            "2017",
+            -3.20618323813213
+          ],
+          [
+            "2018",
+            5.69790121192926
+          ],
+          [
+            "2019",
+            7.12088951975396
+          ],
+          [
+            "2020",
+            -13.2391048292108
+          ],
+          [
+            "2021",
+            22.2322155851208
+          ],
+          [
+            "2022",
+            11.2662955198601
+          ],
+          [
+            "2023",
+            5.44395088840088
+          ],
+          [
+            "2024",
+            8.51053758860212
+          ]
+        ],
+        "seriesBasis": "연간 (%)"
       },
       "population": {
         "value": 38341,
@@ -3166,6 +16511,42 @@ window.COUNTRY_STATS = {
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=MC"
+      },
+      "outlook": {
+        "gdp": {
+          "values": {
+            "2025": {
+              "value": null,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": null,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": null,
+              "kind": "forecast"
+            }
+          },
+          "note": "AMECO·IMF 미수록"
+        },
+        "inflation": {
+          "values": {
+            "2025": {
+              "value": null,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": null,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": null,
+              "kind": "forecast"
+            }
+          },
+          "note": "AMECO·IMF 미수록"
+        }
       },
       "inflation": {
         "value": null,
@@ -3181,11 +16562,110 @@ window.COUNTRY_STATS = {
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로 사용국(ECB 금리)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -3226,7 +16706,58 @@ window.COUNTRY_STATS = {
         "year": "2025",
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=AD"
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=AD",
+        "series": [
+          [
+            "2014",
+            2.50446552114518
+          ],
+          [
+            "2015",
+            1.43414039522716
+          ],
+          [
+            "2016",
+            3.70967806978986
+          ],
+          [
+            "2017",
+            0.346071889630295
+          ],
+          [
+            "2018",
+            1.58876549046354
+          ],
+          [
+            "2019",
+            2.01554763848308
+          ],
+          [
+            "2020",
+            -11.1839399355384
+          ],
+          [
+            "2021",
+            8.28677879049404
+          ],
+          [
+            "2022",
+            9.56461225648184
+          ],
+          [
+            "2023",
+            2.58355480961319
+          ],
+          [
+            "2024",
+            3.8491605039052
+          ],
+          [
+            "2025",
+            3.86803450687808
+          ]
+        ],
+        "seriesBasis": "연간 (%)"
       },
       "population": {
         "value": 82904,
@@ -3234,6 +16765,50 @@ window.COUNTRY_STATS = {
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=AD"
+      },
+      "outlook": {
+        "gdp": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH",
+          "indicator": "NGDP_RPCH",
+          "basis": "실질 GDP 전년비 (%)",
+          "values": {
+            "2025": {
+              "value": 3.9,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.9,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.7,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/PCPIPCH",
+          "indicator": "PCPIPCH",
+          "basis": "CPI 연평균 상승률 (%) · HICP와 정의 차이",
+          "values": {
+            "2025": {
+              "value": 2.4,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 4.0,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 3.2,
+              "kind": "forecast"
+            }
+          }
+        }
       },
       "inflation": {
         "value": null,
@@ -3249,11 +16824,110 @@ window.COUNTRY_STATS = {
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로 사용국(ECB 금리)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -3303,7 +16977,58 @@ window.COUNTRY_STATS = {
         "year": "2023",
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
-        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=SM"
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=SM",
+        "series": [
+          [
+            "2012",
+            -7.04453441295546
+          ],
+          [
+            "2013",
+            -0.78397212543554
+          ],
+          [
+            "2014",
+            -0.702370500438988
+          ],
+          [
+            "2015",
+            2.29150309460655
+          ],
+          [
+            "2016",
+            2.34441211810459
+          ],
+          [
+            "2017",
+            0.258259899709444
+          ],
+          [
+            "2018",
+            1.49390399796074
+          ],
+          [
+            "2019",
+            2.06569082920953
+          ],
+          [
+            "2020",
+            -6.64791226034481
+          ],
+          [
+            "2021",
+            13.8977857594089
+          ],
+          [
+            "2022",
+            7.89844678230362
+          ],
+          [
+            "2023",
+            0.401932371532837
+          ]
+        ],
+        "seriesBasis": "연간 (%)"
       },
       "population": {
         "value": 34109,
@@ -3312,12 +17037,107 @@ window.COUNTRY_STATS = {
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=SM"
       },
+      "outlook": {
+        "gdp": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH",
+          "indicator": "NGDP_RPCH",
+          "basis": "실질 GDP 전년비 (%)",
+          "values": {
+            "2025": {
+              "value": 1.5,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.3,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.0,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "IMF WEO (Datamapper, 조회일 2026-11-13)",
+          "vintage": "조회일 2026-11-13 · API 판 정보 없음",
+          "url": "https://www.imf.org/external/datamapper/api/v1/PCPIPCH",
+          "indicator": "PCPIPCH",
+          "basis": "CPI 연평균 상승률 (%) · HICP와 정의 차이",
+          "values": {
+            "2025": {
+              "value": 2.2,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 2.8,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.6,
+              "kind": "forecast"
+            }
+          }
+        }
+      },
       "inflation": {
         "value": 2.29519525025037,
         "year": "2025",
         "source": "World Bank WDI",
         "license": "CC BY 4.0",
         "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=SM",
+        "series": [
+          [
+            "2014",
+            1.1129630337385
+          ],
+          [
+            "2015",
+            0.145686073241066
+          ],
+          [
+            "2016",
+            0.644075340346551
+          ],
+          [
+            "2017",
+            1.01413313194507
+          ],
+          [
+            "2018",
+            1.16333522293158
+          ],
+          [
+            "2019",
+            0.472651967352852
+          ],
+          [
+            "2020",
+            -0.133368898372915
+          ],
+          [
+            "2021",
+            1.6155141155142
+          ],
+          [
+            "2022",
+            5.32545321311365
+          ],
+          [
+            "2023",
+            5.93190858629403
+          ],
+          [
+            "2024",
+            1.24216507945569
+          ],
+          [
+            "2025",
+            2.29519525025037
+          ]
+        ],
+        "seriesBasis": "연간 (%)",
         "basis": "CPI 연간"
       },
       "unemployment": {
@@ -3328,11 +17148,110 @@ window.COUNTRY_STATS = {
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로 사용국(ECB 금리)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -3387,6 +17306,42 @@ window.COUNTRY_STATS = {
         "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=VA",
         "note": "World Bank 미수록"
       },
+      "outlook": {
+        "gdp": {
+          "values": {
+            "2025": {
+              "value": null,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": null,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": null,
+              "kind": "forecast"
+            }
+          },
+          "note": "AMECO·IMF 미수록"
+        },
+        "inflation": {
+          "values": {
+            "2025": {
+              "value": null,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": null,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": null,
+              "kind": "forecast"
+            }
+          },
+          "note": "AMECO·IMF 미수록"
+        }
+      },
       "inflation": {
         "value": null,
         "source": "World Bank",
@@ -3401,11 +17356,110 @@ window.COUNTRY_STATS = {
       },
       "policyRate": {
         "value": 2.5,
-        "date": "2026-11-03",
+        "date": "2026-11-10",
         "unit": "%",
         "source": "BIS",
         "basis": "유로 사용국(ECB 금리)",
-        "url": "https://data.bis.org/topics/CBPOL"
+        "url": "https://data.bis.org/topics/CBPOL",
+        "series": [
+          [
+            "2024-11",
+            3.25
+          ],
+          [
+            "2024-12",
+            3.0
+          ],
+          [
+            "2025-01",
+            3.0
+          ],
+          [
+            "2025-02",
+            2.75
+          ],
+          [
+            "2025-03",
+            2.5
+          ],
+          [
+            "2025-04",
+            2.25
+          ],
+          [
+            "2025-05",
+            2.25
+          ],
+          [
+            "2025-06",
+            2.0
+          ],
+          [
+            "2025-07",
+            2.0
+          ],
+          [
+            "2025-08",
+            2.0
+          ],
+          [
+            "2025-09",
+            2.0
+          ],
+          [
+            "2025-10",
+            2.0
+          ],
+          [
+            "2025-11",
+            2.0
+          ],
+          [
+            "2025-12",
+            2.0
+          ],
+          [
+            "2026-01",
+            2.0
+          ],
+          [
+            "2026-02",
+            2.0
+          ],
+          [
+            "2026-03",
+            2.0
+          ],
+          [
+            "2026-04",
+            2.0
+          ],
+          [
+            "2026-05",
+            2.0
+          ],
+          [
+            "2026-06",
+            2.25
+          ],
+          [
+            "2026-07",
+            2.25
+          ],
+          [
+            "2026-08",
+            2.25
+          ],
+          [
+            "2026-09",
+            2.5
+          ],
+          [
+            "2026-10",
+            2.5
+          ]
+        ],
+        "seriesBasis": "월간 관측 (%)"
       },
       "trade": {
         "comtrade": {
@@ -3421,5 +17475,108 @@ window.COUNTRY_STATS = {
         }
       }
     }
-  ]
+  ],
+  "aggregates": [
+    {
+      "id": "EU",
+      "name": "EU",
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.5,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 1.1,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.4,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.5,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.1,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.4,
+              "kind": "forecast"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EA",
+      "name": "유로지역",
+      "outlook": {
+        "gdp": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "OVGD",
+          "basis": "실질 GDP 전년비 (%)",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 1.4,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 0.9,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 1.2,
+              "kind": "forecast"
+            }
+          }
+        },
+        "inflation": {
+          "source": "European Commission AMECO",
+          "vintage": "Spring 2026 (2026년 봄)",
+          "url": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco0.zip",
+          "indicator": "ZCPIH",
+          "basis": "HICP 연평균 전년비 (%) · 2015=100 지수",
+          "note": "AMECO 수준 계열로 전년비 계산. 공표 표와 끝자리 반올림이 다를 수 있음.",
+          "values": {
+            "2025": {
+              "value": 2.1,
+              "kind": "actual"
+            },
+            "2026": {
+              "value": 3.0,
+              "kind": "forecast"
+            },
+            "2027": {
+              "value": 2.3,
+              "kind": "forecast"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "outlookGeneratedAt": "2026-11-13T19:35:21+09:00"
 };
