@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-13T19:29:33+09:00",
-  "asOf": "2026-11-13",
-  "start": "2026-11-13",
-  "end": "2026-12-18",
+  "generatedAt": "2026-11-16T09:52:03+09:00",
+  "asOf": "2026-11-16",
+  "start": "2026-11-16",
+  "end": "2026-12-21",
   "sources": [
     {
       "id": "ecb",
@@ -105,9 +105,9 @@
       ]
     },
     "snb": {
-      "ok": false,
+      "ok": true,
       "count": 2,
-      "message": "부분 실패 · 확인 일정 2건",
+      "message": "수집 성공 · 기간 내 2건",
       "attempts": [
         {
           "url": "https://www.snb.ch/en/services-events/digital-services/event-schedule",
@@ -231,7 +231,7 @@
         },
         {
           "url": "https://www.snb.ch/public/ical/event/en/ba831ecd-a71c-46d3-92c4-eef3c9c7cfcb.ics",
-          "status": "실패(TLS/SSL connection has been closed (EOF) (_ssl.c:1029))"
+          "status": "ok"
         },
         {
           "url": "https://www.snb.ch/public/ical/event/en/7a12a769-6af5-4b99-9f73-77b3a5e47d08.ics",
@@ -314,6 +314,18 @@
           "status": "ok"
         },
         {
+          "url": "https://www.snb.ch/public/ical/event/en/ae90c4c1-25aa-4696-bd3f-b698ac52bbe9.ics",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.snb.ch/public/ical/event/en/4cc02066-fb65-4329-bfc5-11d53ce14475.ics",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.snb.ch/public/ical/event/en/8d5081d6-2e0c-4220-97bf-b4287012cbca.ics",
+          "status": "ok"
+        },
+        {
           "url": "https://www.snb.ch/public/ical/event/en/1eeb4c6d-7912-41b2-8d9f-d818b2555634.ics",
           "status": "ok"
         },
@@ -340,22 +352,7 @@
         {
           "url": "https://www.snb.ch/public/ical/event/en/7cec1b3f-c131-4a16-93a7-1f2318069f77.ics",
           "status": "ok"
-        },
-        {
-          "url": "https://www.snb.ch/public/ical/event/en/b3d8f21b-8b0d-4786-92e7-fb3df5ed06b7.ics",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.snb.ch/public/ical/event/en/5c4f3533-aeea-44a9-8df3-a65e2a9249ef.ics",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.snb.ch/public/ical/event/en/b4702dd0-2a0c-4659-946f-96a2c86b5423.ics",
-          "status": "ok"
         }
-      ],
-      "errors": [
-        "ICS: TLS/SSL connection has been closed (EOF) (_ssl.c:1029)"
       ]
     },
     "riksbank": {
@@ -429,8 +426,8 @@
     },
     "consilium": {
       "ok": false,
-      "count": 19,
-      "message": "부분 실패 · 확인 일정 19건",
+      "count": 18,
+      "message": "부분 실패 · 확인 일정 18건",
       "attempts": [
         {
           "url": "https://www.consilium.europa.eu/en/meetings/calendar/",
@@ -451,16 +448,6 @@
     }
   },
   "events": [
-    {
-      "date": "2026-11-13",
-      "title": "EU 정상 비공식 회의",
-      "entity": "EU 이사회",
-      "country": "EU",
-      "category": "EU회의",
-      "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
-    },
     {
       "date": "2026-11-16",
       "title": "EU 외교이사회",
