@@ -1,0 +1,445 @@
+window.REPORT_ARCHIVE = window.REPORT_ARCHIVE || {};
+window.REPORT_ARCHIVE["2026-11-19"] = {
+  "date": "2026-11-19",
+  "generatedAt": "2026-11-19T09:13:11+09:00",
+  "coverage": "최근 24시간 보도 중심",
+  "topIssues": [
+    {
+      "text": "EU 이사회, 인도네시아와의 포괄적 경제동반자협정(CEPA) 및 투자보호협정(IPA) 서명과 잠정 적용 승인. 무역협정 전면 이행 시 관세 품목의 최대 98.5% 자유화 전망",
+      "source": "Council of the EU",
+      "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/11/18/eu-indonesia-council-greenlights-signature-of-landmark-trade-and-investment-agreements/",
+      "date": "2026-11-18",
+      "countries": []
+    },
+    {
+      "text": "EU 이사회와 유럽의회, 재생에너지·저장시설·충전소의 인허가와 계통 접속 절차를 단축하고 전력·가스 인프라 허가 절차를 간소화하는 지침에 잠정 합의",
+      "source": "Council of the EU",
+      "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/11/18/grids-package-council-and-parliament-agree-to-streamline-permitting-for-a-faster-clean-energy-transition/",
+      "date": "2026-11-18",
+      "countries": []
+    },
+    {
+      "text": "EU 집행위, 2035년까지 첨단소재 연구·혁신 투자와 EU 내 관련 창업·성장기업 수를 각각 20% 늘리는 목표를 담은 공동 의제 제안",
+      "source": "EUobserver",
+      "url": "https://euobserver.com/249748/eu-opts-for-voluntary-targets-to-secure-key-materials-used-in-high-tech-industries/",
+      "date": "2026-11-18",
+      "countries": []
+    },
+    {
+      "text": "유럽통계청, 10월 유로존과 EU의 소비자물가 상승률이 모두 9월 3.8%에서 4.0%로 상승했다고 발표. 에너지의 유로존 물가 기여도는 1.89%p로 최대",
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-18112026-ap",
+      "date": "2026-11-18",
+      "countries": []
+    },
+    {
+      "text": "EU 집행위, 우크라이나의 2027년 자금 수요에 대응해 일반 예산 지원에 최대 200억 유로, 군사 지원에 최대 250억 유로를 배정하는 추가 대출안 제안",
+      "source": "Le Monde",
+      "url": "https://www.lemonde.fr/international/article/2026/11/18/guerre-en-ukraine-la-commission-europeenne-met-sur-la-table-un-nouvel-emprunt-europeen-pour-financer-l-aide-a-kiev_6813206_3210.html",
+      "date": "2026-11-18",
+      "countries": []
+    }
+  ],
+  "countryNews": [
+    {
+      "country": "독일",
+      "items": [
+        {
+          "title": "독일 정부·유니크레디트, 코메르츠방크 인수 조건 합의",
+          "category": "산업동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "코메르츠방크의 프랑크푸르트 본사와 상장을 유지하고 중소기업 대상 사업을 확대하는 조건에 독일 정부와 이탈리아 유니크레디트가 합의",
+              "source": "Handelsblatt",
+              "url": "https://www.handelsblatt.com/finanzen/banken-versicherungen/banken/banken-bundesregierung-und-unicredit-einigen-sich-bei-commerzbank-uebernahme/100271077.html",
+              "date": "2026-11-19"
+            },
+            {
+              "text": "유니크레디트는 독일 시장에 밝은 독립 감독이사 2명을 제안하고 독일 정부는 감독이사 2명을 직접 파견하겠다는 요구를 철회"
+            }
+          ]
+        },
+        {
+          "title": "9월 제조업 수주잔고 0.8% 증가",
+          "category": "산업동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "9월 실질 제조업 수주잔고가 전월 대비 0.8% 늘어 최고치 기록. 자동차와 기계 업종 수주잔고는 각각 1.9%, 1.4% 증가",
+              "source": "Handelsblatt",
+              "url": "https://www.handelsblatt.com/politik/deutschland/konjunktur-autobau-im-plus-auftragspolster-der-industrie-waechst/100270887.html",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "프랑스",
+      "items": [
+        {
+          "title": "8~10월 신규 창업 16.6% 증가",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "8~10월 신설 사업체 수가 전년 동기 대비 4만9,500개(16.6%) 증가. 일반 개인사업체는 31.0%, 신설 법인은 6.0% 증가",
+              "source": "Insee",
+              "url": "https://www.insee.fr/fr/statistiques/9140358",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "영국",
+      "items": [
+        {
+          "title": "10월 소비자물가 상승률 3.6%",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "10월 소비자물가가 전년 동월 대비 3.6% 올라 9월 3.5%에서 상승폭 확대. 전월 대비 상승률은 0.5%로 집계",
+              "source": "Office for National Statistics",
+              "url": "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/october2026",
+              "date": "2026-11-18"
+            },
+            {
+              "text": "9월에서 10월 사이 리터당 평균 가격은 휘발유 5.2펜스, 경유 7.0펜스 상승. 경유는 리터당 199.5펜스로 통계 작성 이래 최고치 기록"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "이탈리아",
+      "items": [
+        {
+          "title": "여권, 예산안에 중소기업 건물 개보수 세액공제 조정 추진",
+          "category": "정책·규제",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "포르차 이탈리아가 건물 개보수 지원제도 ‘수퍼보너스’ 세액공제 잔액 50만 유로 이하 중소·영세기업의 공제 기간을 10년에서 5년으로 줄이는 수정안 제출",
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/economia/2026/11/18/manovra-dal-condono-al-superbonus-le-misure-che-potrebbero-cambiare_238c3a05-adc8-4cb5-aa9b-0c85bb2a6524.html",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "스페인",
+      "items": [
+        {
+          "title": "교통부·노조, 철도 안전 강화 합의",
+          "category": "정책·규제",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "교통부와 노동조합 UGT·CCOO·SCF가 철도 안전 강화에 합의하고, 철도 인프라 공단 아디프(Adif)는 유지보수 자체 인력 확대와 지출 점검 약속",
+              "source": "EL PAÍS",
+              "url": "https://elpais.com/economia/2026-11-18/los-sindicatos-ugt-cc-oo-y-el-ferroviario-scf-firman-la-paz-con-transportes-en-favor-de-reforzar-la-seguridad-en-las-vias.html",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "네덜란드",
+      "items": [
+        {
+          "title": "반도체 등 협력국 기술인력 육성에 1억5천만 유로",
+          "category": "산업동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "정부가 2027~2031년 협력국의 기술인력 양성에 1억5천만 유로를 배정하고, 반도체 분야를 중심으로 현지 교육기관과 네덜란드 기업 간 연계 추진",
+              "source": "Rijksoverheid",
+              "url": "https://www.rijksoverheid.nl/actueel/nieuws/2026/11/18/kabinet-investeert-in-technisch-talent-in-partnerlanden",
+              "date": "2026-11-18"
+            }
+          ]
+        },
+        {
+          "title": "3분기 제조업 매출 9.4% 증가",
+          "category": "산업동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "3분기 제조업 매출은 전년 동기 대비 9.4%, 출하가격은 평균 6.8% 상승. 제조업 파산은 85건으로 전년 동기보다 16건 증가",
+              "source": "CBS",
+              "url": "https://www.cbs.nl/nl-nl/nieuws/2026/47/omzet-industrie-9-4-procent-hoger-in-het-derde-kwartaal",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "폴란드",
+      "items": [
+        {
+          "title": "대통령, 주류 소비세 인상법 서명",
+          "category": "정책·규제",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "카롤 나브로츠키 대통령이 맥주·와인·증류주 등 주요 주류의 소비세를 2027년 1월 1일부터 인상하는 법률에 서명",
+              "source": "Rzeczpospolita",
+              "url": "https://www.rp.pl/polityka/art45509151-karol-nawrocki-podpisal-trzy-ustawy-akcyza-w-gore-weto-prezydenta-w-sprawie-vat",
+              "date": "2026-11-18"
+            },
+            {
+              "text": "에너지음료와 과즙을 첨가한 일부 무알코올 주류 대체음료의 부가가치세율 인상 법안에는 거부권 행사"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "스웨덴",
+      "items": [
+        {
+          "title": "화학·정유업체 27%, 환경 인허가로 투자 지연",
+          "category": "산업동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "화학산업협회 IKEM의 3분기 조사에서 화학·정유업체 27%가 최근 5년간 환경 인허가 절차로 투자 일정이 늦어졌다고 응답",
+              "source": "IKEM - Innovations- och kemiindustrierna i Sverige AB",
+              "url": "https://api.via.tt.se/pressmeddelande/4645949/industribarometern-drygt-vart-fjarde-foretag-inom-kemi-och-raffinaderi-har-fatt-en-investering-forsenad?lang=sv&publisherId=3236408",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "스위스",
+      "items": [
+        {
+          "title": "금융감독청, 저위험 핀테크 신속 인허가 도입",
+          "category": "정책·규제",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "스위스 금융시장감독청(FINMA)이 사업모델의 위험이 낮고 준비가 충실한 핀테크 신청 건에 대해 단계별 15영업일 처리를 목표로 신속 절차 도입",
+              "source": "cash",
+              "url": "https://www.cash.ch/news/top-news/finma-will-beaufsichtigte-entlasten-massnahmenbundel-beschlossen-986170",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "오스트리아",
+      "items": [
+        {
+          "title": "10월 국내 소비자물가 상승률 3.6% 유지",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "10월 국내 소비자물가 상승률이 전년 동월 대비 3.6%로 9월과 동일. 교통비가 9.4% 올라 가장 큰 물가 상승 요인으로 집계",
+              "source": "Statistik Austria",
+              "url": "https://www.statistik.at/fileadmin/announcement/2026/11/20261118VPIOktober2026.pdf",
+              "date": "2026-11-18"
+            },
+            {
+              "text": "10월 소포세 시행 이후 다수 대형 온라인 판매업체가 배송비를 소비자에게 전가하면서 택배·소포 서비스 가격이 전년 동월 대비 208.5% 상승"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "체코",
+      "items": [
+        {
+          "title": "엘베강 수운용 보 건설 환경평가에 수백 건 의견",
+          "category": "정책·규제",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "엘베강 데친 보 건설의 환경영향평가 절차에 시민·지자체와 독일 작센주 등에서 수백 건의 의견이 접수돼 수로 당국이 세부 평가서에 대응 방안 마련 예정",
+              "source": "iROZHLAS",
+              "url": "https://www.irozhlas.cz/zpravy-domov/ministerstvo-zivotniho-prostredi-se-musi-vyporadat-s-pripominkami-k-jezu-na-labi_2611181823_tez",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "헝가리",
+      "items": [
+        {
+          "title": "전략 석유 비축량, 수입 90일분 회복",
+          "category": "에너지",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "경제·에너지부가 10월 말 원유와 석유제품의 전략 비축량이 수입 90일분을 대체할 수 있는 수준에 도달해 EU 기준을 회복했다고 발표",
+              "source": "Telex",
+              "url": "https://telex.hu/gazdasag/2026/11/18/koolaj-strategiai-tartalek-visszatoltes-keszlet",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "슬로바키아",
+      "items": [
+        {
+          "title": "중앙은행·수출기업협의회, 경제정보 교류 협약",
+          "category": "대외교역",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "17일 체결한 양해각서에 따라 수출기업은 해외 수요와 경쟁 여건에 관한 현장 정보를 제공하고, 슬로바키아 중앙은행은 경제 전망과 분석을 공유",
+              "source": "Radio Slovakia International",
+              "url": "https://enrsi.stvr.sk/articles/news/469142/nbs-and-slovak-exporters-sign-cooperation-agreement",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "루마니아",
+      "items": [
+        {
+          "title": "재무장관, 2027년 정부 조달 필요액 2,480억 레이 전망",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "알렉산드루 나자레 재무장관이 재정적자와 만기 도래 채무 감소로 2027년 정부 총자금 조달 필요액이 올해보다 310억 레이 줄어들 것으로 잠정 추산",
+              "source": "AGERPRES",
+              "url": "https://agerpres.ro/economic/2026/11/18/nazare-necesarul-de-finantare-al-romaniei-ar-urma-sa-scada-cu-31-de-miliarde-de-lei-in-2027-la-248-d--1614639",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "덴마크",
+      "items": [
+        {
+          "title": "2025년 기업 매출 6.0% 증가",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "2025년 활동 기업 약 39만6천 곳의 총매출이 전년보다 3,460억 크로네(6.0%) 늘어난 6조660억 크로네로 잠정 집계",
+              "source": "Danmarks Statistik",
+              "url": "https://www.dst.dk/da/Statistik/udgivelser/NytHtml?cid=54783",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "핀란드",
+      "items": [
+        {
+          "title": "최근 12개월 기업 파산 신청 4,092건",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "10월 기업 파산 신청이 364건으로 전년 동월보다 16건 증가. 최근 12개월 누적 신청은 4,092건으로 2000년대 들어 최고치 기록",
+              "source": "Tilastokeskus",
+              "url": "https://www.sttinfo.fi/tiedote/72509423/konkurssihakemusten-maara-yha-kasvussa-vuosisumma-jalleen-uuteen-ennatykseen?lang=fi&publisherId=69818838",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "노르웨이",
+      "items": [
+        {
+          "title": "가계 전기요금 지원금 일부 기업에 지급",
+          "category": "에너지",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "E24가 일부 기간 지급 내역을 분석한 결과 약 7만 개 사업체에 전기요금 지원금 4억5천만 크로네가 지급됐으며 이 중 일부는 잘못 지급된 것으로 확인",
+              "source": "E24",
+              "url": "https://e24.no/energi-og-klima/i/1vnP5e/stroemstoette-til-bedrifter-skal-ikke-tjene-paa-dette",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "아일랜드",
+      "items": [
+        {
+          "title": "9월 상품 수출 181억 유로",
+          "category": "대외교역",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "9월 상품 수출은 181억 유로로 집계됐으며 수출 대상별로는 나머지 EU 회원국 65억 유로, 미국 55억 유로, 영국 25억 유로 순",
+              "source": "The Irish Times",
+              "url": "https://www.irishtimes.com/business/2026/11/18/value-of-irish-trade-increased-5-billion-from-august-to-september-cso-data-shows/",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "포르투갈",
+      "items": [
+        {
+          "title": "소나에, 1~9월 순이익 22.7% 증가",
+          "category": "산업동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "유통그룹 소나에의 1~9월 주주 귀속 순이익이 전년 동기 대비 22.7% 증가한 2억4,500만 유로, 연결 매출은 6.7% 증가한 87억 유로로 집계",
+              "source": "Jornal Económico",
+              "url": "https://jornaleconomico.sapo.pt/noticias/lucros-da-sonae-aumentam-mais-de-22-nos-primeiros-nove-meses-do-ano/",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "키프로스",
+      "items": [
+        {
+          "title": "그리스의 대키프로스 직접투자 잔액 92억 유로",
+          "category": "대외교역",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "키프로스 투자청이 그리스의 대키프로스 직접투자 잔액이 2024년 56억 유로에서 올해 6월 92억 유로로 늘었으며 현지 그리스계 기업은 1,500곳을 넘는다고 발표",
+              "source": "Cyprus Mail",
+              "url": "https://www.cyprus-mail.com/2026/11/18/more-than-1500-greek-linked-firms-operate-in-cyprus-as-investment-hits-e9-2bn",
+              "date": "2026-11-18"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": [],
+  "lead": "EU의 인도네시아 무역·투자협정 서명 승인과 전력망 인허가 간소화 잠정 합의, 유로존 물가 4.0% 상승, 독일 정부의 코메르츠방크 인수 조건 합의와 네덜란드의 반도체 인력 투자 발표"
+};
