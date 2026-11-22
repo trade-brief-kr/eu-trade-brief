@@ -1,8 +1,8 @@
 window.CALENDAR_DATA = {
-  "generatedAt": "2026-11-16T09:52:03+09:00",
-  "asOf": "2026-11-16",
-  "start": "2026-11-16",
-  "end": "2026-12-21",
+  "generatedAt": "2026-11-22T20:34:59+09:00",
+  "asOf": "2026-11-22",
+  "start": "2026-11-22",
+  "end": "2026-12-27",
   "sources": [
     {
       "id": "ecb",
@@ -68,29 +68,14 @@ window.CALENDAR_DATA = {
       ]
     },
     "eurostat": {
-      "ok": false,
-      "count": 0,
-      "message": "부분 실패 · 확인 일정 0건",
+      "ok": true,
+      "count": 8,
+      "message": "수집 성공 · 기간 내 8건",
       "attempts": [
         {
-          "url": "https://ec.europa.eu/eurostat/news/release-calendar",
-          "status": "ok"
-        },
-        {
-          "url": "https://ec.europa.eu/eurostat/web/main/subscribe/ics.format",
-          "status": "ok"
-        },
-        {
-          "url": "https://ec.europa.eu/eurostat/news/euro-indicators/release-calendar",
-          "status": "ok"
-        },
-        {
-          "url": "https://ec.europa.eu/eurostat/news/euro-indicators",
+          "url": "https://ec.europa.eu/eurostat/o/calendars/eventsIcal?theme=0&category=2",
           "status": "ok"
         }
-      ],
-      "errors": [
-        "일정 날짜 없음(동적 페이지/구조 변경 가능)"
       ]
     },
     "boe": {
@@ -390,16 +375,16 @@ window.CALENDAR_DATA = {
       "message": "부분 실패 · 확인 일정 0건",
       "attempts": [
         {
-          "url": "https://nbp.pl/en/monetary-policy/monetary-policy-council/schedule-of-mpc-meetings/",
-          "status": "ok"
+          "url": "https://nbp.pl/polityka-pieniezna/rada-polityki-pienieznej/harmonogram-rpp/",
+          "status": "실패(공개 일정 대신 접근 제한 페이지 응답)"
         },
         {
-          "url": "https://nbp.pl/polityka-pieniezna/rada-polityki-pienieznej/terminy-posiedzen-rpp/",
-          "status": "ok"
+          "url": "https://nbp.pl/en/monetary-policy/monetary-policy-council/schedule-of-mpc-meetings/",
+          "status": "실패(공개 일정 대신 접근 제한 페이지 응답)"
         }
       ],
       "errors": [
-        "일정 날짜 없음(동적 페이지/구조 변경 가능)"
+        "공개 일정 대신 접근 제한 페이지 응답"
       ]
     },
     "cnb": {
@@ -415,8 +400,8 @@ window.CALENDAR_DATA = {
     },
     "mnb": {
       "ok": true,
-      "count": 2,
-      "message": "수집 성공 · 기간 내 2건",
+      "count": 1,
+      "message": "수집 성공 · 기간 내 1건",
       "attempts": [
         {
           "url": "https://www.mnb.hu/en/monetary-policy/the-monetary-council",
@@ -438,8 +423,16 @@ window.CALENDAR_DATA = {
           "status": "실패(HTTP 403)"
         },
         {
-          "url": "https://www.consilium.europa.eu/en/press/press-releases/rss/",
-          "status": "실패(HTTP 403)"
+          "url": "https://irish-presidency.consilium.europa.eu/api/events/?StartDate=2026-11-22&EndDate=2026-12-27&Types=271842c3-2535-4f5a-a049-bcdab2758865%2C800bbdac-845d-492c-876b-8cf61e9b195a%2C6b7901c5-1094-4713-add8-3364400eee98%2Ccffca3a4-ef72-4f31-8713-560fb82753fb&page=1",
+          "status": "ok"
+        },
+        {
+          "url": "https://irish-presidency.consilium.europa.eu/api/events/?StartDate=2026-11-22&EndDate=2026-12-27&Types=271842c3-2535-4f5a-a049-bcdab2758865%2C800bbdac-845d-492c-876b-8cf61e9b195a%2C6b7901c5-1094-4713-add8-3364400eee98%2Ccffca3a4-ef72-4f31-8713-560fb82753fb&page=2",
+          "status": "ok"
+        },
+        {
+          "url": "https://irish-presidency.consilium.europa.eu/api/events/?StartDate=2026-11-22&EndDate=2026-12-27&Types=271842c3-2535-4f5a-a049-bcdab2758865%2C800bbdac-845d-492c-876b-8cf61e9b195a%2C6b7901c5-1094-4713-add8-3364400eee98%2Ccffca3a4-ef72-4f31-8713-560fb82753fb&page=3",
+          "status": "ok"
         }
       ],
       "errors": [
@@ -449,63 +442,13 @@ window.CALENDAR_DATA = {
   },
   "events": [
     {
-      "date": "2026-11-16",
-      "title": "EU 외교이사회",
-      "entity": "EU 이사회",
-      "country": "EU",
-      "category": "EU회의",
-      "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
-    },
-    {
-      "date": "2026-11-17",
-      "title": "EU 외교이사회",
-      "entity": "EU 이사회",
-      "country": "EU",
-      "category": "EU회의",
-      "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
-    },
-    {
-      "date": "2026-11-17",
-      "title": "MNB 통화정책 회의",
-      "entity": "MNB",
-      "country": "헝가리",
-      "category": "통화정책",
-      "source": "MNB",
-      "url": "https://www.mnb.hu/en/monetary-policy/the-monetary-council"
-    },
-    {
-      "date": "2026-11-19",
-      "title": "EU 일반이사회",
-      "entity": "EU 이사회",
-      "country": "EU",
-      "category": "EU회의",
-      "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
-    },
-    {
-      "date": "2026-11-20",
-      "title": "EU·영국 정상회의",
-      "entity": "EU 이사회",
-      "country": "EU",
-      "category": "EU회의",
-      "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
-    },
-    {
       "date": "2026-11-23",
       "title": "EU 일반이사회",
       "entity": "EU 이사회",
       "country": "EU",
       "category": "EU회의",
       "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/general-affairs-council-cohesion-2011/"
     },
     {
       "date": "2026-11-25",
@@ -554,8 +497,7 @@ window.CALENDAR_DATA = {
       "country": "EU",
       "category": "EU회의",
       "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/?page=2",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/transport-telecommunications-and-energy-council-transport-3011/"
     },
     {
       "date": "2026-11-30",
@@ -564,8 +506,7 @@ window.CALENDAR_DATA = {
       "country": "EU",
       "category": "통상",
       "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/foreign-affairs-council-trade-3011/"
     },
     {
       "date": "2026-12-01",
@@ -574,8 +515,7 @@ window.CALENDAR_DATA = {
       "country": "EU",
       "category": "EU회의",
       "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/?page=2",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/transport-telecommunications-and-energy-council-telecommunications-112/"
     },
     {
       "date": "2026-12-01",
@@ -584,8 +524,25 @@ window.CALENDAR_DATA = {
       "country": "EU",
       "category": "EU회의",
       "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/?page=2",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/foreign-affairs-council-development-112/"
+    },
+    {
+      "date": "2026-12-01",
+      "title": "유로지역 HICP 물가 속보 발표",
+      "entity": "Eurostat",
+      "country": "EU",
+      "category": "통계발표",
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/news/euro-indicators/release-calendar"
+    },
+    {
+      "date": "2026-12-02",
+      "title": "EU·유로지역 실업률 발표",
+      "entity": "Eurostat",
+      "country": "EU",
+      "category": "통계발표",
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/news/euro-indicators/release-calendar"
     },
     {
       "date": "2026-12-03",
@@ -594,8 +551,16 @@ window.CALENDAR_DATA = {
       "country": "EU",
       "category": "EU회의",
       "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/?page=2",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/competitiveness-council-internal-market-and-industry-312/"
+    },
+    {
+      "date": "2026-12-03",
+      "title": "EU·유로지역 산업생산자물가 발표",
+      "entity": "Eurostat",
+      "country": "EU",
+      "category": "통계발표",
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/news/euro-indicators/release-calendar"
     },
     {
       "date": "2026-12-04",
@@ -604,8 +569,25 @@ window.CALENDAR_DATA = {
       "country": "EU",
       "category": "EU회의",
       "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/?page=2",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/competitiveness-council-research-and-space-412/"
+    },
+    {
+      "date": "2026-12-04",
+      "title": "EU·유로지역 소매판매 발표",
+      "entity": "Eurostat",
+      "country": "EU",
+      "category": "통계발표",
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/news/euro-indicators/release-calendar"
+    },
+    {
+      "date": "2026-12-07",
+      "title": "EU·유로지역 GDP·고용 발표",
+      "entity": "Eurostat",
+      "country": "EU",
+      "category": "통계발표",
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/news/euro-indicators/release-calendar"
     },
     {
       "date": "2026-12-10",
@@ -614,8 +596,7 @@ window.CALENDAR_DATA = {
       "country": "EU",
       "category": "EU회의",
       "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/?page=2",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/transport-telecommunications-and-energy-council-energy-1012/"
     },
     {
       "date": "2026-12-10",
@@ -624,8 +605,7 @@ window.CALENDAR_DATA = {
       "country": "EU",
       "category": "EU회의",
       "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/?page=2",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/eurogroup-1012/"
     },
     {
       "date": "2026-12-10",
@@ -652,8 +632,34 @@ window.CALENDAR_DATA = {
       "country": "EU",
       "category": "EU회의",
       "source": "EU 이사회",
-      "url": "https://www.consilium.europa.eu/en/meetings/calendar/?page=2",
-      "note": "수집 실패로 직전 확인 일정 유지. 원문 재확인 권고."
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/economic-and-financial-affairs-council-1112/"
+    },
+    {
+      "date": "2026-12-14",
+      "title": "EU 외교이사회",
+      "entity": "EU 이사회",
+      "country": "EU",
+      "category": "EU회의",
+      "source": "EU 이사회",
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/foreign-affairs-council-1412/"
+    },
+    {
+      "date": "2026-12-15",
+      "title": "EU 일반이사회",
+      "entity": "EU 이사회",
+      "country": "EU",
+      "category": "EU회의",
+      "source": "EU 이사회",
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/general-affairs-council-1512/"
+    },
+    {
+      "date": "2026-12-15",
+      "title": "EU·유로지역 산업생산 발표",
+      "entity": "Eurostat",
+      "country": "EU",
+      "category": "통계발표",
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/news/euro-indicators/release-calendar"
     },
     {
       "date": "2026-12-15",
@@ -693,6 +699,15 @@ window.CALENDAR_DATA = {
     },
     {
       "date": "2026-12-16",
+      "title": "EU·유로지역 상품무역 발표",
+      "entity": "Eurostat",
+      "country": "EU",
+      "category": "통계발표",
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/news/euro-indicators/release-calendar"
+    },
+    {
+      "date": "2026-12-16",
       "title": "Riksbank 통화정책 결정 발표",
       "entity": "Riksbank",
       "country": "스웨덴",
@@ -711,6 +726,24 @@ window.CALENDAR_DATA = {
     },
     {
       "date": "2026-12-17",
+      "title": "유럽이사회",
+      "entity": "EU 이사회",
+      "country": "EU",
+      "category": "EU회의",
+      "source": "EU 이사회",
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/european-council-17-1812/"
+    },
+    {
+      "date": "2026-12-17",
+      "title": "유로지역 HICP 물가 발표",
+      "entity": "Eurostat",
+      "country": "EU",
+      "category": "통계발표",
+      "source": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/news/euro-indicators/release-calendar"
+    },
+    {
+      "date": "2026-12-17",
       "title": "BoE 통화정책 결정 발표",
       "entity": "BoE",
       "country": "영국",
@@ -726,6 +759,15 @@ window.CALENDAR_DATA = {
       "category": "통화정책",
       "source": "CNB",
       "url": "https://www.cnb.cz/en/monetary-policy/bank-board-decisions/"
+    },
+    {
+      "date": "2026-12-18",
+      "title": "유럽이사회",
+      "entity": "EU 이사회",
+      "country": "EU",
+      "category": "EU회의",
+      "source": "EU 이사회",
+      "url": "https://irish-presidency.consilium.europa.eu/en/events/european-council-17-1812/"
     }
   ]
 };

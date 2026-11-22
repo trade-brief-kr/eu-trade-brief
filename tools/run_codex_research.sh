@@ -62,6 +62,7 @@ for c in r.get('countryNews', []):
 PY
 )"
 
+source "$ROOT/tools/common/codex_exec.sh"
 PROMPT="$LOGDIR/prompt.md"
 {
 cat <<HDR
@@ -107,39 +108,43 @@ ${PREV:-(직전 브리프 없음)}
 }
 - bullet 첫 줄에 출처(source·url·publishedAt) 필수. 둘째 줄은 같은 출처면 생략 가능.
 - 모든 URL에서 utm_* 등 추적 파라미터 제거.
+MID
+brief_time_budget_prompt "$TIMEOUT" report.json
+cat <<TAIL
 
 ## 마지막 점검 (저장 전에 반드시)
 - date == $TODAY, JSON 문법 유효, topIssues 3건 이상(목표 5), 국가당 items 최대 2개, 국가 순서 = 위 목록 순서.
 - 모든 출처 원문 확인 완료, 24시간(누락 보완 72시간) 밖·불확실 항목 삭제.
 - 한국어 명사형 종결, 현지어 원문은 한국어로 번역, 내부 업무 지시 표현 없음.
 - 현재 작업 폴더에 report.json 저장.
-MID
+TAIL
 } > "$PROMPT"
 if [ "$PROMPT_ONLY" = 1 ]; then echo "프롬프트만 생성(Codex 미실행): $PROMPT"; exit 0; fi
 
-echo "[$(TZ=Asia/Seoul date +%T) KST] Codex 일일 조사 시작 (최대 ${TIMEOUT}s) work=$WORK log=$LOGDIR"
-START=$(date +%s)
-for v in $(compgen -e | grep -E '^(DATA_GO_KR|GH_|GITHUB_)|KEY|TOKEN|SECRET|PASSWORD' || true); do unset "$v"; done
-timeout --kill-after=60 "$TIMEOUT" codex --search exec -c model_reasoning_effort="\"$EFFORT\"" --skip-git-repo-check --ephemeral \
-  -s workspace-write -C "$WORK" -o "$LOGDIR/codex-last-message.txt" - < "$PROMPT" > "$LOGDIR/codex.log" 2>&1
-RC=$?
-ELAPSED=$(( $(date +%s) - START )); echo "$ELAPSED" > "$LOGDIR/elapsed_seconds"
-echo "[$(TZ=Asia/Seoul date +%T) KST] Codex 종료 rc=$RC, ${ELAPSED}s"
-if [ $RC -eq 124 ] || [ $RC -eq 137 ]; then echo "Codex 타임아웃(${TIMEOUT}s)" >&2; exit 11; fi
-if [ $RC -ne 0 ]; then echo "Codex 실패 rc=$RC (로그: $LOGDIR/codex.log)" >&2; tail -5 "$LOGDIR/codex.log" >&2; exit 10; fi
-[ -s "$WORK/report.json" ] || { echo "Codex가 report.json을 만들지 않음" >&2; exit 12; }
+brief_codex_run "$WORK" "$PROMPT" "$LOGDIR" "$TIMEOUT" "$EFFORT" report.json 일일 elapsed-first || exit $?
 cp "$WORK/report.json" "$LOGDIR/raw-report.json"
 
 python3 "$ROOT/tools/verify_report.py" --input "$LOGDIR/raw-report.json" --output "$LOGDIR/verified-report.json" \
   --log "$LOGDIR/verify-log.json" $CHECK_LINKS
-VRC=$?; [ $VRC -eq 0 ] || exit $VRC
-python3 - "$LOGDIR/verified-report.json" "$TODAY" "$ROOT/tools" <<'PY' || exit 14
+VRC=$?
+if [ "$VRC" -ne 0 ]; then
+  if [ "$BRIEF_SALVAGED" = 1 ]; then exit 11; fi
+  exit "$VRC"
+fi
+python3 - "$LOGDIR/verified-report.json" "$TODAY" "$ROOT/tools" <<'PY' || {
 import json, sys
 sys.path.insert(0, sys.argv[3]); from build_report_js import validate
 r = validate(json.load(open(sys.argv[1], encoding='utf-8')))
 assert r['date'] == sys.argv[2], f"date {r['date']} != {sys.argv[2]}"
 print(f"사전검증 통과(게시 안 함): {r['date']}")
 PY
+  if [ "$BRIEF_SALVAGED" = 1 ]; then exit 11; fi
+  exit 14
+}
 cp "$LOGDIR/verified-report.json" "$OUT.tmp" && mv "$OUT.tmp" "$OUT"
+if [ "$BRIEF_SALVAGED" = 1 ]; then
+  touch "$LOGDIR/salvaged"
+  echo "주의: 타임아웃 후 회수한 결과(일부 항목 누락 가능)"
+fi
 echo "완료: $OUT (로그 $LOGDIR). 다음 단계: python3 tools/publish_daily.py"
 exit 0

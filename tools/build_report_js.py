@@ -6,13 +6,13 @@
   --check    지정 파일만 검증 (쓰기 없음)
 """
 import json
-import re
 import sys
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime
 from pathlib import Path
 from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from common.brief_common import ASSET_RE, js_literal, stamp_index as _stamp_index  # noqa: E402
 from countries import BY_NAME, NAMES  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -113,24 +113,9 @@ def validate(r):
     return r
 
 
-def js_literal(value):
-    return json.dumps(value, ensure_ascii=False, indent=2).replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
-
-
-ASSET_RE = re.compile(r'(href|src)="((?:assets|data)/[^"?]+\.(?:css|js))(\?v=[^"]*)?"')
-
-
 def stamp_index(version=None):
     """index.html의 CSS·JS·data/*.js 경로에 ?v=<버전>을 붙여 브라우저 캐시를 무효화한다(게시 때마다 호출)."""
-    version = version or datetime.now(timezone(timedelta(hours=9))).strftime('%Y%m%d%H%M%S')
-    p = ROOT / 'index.html'
-    if not p.exists():
-        return version
-    text = p.read_text(encoding='utf-8')
-    new = ASSET_RE.sub(lambda m: f'{m.group(1)}="{m.group(2)}?v={version}"', text)
-    if new != text:
-        p.write_text(new, encoding='utf-8')
-    return version
+    return _stamp_index(ROOT, version, asset_re=ASSET_RE)
 
 
 def main(argv):

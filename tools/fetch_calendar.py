@@ -14,7 +14,7 @@ import sys
 from datetime import date, datetime, timedelta, timezone
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urlencode, urljoin, urlparse
 from zoneinfo import ZoneInfo
 
 from countries import NAMES
@@ -32,6 +32,20 @@ SOURCES = [
     ('mnb', 'MNB', '헝가리', 'https://www.mnb.hu/en/monetary-policy/the-monetary-council'),
     ('consilium', 'EU 이사회', 'EU', 'https://www.consilium.europa.eu/en/meetings/calendar/'),
 ]
+EUROSTAT_INDICATORS = 'https://ec.europa.eu/eurostat/news/euro-indicators/release-calendar'
+# The subscription page publishes category 2 as "Euro indicators release".
+EUROSTAT_ICAL = 'https://ec.europa.eu/eurostat/o/calendars/eventsIcal?theme=0&category=2'
+NBP_SCHEDULE_PL = 'https://nbp.pl/polityka-pieniezna/rada-polityki-pienieznej/harmonogram-rpp/'
+IRISH_PRESIDENCY_API = 'https://irish-presidency.consilium.europa.eu/api/events/'
+IRISH_PRESIDENCY_START = date(2026, 7, 1)
+IRISH_PRESIDENCY_END = date(2026, 12, 31)
+# Public filters on the presidency calendar for Council, Eurogroup, European Council and summits.
+IRISH_COUNCIL_TYPES = (
+    '271842c3-2535-4f5a-a049-bcdab2758865',
+    '800bbdac-845d-492c-876b-8cf61e9b195a',
+    '6b7901c5-1094-4713-add8-3364400eee98',
+    'cffca3a4-ef72-4f31-8713-560fb82753fb',
+)
 MONTHS = {m.lower(): i for i, m in enumerate(('January','February','March','April','May','June','July','August','September','October','November','December'), 1)}
 MONTHS.update({m[:3]: n for m, n in list(MONTHS.items())})
 MONTHS.update(dict(zip(('stycznia','lutego','marca','kwietnia','maja','czerwca','lipca','sierpnia','września','października','listopada','grudnia'), range(1,13))))
@@ -107,6 +121,17 @@ def event(d, title, source, url, country, category='통화정책', note=None):
     return e
 
 
+def official_url(base, link):
+    candidate = urljoin(base, link)
+    parsed = urlparse(candidate)
+    return candidate if parsed.scheme == 'https' and parsed.netloc == urlparse(base).netloc else base
+
+
+def calendar_date(value):
+    dt = datetime.fromisoformat(value.replace('Z', '+00:00'))
+    return dt.astimezone(KST).date() if dt.tzinfo else dt.date()
+
+
 def parse_ics(raw, source, url, country):
     raw = re.sub(r'\r?\n[ \t]', '', raw)
     out = []
@@ -136,7 +161,10 @@ def parse_ics(raw, source, url, country):
         translated = classify(source, title)
         if translated:
             label, cat = translated
-            out.append(event(d, label, source, fields.get('URL') or url, country, cat))
+            link = fields.get('URL') or url
+            if source in ('EU 이사회', 'Eurostat'):
+                link = official_url(url, link)
+            out.append(event(d, label, source, link, country, cat))
     return out
 
 
@@ -146,9 +174,18 @@ def classify(source, title):
         if re.search(r'hicp|inflation|consumer price', t):
             return ('유로지역 HICP 물가 속보 발표' if 'flash' in t else '유로지역 HICP 물가 발표', '통계발표')
         if re.search(r'\bgdp\b|gross domestic product', t):
-            return ('EU·유로지역 GDP·고용 속보 발표' if 'flash' in t else 'EU·유로지역 GDP·고용 발표', '통계발표')
+            indicator = 'GDP·고용' if 'employment' in t else 'GDP'
+            return (f"EU·유로지역 {indicator}{' 속보' if 'flash' in t else ''} 발표", '통계발표')
         if 'unemployment' in t:
             return ('EU·유로지역 실업률 발표', '통계발표')
+        for indicator, label in (
+            ('industrial production', '산업생산'),
+            ('industrial producer prices', '산업생산자물가'),
+            ('international trade in goods', '상품무역'),
+            ('retail trade', '소매판매'),
+        ):
+            if indicator in t:
+                return (f'EU·유로지역 {label} 발표', '통계발표')
         return None
     if source == 'EU 이사회':
         return next(((label, cat) for token, label, cat in COUNCILS if token in t), None)
@@ -157,6 +194,108 @@ def classify(source, title):
     if re.search(r'monetary policy|policy rate decision|mpc summary|geldpolitische lagebeurteilung', t):
         return (f'{source} 통화정책 결정 발표' if re.search(r'publication|assessment|decision|summary', t) else f'{source} 통화정책 회의', '통화정책')
     return None
+
+
+def parse_eurostat_ical(raw, name, country):
+    if not raw.lstrip().startswith('BEGIN:VCALENDAR') or 'END:VCALENDAR' not in raw:
+        raise ValueError('Eurostat iCalendar 응답 형식 오류')
+    events = parse_ics(raw, name, EUROSTAT_INDICATORS, country)
+    if not events:
+        raise ValueError('Eurostat iCalendar 주요 지표 일정 없음')
+    return events
+
+
+def read_irish_events(obtain, attempts, events, name, country, start, end):
+    params = {
+        'StartDate': max(start, IRISH_PRESIDENCY_START),
+        'EndDate': min(end, IRISH_PRESIDENCY_END),
+        'Types': ','.join(IRISH_COUNCIL_TYPES),
+    }
+    seen = set()
+    for page in range(1, 41):
+        query = urlencode(dict(params, page=page))
+        raw = obtain(f'{IRISH_PRESIDENCY_API}?{query}', attempts)
+        if raw in seen:
+            raise ValueError('의장국 일정 페이지가 반복됨')
+        groups, found = parse_irish_events(raw, name, country)
+        if not groups:
+            return
+        seen.add(raw)
+        events.extend(found)
+    raise ValueError('의장국 일정 페이지 한도 초과')
+
+
+def parse_irish_events(raw, name, country):
+    groups = json.loads(raw)
+    if not isinstance(groups, list):
+        raise ValueError('의장국 일정 JSON 응답 형식 오류')
+    events = []
+    for group in groups:
+        d = calendar_date(group['date']).isoformat()
+        for item in group['events']:
+            translated = classify(name, item['title'])
+            if translated:
+                label, cat = translated
+                link = official_url(IRISH_PRESIDENCY_API, item['url'])
+                events.append(event(d, label, name, link, country, cat))
+    return groups, events
+
+
+def parse_nbp_schedule(raw, name, url, country):
+    text, _ = text_page(raw)
+    year = None
+    pending = {}
+    # The PL/EN timetables put the year in a heading and the dates in the rows.
+    month = dict(zip(
+        ('styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec',
+         'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'), range(1, 13)
+    ))
+    month.update(MONTHS)
+    month_pattern = '|'.join(sorted(month, key=len, reverse=True))
+    dates = re.compile(
+        rf'(?<![\d./])(?:(\d{{1,2}})\s*[-–—]\s*)?(\d{{1,2}})'
+        rf'(?:\s+({month_pattern})\b|[./](\d{{1,2}})(?!\d))'
+        rf'(?:[\s./]+(20\d{{2}})\b)?', re.I
+    )
+    month_row = re.compile(
+        rf'^\s*\|?\s*({month_pattern})\s*\|\s*(\d{{1,2}})(?!\d)'
+        rf'(?:\s*[-–—]\s*(\d{{1,2}})(?!\d))?',
+        re.I
+    )
+    for line in text.splitlines():
+        line = line.strip(' #*')
+        heading = re.search(r'\b(20\d{2})\b', line)
+        if re.search(r'schedule|harmonogram|terminy', line, re.I):
+            if re.search(r'minutes|dyskusji|publikacji|publication', line, re.I):
+                year = None
+                continue
+            if heading and re.search(r'MPC|RPP|meeting|posiedze|monetary policy', line, re.I):
+                year = int(heading[1])
+        elif re.fullmatch(r'(?:rok\s+)?20\d{2}(?:\s*r\.?)?', line, re.I):
+            year = int(heading[1])
+        if year is None:
+            continue
+        replacement = re.search(r'\b(?:przeniesion\w*|rescheduled|changed)\b', line, re.I)
+        if replacement:
+            line = line[replacement.end():]
+        row = month_row.match(line)
+        if row and (row.end() == len(line) or line[row.end()] not in './'):
+            first, last = int(row[2]), int(row[3] or row[2])
+            pending[year, month[row[1].lower()]] = (first, last)
+            continue
+        for match in dates.finditer(line):
+            first, last = int(match[1] or match[2]), int(match[2])
+            number = month[match[3].lower()] if match[3] else int(match[4])
+            y = int(match[5]) if match[5] else year
+            if 1 <= first <= last <= 31 and 1 <= number <= 12:
+                pending[y, number] = first, last
+    if not pending:
+        raise ValueError('NBP 공식 회의 일정표를 찾지 못함')
+    return [
+        event(date(y, m, d).isoformat(), f'{name} 통화정책 회의', name, url, country)
+        for (y, m), (first, last) in pending.items()
+        for d in range(first, last + 1)
+    ]
 
 
 def parse_release_schedule(raw, url):
@@ -219,7 +358,7 @@ def parse_page(ident, raw, source, url, country):
                 out.append(event(dt.astimezone(KST).date().isoformat(),'SNB 통화정책 평가·결정 발표',source,url,country))
         if 'Monetary policy assessment' not in text:
             raise ValueError('SNB 정책 일정 없음')
-    elif ident in ('riksbank','norges','consilium','eurostat','nbp'):
+    elif ident in ('riksbank','norges','consilium'):
         # Date headings define event blocks; unrelated footer/news dates are excluded.
         if ident == 'consilium':
             text = text.split('Meeting calendar', 1)[-1].split('About the secretariat',1)[0]
@@ -227,22 +366,14 @@ def parse_page(ident, raw, source, url, country):
             text = text.split('Calendar 20',1)[-1].split('Close menu Close menu',1)[0]
         matches = list(DATE_RE.finditer(text))
         for i, m in enumerate(matches):
-            before = text[max(0, m.start()-220):m.start()]
             after = text[m.end():matches[i+1].start() if i+1 < len(matches) else m.end()+450]
-            if ident == 'nbp':
-                title = f'{source} 통화정책 회의'
-                if not re.search(r'meeting|posiedze', before+after, re.I):
+            segment = after
+            if ident == 'riksbank':
+                first = next((l.strip(' *#') for l in after.splitlines() if l.strip(' *#')), '')
+                if not re.match(r'Monetary policy meeting:|Publication of monetary policy decision', first, re.I):
                     continue
-                translated = title, '통화정책'
-            else:
-                # Eurostat displays title BEFORE release date; others date BEFORE title.
-                segment = before.split('###')[-1] if ident == 'eurostat' else after
-                if ident == 'riksbank':
-                    first = next((l.strip(' *#') for l in after.splitlines() if l.strip(' *#')), '')
-                    if not re.match(r'Monetary policy meeting:|Publication of monetary policy decision', first, re.I):
-                        continue
-                    segment = first
-                translated = classify(source, segment)
+                segment = first
+            translated = classify(source, segment)
             if translated:
                 label, cat = translated
                 # Council may have several relevant meetings under one date heading.
@@ -283,6 +414,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--as-of', type=date.fromisoformat, help='재현용 KST 기준일; 기본 오늘')
     ap.add_argument('--source-cache', type=Path)
+    ap.add_argument('--out', type=Path, help='지정한 경로에 JSON만 저장')
     args = ap.parse_args(argv)
     now = datetime.now(KST)
     start = args.as_of or now.date()
@@ -299,6 +431,8 @@ def main(argv=None):
     def obtain(url, attempts):
         try:
             raw = http_get(url, timeout=25, retries=1).decode('utf-8-sig')
+            if len(raw) < 4096 and '/_Incapsula_Resource' in raw:
+                raise ValueError('공개 일정 대신 접근 제한 페이지 응답')
             attempts.append({'url':url,'status':'ok'})
             return raw
         except Exception as exc:
@@ -322,34 +456,42 @@ def main(argv=None):
         attempts, events, errors = [], [], []
         urls = [url]
         if ident == 'consilium':
-            # A second official calendar page and public news feed are attempted even on 403.
-            urls += [url+'?page=2', 'https://www.consilium.europa.eu/en/press/press-releases/rss/']
+            urls += [url+'?page=2']
         if ident == 'eurostat':
-            urls += ['https://ec.europa.eu/eurostat/web/main/subscribe/ics.format',
-                     'https://ec.europa.eu/eurostat/news/euro-indicators/release-calendar',
-                     'https://ec.europa.eu/eurostat/news/euro-indicators']
-            # Explicit official source snapshots can supplement a JS-only calendar.
-            urls += [u for u in manifest if u.startswith('https://ec.europa.eu/eurostat/') and '/products-euro-indicators/w/' in u]
+            urls = [EUROSTAT_ICAL, 'https://ec.europa.eu/eurostat/news/euro-indicators']
+            urls += [u for u in manifest if u.startswith('https://ec.europa.eu/eurostat/')
+                     and '/products-euro-indicators/w/' in u]
         if ident == 'nbp':
-            urls += ['https://nbp.pl/polityka-pieniezna/rada-polityki-pienieznej/terminy-posiedzen-rpp/']
+            urls = [NBP_SCHEDULE_PL, url]
         if ident == 'norges':
             urls += ['https://www.norges-bank.no/en/news-events/calendar/']
         parsed = False
         for target in urls:
             try:
                 raw = obtain(target, attempts)
-                text, links = text_page(raw)
                 if ident == 'eurostat':
+                    if target == EUROSTAT_ICAL:
+                        events.extend(parse_eurostat_ical(raw, name, country))
+                        parsed = True
+                        if any(doc['start'] <= e['date'] <= doc['end'] for e in events):
+                            break
+                        continue
                     if '/products-euro-indicators/w/' in target:
                         found = parse_release_schedule(raw,target)
                         events.extend(found)
                         parsed = parsed or bool(found)
                         continue
-                    # Follow a bounded set of current official Euro indicator releases.
+                    _, links = text_page(raw)
                     releases = list(dict.fromkeys(urljoin(target,l) for l in links if '/products-euro-indicators/w/2-' in l))[:8]
                     for release in releases:
                         if release not in urls and urlparse(release).hostname == 'ec.europa.eu':
                             urls.append(release)
+                    continue
+                if ident == 'nbp':
+                    events.extend(parse_nbp_schedule(raw, name, target, country))
+                    parsed = True
+                    break
+                _, links = text_page(raw)
                 # Prefer published .ics/iCalendar links when exposed by the official page.
                 feeds = [urljoin(target, l) for l in links if re.search(r'\.ics(?:\?|$)|icalendar|[?&]format=ics', l, re.I)]
                 for feed in list(dict.fromkeys(feeds))[:60]:
@@ -368,14 +510,24 @@ def main(argv=None):
                 parsed = True
             except Exception as exc:
                 errors.append(str(exc))
-        if not parsed:
+        council_partial = ident == 'consilium' and (not parsed or bool(errors) or not events)
+        if council_partial and start <= IRISH_PRESIDENCY_END and end >= IRISH_PRESIDENCY_START:
+            try:
+                read_irish_events(obtain, attempts, events, name, country, start, end)
+                parsed = True
+            except Exception as exc:
+                errors.append(str(exc))
+        if not parsed or council_partial:
             retained = [e for e in previous.get('events',[]) if e.get('source') == name]
+            known = {(e['date'], e['title']) for e in events}
             for e in retained:
-                events.append(dict(e, note='수집 실패로 직전 확인 일정 유지. 원문 재확인 권고.'))
+                if (e['date'], e['title']) not in known:
+                    events.append(dict(e, note='수집 실패로 직전 확인 일정 유지. 원문 재확인 권고.'))
         filtered = [e for e in events if doc['start'] <= e['date'] <= doc['end']]
         doc['events'].extend(filtered)
-        failed = not parsed or bool(errors) or any(a['status'].startswith('실패') for a in attempts)
-        doc['status'][ident] = dict(ok=not failed, count=len(filtered), message=(f'부분 실패 · 확인 일정 {len(filtered)}건' if failed else f'수집 성공 · 기간 내 {len(filtered)}건'), attempts=attempts)
+        failed = not parsed or bool(errors) or council_partial or any(a['status'].startswith('실패') for a in attempts)
+        count = len(filtered)
+        doc['status'][ident] = dict(ok=not failed, count=count, message=(f'부분 실패 · 확인 일정 {count}건' if failed else f'수집 성공 · 기간 내 {count}건'), attempts=attempts)
         if errors:
             doc['status'][ident]['errors'] = list(dict.fromkeys(errors))
         print(f'{name}: {doc["status"][ident]["message"]}')
@@ -387,8 +539,9 @@ def main(argv=None):
         # Keep an existing nonempty file intact on total acquisition failure.
         print('실패: 확인된 일정 0개. 기존 파일 유지.',file=sys.stderr)
         return 1
-    (ROOT / 'data/calendar.json').write_text(payload+'\n',encoding='utf-8')
-    (ROOT / 'data/calendar.js').write_text('window.CALENDAR_DATA = '+payload+';\n',encoding='utf-8')
+    (args.out or ROOT / 'data/calendar.json').write_text(payload+'\n',encoding='utf-8')
+    if args.out is None:
+        (ROOT / 'data/calendar.js').write_text('window.CALENDAR_DATA = '+payload+';\n',encoding='utf-8')
     print(f'일정 작성: {len(doc["events"])}건 ({start} ~ {end}, 포함)')
     return 0 if all(s['ok'] for s in doc['status'].values()) else 3
 

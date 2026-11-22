@@ -19,44 +19,16 @@
 import argparse
 import json
 import re
-import subprocess
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import timedelta
 from pathlib import Path
-from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from common.brief_common import KST, clean_url, link_dead, now_kst, parse_ts  # noqa: E402
 from build_report_js import CATEGORIES, MAX_ITEMS_PER_COUNTRY, validate  # noqa: E402
 from countries import NAMES, canon  # noqa: E402
 
-KST = timezone(timedelta(hours=9))
 MARK = re.compile(r'^\s*\[누락 보완[^\]]*\]\s*')
-
-
-def clean_url(u):
-    if not isinstance(u, str) or not u.strip():
-        return u
-    p = urlparse(u.strip())
-    q = [(k, v) for k, v in parse_qsl(p.query, keep_blank_values=True) if not k.lower().startswith('utm_')]
-    return urlunparse(p._replace(query=urlencode(q)))
-
-
-def parse_ts(v):
-    try:
-        t = datetime.fromisoformat(str(v).replace('Z', '+00:00'))
-        return t if t.tzinfo else None
-    except ValueError:
-        return None
-
-
-def link_dead(u):
-    try:
-        out = subprocess.run(['curl', '-sS', '-o', '/dev/null', '-L', '--max-time', '20', '-A', 'Mozilla/5.0',
-                              '-w', '%{http_code}', u], capture_output=True, text=True, timeout=30)
-    except subprocess.TimeoutExpired:
-        return False
-    code = out.stdout.strip()
-    return code in ('404', '410') or (code == '000' and 'resolve' in out.stderr.lower())
 
 
 def main(argv):
@@ -68,7 +40,7 @@ def main(argv):
     ap.add_argument('--now')
     ap.add_argument('--window-hours', type=float, default=30.0)
     a = ap.parse_args(argv)
-    now = parse_ts(a.now) if a.now else datetime.now(KST)
+    now = parse_ts(a.now) if a.now else now_kst()
     today = now.astimezone(KST).date().isoformat()
     log = {'removed': [], 'warnings': [], 'today': today}
 
