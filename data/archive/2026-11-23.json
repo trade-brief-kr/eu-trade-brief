@@ -1,0 +1,383 @@
+{
+  "date": "2026-11-23",
+  "generatedAt": "2026-11-23T09:19:13+09:00",
+  "coverage": "최근 24시간 보도 중심",
+  "topIssues": [
+    {
+      "text": "프리드리히 메르츠 독일 총리, 회원국의 재정 건전화를 이유로 안토니우 코스타 유럽이사회 상임의장의 2028~2034년 EU 장기예산 절충안 거부",
+      "source": "dpa",
+      "url": "https://www.eu-info.de/dpa-europaticker/333732.html",
+      "date": "2026-11-22",
+      "countries": [
+        "독일"
+      ]
+    },
+    {
+      "text": "EU가 화석연료 전환 조항이 빠진 최종안에 반대하면서 제31차 유엔기후변화협약 당사국총회(COP31) 포괄 합의 불발",
+      "source": "ANSA",
+      "url": "https://www.ansa.it/europa/notizie/rubriche/voceeurodeputati/2026/11/22/renew-europe-cop31-deludente-bene-il-rifiuto-ue-delle-conclusioni_7d003251-975e-4ef6-a9b8-ba9dc7e867a3.html",
+      "date": "2026-11-22",
+      "countries": []
+    },
+    {
+      "text": "오스트리아 중앙은행, EU 입법을 전제로 2027년 중반부터 1년간 디지털 유로를 시험하고 이르면 2029년 유로지역에서 결제에 사용할 수 있다는 일정 제시",
+      "source": "Heute",
+      "url": "https://www.heute.at/s/digitaler-euro-testphase-startet-2027-start-ab-2029-120285541",
+      "date": "2026-11-22",
+      "countries": [
+        "오스트리아"
+      ]
+    },
+    {
+      "text": "유로그룹 의장, 프랑스의 로랑스 분과 독일의 마르쿠스 브루너마이어가 유럽중앙은행(ECB) 집행이사 두 자리의 후보로 등록됐다고 발표",
+      "source": "Eurogroup",
+      "url": "https://www.consilium.europa.eu/it/press/press-releases/2026/11/20/statement-by-the-eurogroup-president-on-the-nominations-for-the-post-of-ecb-executive-board-members/",
+      "date": "2026-11-20",
+      "countries": [
+        "독일",
+        "프랑스"
+      ]
+    },
+    {
+      "text": "유로시스템, 토큰화 예금·증권과 공동 결제망 운영 규칙을 시험할 금융시장 참여 그룹 모집 개시 및 12월 11일 정오(중부유럽시간) 1차 신청 마감 공지",
+      "source": "crypto.news",
+      "url": "https://crypto.news/ecb-appia-tokenized-deposits-securities-tests/",
+      "date": "2026-11-21",
+      "countries": []
+    }
+  ],
+  "countryNews": [
+    {
+      "country": "독일",
+      "items": [
+        {
+          "title": "라인강 수위 회복으로 화물선 적재량 증가",
+          "category": "산업동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "잇따른 강우로 라인강 수위가 올라 화물선 적재량이 회복되고, 연방수문연구소는 카우프 관측소 수위가 약 3.30m에 이를 수 있다고 전망",
+              "source": "tagesschau",
+              "url": "https://www.tagesschau.de/inland/regional/rheinlandpfalz/swr-regen-bringt-dem-rhein-entlastung-aber-keine-entwarnung-100.html",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "프랑스",
+      "items": [
+        {
+          "title": "프랑스 기업의 국내 투자 계획 425억 유로 집계",
+          "category": "산업동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "프랑스 정부가 23일 국내판 ‘추즈 프랑스’ 행사에서 약 150억 유로 규모의 신규 투자 계획 81건을 공개할 예정",
+              "source": "Le Figaro",
+              "url": "https://www.lefigaro.fr/societes/energie-data-centers-cosmetique-plus-de-42-milliards-d-euros-d-investissements-francais-en-2026-pour-le-choose-france-20261122",
+              "date": "2026-11-22"
+            },
+            {
+              "text": "1월 이후 발표된 계획을 합산한 올해 투자 규모는 273건, 425억 유로로 집계"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "영국",
+      "items": [
+        {
+          "title": "납세자 조세피난처 예치금 1조 파운드 돌파",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "영국 국세청이 정보공개 청구로 제공한 자료에 따르면 영국 납세자의 조세피난처 계좌 잔액은 2022~2024년 10% 늘어 처음으로 1조 파운드를 돌파",
+              "source": "The Guardian",
+              "url": "https://www.theguardian.com/business/2026/nov/22/uk-taxpayer-funds-held-in-offshore-tax-havens-top-1tn-latest-hmrc-data-shows",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "이탈리아",
+      "items": [
+        {
+          "title": "중소기업단체, 내년 예산안 지원책 분석",
+          "category": "정책·규제",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "이탈리아 중소기업단체 CNA, 2027년 예산안의 지원책 50건 중 7건이 신규 조치이며 금액을 파악한 31건의 예산 중 88.7%가 6개 사업에 집중됐다고 분석",
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/economia/pmi/2026/11/22/cna-nella-manovra-8-misure-su-10-sono-proroghe-o-rifinanziamenti_7d552854-2826-4d21-8aac-2261425a3742.html",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "스페인",
+      "items": [
+        {
+          "title": "가계의 단기 국채 보유액 7개월 연속 증가",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "스페인 중앙은행 집계에서 가계와 가계 지원 비영리기관의 9월 단기 국채 보유액이 7개월 연속 늘어 230억 3,400만 유로에 도달",
+              "source": "Europa Press",
+              "url": "https://www.europapress.es/economia/macroeconomia-00338/noticia-hogares-elevan-tenencia-letras-tesoro-septiembre-septimo-mes-consecutivo-20261122094550.html",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "네덜란드",
+      "items": [
+        {
+          "title": "지역 대중교통 노조, 23~24일 전국 파업 예고",
+          "category": "산업동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "네덜란드 노조 FNV와 CNV가 단체협약 협상 교착으로 23~24일 지역 대중교통 전국 파업을 예고함에 따라 델프트 등에서 버스 운행 차질 전망",
+              "source": "Omroep Delft",
+              "url": "https://www.omroepdelft.nl/delft/landelijke-staking-streekvervoer-ligt-weer-stil/",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "폴란드",
+      "items": [
+        {
+          "title": "PKO은행, 폴란드 기업 해외 자금 조달 지원",
+          "category": "산업동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "폴란드 최대 은행 PKO의 시몬 미데라 은행장, 뉴욕 투자자 행사에서 폴란드 기업 고객의 해외 차입과 지분투자 유치를 지원한다고 설명",
+              "source": "Business Insider Polska",
+              "url": "https://businessinsider.com.pl/gospodarka/szymon-midera-polska-przedsiebiorczosc-i-ai-kluczami-do-wzrostu-gospodarki/2w6w8mv",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "스웨덴",
+      "items": [
+        {
+          "title": "링할스 원전 4호기 재가동 지연",
+          "category": "에너지",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "스웨덴 링할스 원전 4호기의 재가동이 준비 절차 지연으로 22일에서 23일 저녁으로 미뤄졌으며 재가동 후 정상 출력까지 약 40시간 소요 전망",
+              "source": "SVT Nyheter",
+              "url": "https://www.svt.se/nyheter/lokalt/halland/aterstarten-av-ringhals-skjuts-upp-ytterligare",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "스위스",
+      "items": [
+        {
+          "title": "스위스 중앙은행, 물가 상승의 파급효과 주시",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "앙투안 마르탱 스위스 중앙은행 부총재, 연간 물가상승률이 9월 1.0%에서 10월 1.5%로 높아진 가운데 추가 물가 압력으로 이어질지 주시한다고 설명",
+              "source": "Reuters",
+              "url": "https://www.zonebourse.com/actualite-bourse/la-bns-surveille-etroitement-les-effets-de-second-tour-de-la-inflation-indique-son-vice-president-ce785ed3d18bf426",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "오스트리아",
+      "items": [
+        {
+          "title": "경제부 차관, 항공세 조기 인하 촉구",
+          "category": "정책·규제",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "엘리자베트 체트너 경제부 차관, 항공세가 관광과 기업 활동에 부담을 준다며 인하 방안에 대한 연내 연정 합의를 촉구",
+              "source": "ORF",
+              "url": "https://orf.at/stories/3448936/",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "체코",
+      "items": [
+        {
+          "title": "하원, 정유사 특별세안 표결 예정",
+          "category": "정책·규제",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "체코 하원, 정유사 특별세안을 이번 주 표결할 예정이며 재무부는 이 법안에 따른 올해 세수를 약 55억 코루나로 예상",
+              "source": "ČTK",
+              "url": "https://www.blesk.cz/clanek/zpravy-politika/853234/poslanci-se-v-tydnu-vrati-ke-spornemu-snizeni-podpor-i-mimoradne-dani-na-rafinerie.html",
+              "date": "2026-11-22"
+            },
+            {
+              "text": "하원은 25일 3,860억 코루나 적자를 전제로 한 2027년 예산안 2차 심의 예정"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "헝가리",
+      "items": [
+        {
+          "title": "정부, 1,200억 포린트 도로 보수 계획",
+          "category": "정책·규제",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "머저르 페테르 총리, 지방도로 등 도로망 보수에 1,200억 포린트를 투입하고 국영 도로관리기관의 사업 역량을 확대할 계획 발표",
+              "source": "MTI",
+              "url": "https://mti.hu/hirek/2026/11/22/magyar-peter-120-milliard-forintos-katyumentesito-programot-indit-kormany",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "루마니아",
+      "items": [
+        {
+          "title": "부쿠레슈티 증시 시가총액 한 주간 2.58% 감소",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "부쿠레슈티 증권거래소의 16~20일 시가총액은 전주보다 184억 레이(2.58%) 줄었고 주식 거래대금은 31.65% 감소",
+              "source": "AGERPRES",
+              "url": "https://agerpres.ro/economic/2026/11/22/bursa-de-la-bucuresti-a-pierdut-peste-18-miliarde-de-lei-la-capitalizare-in-aceasta-saptamana--1615673",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "핀란드",
+      "items": [
+        {
+          "title": "복지서비스 지역 21곳 중 18곳 올해 흑자 전망",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "보건·복지를 담당하는 21개 복지서비스 지역 중 18곳이 올해 흑자를 예상했으며, 21곳의 합산 흑자는 약 5억 3,800만 유로로 전망",
+              "source": "Verkkouutiset",
+              "url": "https://www.verkkouutiset.fi/a/hyvinvointialueiden-talous-kaantyi-ylijaamaa-yli-500-miljoonaa-euroa/",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "노르웨이",
+      "items": [
+        {
+          "title": "재무장관, 순자산세 타협 의사 표명",
+          "category": "정책·규제",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "연어 양식업계 기업인 구스타브 비초에가 순자산세 타협안을 거부한 가운데 옌스 스톨텐베르그 재무장관은 타협할 의사가 있다고 표명",
+              "source": "Dagens Næringsliv",
+              "url": "https://www.dn.no/politikk/stoltenberg-om-skatteforlik-vi-forstar-at-vi-ma-gi-og-jenke-oss/2-1-2077432",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "불가리아",
+      "items": [
+        {
+          "title": "두 권역 지방정부에 인프라 등 약 1억 유로 지원",
+          "category": "정책·규제",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "불가리아 지역개발부, 북서부와 중남부 지방정부의 인프라·사회·환경 사업에 약 1억 유로를 지원하며 전기버스 도입과 산업단지 기반시설 정비도 포함",
+              "source": "БТА",
+              "url": "https://www.bta.bg/bg/news/economy/bg/1251898-obshtini-v-severozapadniya-i-yuzhniya-tsentralen-rayon-poluchavat-blizo-100-mln-",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "세르비아",
+      "items": [
+        {
+          "title": "대통령 권한대행, 부처 축소 위한 법 개정 예고",
+          "category": "정책·규제",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "알렉산다르 추피치 국회의장 겸 대통령 권한대행, 의회 위원회 구성을 마친 뒤 현행 25개 부처를 줄이기 위해 정부 부처법을 개정할 계획 표명",
+              "source": "RTS",
+              "url": "https://www.rts.rs/lat/vesti/politika/6089671/cupic-za-rts-kada-sam-izabran-osetio-sam-odgovornost-a-ne-trijumf-vaznije-je-imati-dobru-vladu-nego-je-brzo-formirati.html",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "리투아니아",
+      "items": [
+        {
+          "title": "재무장관, 예산안 재원 제약에 공약 일부 조정 시사",
+          "category": "정책·규제",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "리투아니아 감사원이 예산안의 재정적자 규모에 우려를 제기한 가운데 재무장관은 정부가 공약 일부를 포기해야 할 수 있다고 언급",
+              "source": "LRT",
+              "url": "https://www.lrt.lt/naujienos/verslas/4/3122091/barysas-apie-biudzeta-priejom-tam-tikra-riba-pinigu-nera-ir-jie-neturi-variantu",
+              "date": "2026-11-22"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": [],
+  "lead": "COP31 포괄 합의 불발과 독일의 EU 장기예산 절충안 거부, 프랑스 기업의 국내 투자 계획 425억 유로 집계 및 스웨덴 링할스 원전 4호기 재가동 지연"
+}
