@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-22T20:34:59+09:00",
-  "asOf": "2026-11-22",
-  "start": "2026-11-22",
-  "end": "2026-12-27",
+  "generatedAt": "2026-11-23T09:53:59+09:00",
+  "asOf": "2026-11-23",
+  "start": "2026-11-23",
+  "end": "2026-12-28",
   "sources": [
     {
       "id": "ecb",
@@ -376,15 +376,15 @@
       "attempts": [
         {
           "url": "https://nbp.pl/polityka-pieniezna/rada-polityki-pienieznej/harmonogram-rpp/",
-          "status": "실패(공개 일정 대신 접근 제한 페이지 응답)"
+          "status": "ok"
         },
         {
           "url": "https://nbp.pl/en/monetary-policy/monetary-policy-council/schedule-of-mpc-meetings/",
-          "status": "실패(공개 일정 대신 접근 제한 페이지 응답)"
+          "status": "ok"
         }
       ],
       "errors": [
-        "공개 일정 대신 접근 제한 페이지 응답"
+        "NBP 공식 회의 일정표를 찾지 못함"
       ]
     },
     "cnb": {
@@ -423,15 +423,15 @@
           "status": "실패(HTTP 403)"
         },
         {
-          "url": "https://irish-presidency.consilium.europa.eu/api/events/?StartDate=2026-11-22&EndDate=2026-12-27&Types=271842c3-2535-4f5a-a049-bcdab2758865%2C800bbdac-845d-492c-876b-8cf61e9b195a%2C6b7901c5-1094-4713-add8-3364400eee98%2Ccffca3a4-ef72-4f31-8713-560fb82753fb&page=1",
+          "url": "https://irish-presidency.consilium.europa.eu/api/events/?StartDate=2026-11-23&EndDate=2026-12-28&Types=271842c3-2535-4f5a-a049-bcdab2758865%2C800bbdac-845d-492c-876b-8cf61e9b195a%2C6b7901c5-1094-4713-add8-3364400eee98%2Ccffca3a4-ef72-4f31-8713-560fb82753fb&page=1",
           "status": "ok"
         },
         {
-          "url": "https://irish-presidency.consilium.europa.eu/api/events/?StartDate=2026-11-22&EndDate=2026-12-27&Types=271842c3-2535-4f5a-a049-bcdab2758865%2C800bbdac-845d-492c-876b-8cf61e9b195a%2C6b7901c5-1094-4713-add8-3364400eee98%2Ccffca3a4-ef72-4f31-8713-560fb82753fb&page=2",
+          "url": "https://irish-presidency.consilium.europa.eu/api/events/?StartDate=2026-11-23&EndDate=2026-12-28&Types=271842c3-2535-4f5a-a049-bcdab2758865%2C800bbdac-845d-492c-876b-8cf61e9b195a%2C6b7901c5-1094-4713-add8-3364400eee98%2Ccffca3a4-ef72-4f31-8713-560fb82753fb&page=2",
           "status": "ok"
         },
         {
-          "url": "https://irish-presidency.consilium.europa.eu/api/events/?StartDate=2026-11-22&EndDate=2026-12-27&Types=271842c3-2535-4f5a-a049-bcdab2758865%2C800bbdac-845d-492c-876b-8cf61e9b195a%2C6b7901c5-1094-4713-add8-3364400eee98%2Ccffca3a4-ef72-4f31-8713-560fb82753fb&page=3",
+          "url": "https://irish-presidency.consilium.europa.eu/api/events/?StartDate=2026-11-23&EndDate=2026-12-28&Types=271842c3-2535-4f5a-a049-bcdab2758865%2C800bbdac-845d-492c-876b-8cf61e9b195a%2C6b7901c5-1094-4713-add8-3364400eee98%2Ccffca3a4-ef72-4f31-8713-560fb82753fb&page=3",
           "status": "ok"
         }
       ],
