@@ -1,55 +1,47 @@
 window.REPORT_DATA = {
-  "date": "2026-11-24",
-  "generatedAt": "2026-11-24T09:24:01+09:00",
+  "date": "2026-11-25",
+  "generatedAt": "2026-11-25T09:18:02+09:00",
   "coverage": "최근 24시간 보도 중심",
   "topIssues": [
     {
-      "text": "EU 집행위, 2019~2025년 수입량이 69만 7,000톤에서 89만 8,000톤으로 늘어난 유리섬유 보강재·에폭시수지 등 복합재 원료에 대해 한국산을 포함한 모든 역외산을 대상으로 긴급수입제한조치(세이프가드) 조사 개시",
-      "source": "CEO Magazyn",
-      "url": "https://ceo.com.pl/import-materialow-przemyslowych-wzrosl-29-proc-62174",
-      "altUrl": "https://ceo.com.pl/en/eu-composites-imports-safeguard-investigation-41174/",
-      "date": "2026-11-23",
-      "countries": []
-    },
-    {
-      "text": "EU 집행위, 러시아 은행 약 60곳에 대한 거래 금지와 국제은행간통신협회(SWIFT) 배제, 가상자산 결제망 단속, 그림자 선단 추가 지정 등을 담은 제22차 대러 제재안 제안",
-      "source": "Associated Press",
-      "url": "https://apnews.com/article/europe-russia-sanctions-banks-crypto-visas-sports-ecad86868390f6602b346c70d1fa5757",
-      "date": "2026-11-23",
-      "countries": []
-    },
-    {
-      "text": "EU 이사회, 약정액 1,997억 유로·지급액 2,115억 유로의 2027년 연간 예산안 공식 채택 및 25일 유럽의회 최종 승인 전망",
-      "source": "Council of the European Union",
-      "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/11/23/eu-budget-for-2027-council-gives-final-green-light/",
-      "date": "2026-11-23",
-      "countries": []
-    },
-    {
-      "text": "EU 집행위, 코카콜라 유로퍼시픽 파트너스가 탄산음료·스포츠음료의 회원국 간 거래를 제한하고 도매 고객의 여러 국가 통합 구매 협상을 막았는지 공식 조사 개시",
-      "source": "Euronews",
-      "url": "https://www.euronews.com/2026/11/23/eu-opens-antitrust-probe-into-coca-colas-european-bottler",
-      "date": "2026-11-23",
+      "text": "EU 집행위, 12월 1일부터 내년 6월 18일까지 일부 신형 하이브리드 승용차에 잠정 수입 쿼터 적용 발표. 한국산은 세 기간 합계 6만 7,924대 배정",
+      "source": "2EU",
+      "url": "https://2eu.brussels/index.php/en/news/eu-introduces-import-quotas-for-new-hybrid-cars-from-1-december-with-a-separate-cap-for-china",
+      "date": "2026-11-24",
       "countries": [
-        "독일",
-        "프랑스",
         "영국",
-        "스페인",
-        "네덜란드",
-        "벨기에",
-        "스웨덴",
-        "포르투갈",
-        "룩셈부르크"
+        "세르비아"
       ]
     },
     {
-      "text": "S&P 글로벌, 11월 유로존 종합 구매관리자지수(PMI) 속보치 전월과 같은 51.7로 발표 및 4분기 성장률 약 0.3% 전망",
-      "source": "S&P Global",
-      "url": "https://www.spglobal.com/content/dam/spglobal/mi/en/documents/news-insights/research/2026/11/6327993_6327969_0.1.pdf",
-      "date": "2026-11-23",
+      "text": "유럽의회, 한국 등 11개국의 유기농 인증체계에 대한 동등성 인정을 2036년 말까지 연장하고 수입품의 EU 유기농 로고 사용에 추가 요건을 두는 개정안 승인",
+      "source": "2EU",
+      "url": "https://2eu.brussels/en/news/european-parliament-approves-new-organic-farming-rules-and-raises-certification-exemption-thresholds-for-small-retailers",
+      "date": "2026-11-24",
+      "countries": []
+    },
+    {
+      "text": "유럽의회, EU 배출권거래제 시장안정준비금에서 초과분이 무효 처리되는 기준을 4억 개에서 7억 개로 높이는 개정안 승인. EU 이사회 공식 채택 절차 예정",
+      "source": "2EU",
+      "url": "https://2eu.brussels/en/news/european-parliament-backs-raising-ets-stability-reserve-threshold-to-700-million-allowances",
+      "date": "2026-11-24",
+      "countries": []
+    },
+    {
+      "text": "유럽의회, 일부 중소기업 규제 특례의 적용 범위를 직원 1,000명 미만의 일정 요건 충족 기업으로 넓히고 제품 적합성 문서의 디지털화를 허용하는 법안 4건 승인",
+      "source": "2EU",
+      "url": "https://2eu.brussels/index.php/en/news/european-parliament-approves-relief-for-companies-with-fewer-than-1-000-staff-and-digital-product-documentation",
+      "date": "2026-11-24",
+      "countries": []
+    },
+    {
+      "text": "EU 집행위, 2027년 유럽학기 가을 패키지에서 회원국 예산안의 재정준칙 준수 여부를 평가하고 불가리아와 헝가리에 대한 과도한 재정적자 시정 절차를 다음 단계로 진행하도록 이사회에 권고",
+      "source": "Adnkronos",
+      "url": "https://www.adnkronos.com/economia/manovra-italia-via-libera-ue-ma-bruxelles-avverte-sui-margini-zero_6HUXHaVvGjRDYTxjFVayJJ",
+      "date": "2026-11-24",
       "countries": [
-        "독일",
-        "프랑스"
+        "헝가리",
+        "불가리아"
       ]
     }
   ],
@@ -58,32 +50,28 @@ window.REPORT_DATA = {
       "country": "독일",
       "items": [
         {
-          "title": "기계·전기산업 수출 증가",
-          "category": "대외교역",
+          "title": "11월 이포 기업경기지수 90.6",
+          "category": "경제동향",
           "korea": false,
           "bullets": [
             {
-              "text": "독일 기계설비산업협회(VDMA), 3분기 기계 수출이 전년 동기보다 2.3% 늘고 1~9월 누계는 728억 유로로 0.4% 증가했다고 발표",
-              "source": "Handelsblatt",
-              "url": "https://www.handelsblatt.com/politik/deutschland/konjunktur-maschinenbau-und-elektro-export-zieht-wieder-an/100271968.html",
-              "date": "2026-11-23"
-            },
-            {
-              "text": "독일 전기전자산업협회(ZVEI), 전기산업 수출이 9월 17%, 1~9월 누계 11.5% 증가해 2,144억 유로를 기록했다고 집계"
+              "text": "이포 기업경기지수는 10월 수정치 90.1에서 11월 90.6으로 올라 7개월 연속 상승하며 2023년 봄 이후 최고치 기록",
+              "source": "tagesschau",
+              "url": "https://www.tagesschau.de/wirtschaft/konjunktur/ifo-geschaeftsklima-110.html",
+              "date": "2026-11-24"
             }
           ]
         },
         {
-          "title": "아우디 중국 창춘 공장, 올해 5억 유로 손실 전망",
+          "title": "루프트한자, 일자리 1,000개 추가 감축 추진",
           "category": "산업동향",
           "korea": false,
           "bullets": [
             {
-              "text": "전기차 수요 부진으로 아우디와 중국 이치자동차(FAW)의 합작 공장인 창춘 공장 가동률이 10%를 밑돌아 올해 약 5억 유로의 손실 전망",
-              "source": "Handelsblatt",
-              "url": "https://www.handelsblatt.com/unternehmen/industrie/audi-geisterfabrik-in-china-kostet-hunderte-millionen-euro/100270568.html",
-              "altUrl": "https://ch.zonebourse.com/actualite-bourse/audi-devrait-essuyer-une-perte-de-550-millions-de-dollars-sur-son-site-chinois-selon-handelsblatt-ce7851dad88ef427",
-              "date": "2026-11-23"
+              "text": "루프트한자항공, 기존에 발표한 관리 부문 일자리 약 4,000개 감축에 더해 프랑크푸르트와 뮌헨의 관리·운영 부문 전일제 일자리 1,000개 감축 계획",
+              "source": "tagesschau",
+              "url": "https://www.tagesschau.de/inland/regional/hessen/hr-lufthansa-5-000-stellen-auf-der-streichliste-frankfurt-betroffen-100.html",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -93,28 +81,28 @@ window.REPORT_DATA = {
       "country": "프랑스",
       "items": [
         {
-          "title": "민간 항공 연구에 3억 5,000만 유로",
+          "title": "사노피, 미국 인스메드 인수 계약",
           "category": "산업동향",
           "korea": false,
           "bullets": [
             {
-              "text": "에마뉘엘 마크롱 대통령, 에어버스 블라냐크 공장에서 정부와 업계가 민간 항공기 연구개발을 공동 지원하는 기구의 예산 3억 5,000만 유로 확보 발표",
+              "text": "사노피, 호흡기 질환 치료제를 개발하는 미국 인스메드를 410억 달러(376억 유로)에 인수하는 계약 체결",
               "source": "Le Monde",
-              "url": "https://www.lemonde.fr/economie/article/2026/11/23/une-enveloppe-de-350-millions-d-euros-pour-l-aeronautique-derriere-l-annonce-d-emmanuel-macron-le-chantier-cle-du-successeur-de-l-airbus-a320_6814381_3234.html",
-              "date": "2026-11-23"
+              "url": "https://www.lemonde.fr/economie/article/2026/11/24/sanofi-pret-a-debourser-37-6-milliards-d-euros-pour-l-americain-insmed-un-specialiste-du-traitement-des-maladies-respiratoires_6814758_3234.html",
+              "date": "2026-11-24"
             }
           ]
         },
         {
-          "title": "알스톰, 서유럽 철도 사업 12억 유로 수주",
+          "title": "BYD, 앙바크 공장 인수 독점 협상",
           "category": "산업동향",
           "korea": false,
           "bullets": [
             {
-              "text": "프랑스 철도기업 알스톰, 서유럽에서 철도 시스템 현대화와 10년 넘는 운영·유지보수를 포함한 약 12억 유로 규모 계약 수주 발표",
-              "source": "ALSTOM SA",
-              "url": "https://rss.globenewswire.com/news-release/2026/11/23/3408039/0/fr/alstom-s-a-alstom-enregistre-une-nouvelle-commande-d-environ-1-2-milliard-d-euros-en-europe-occidentale.html",
-              "date": "2026-11-23"
+              "text": "중국 BYD, 프랑스 모젤주 앙바크에서 영국 이네오스가 운영하는 완성차 공장 인수를 위한 독점 협상 개시",
+              "source": "Le Monde",
+              "url": "https://www.lemonde.fr/economie/article/2026/11/24/le-constructeur-automobile-chinois-byd-va-s-implanter-en-france_6814850_3234.html",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -124,18 +112,28 @@ window.REPORT_DATA = {
       "country": "영국",
       "items": [
         {
-          "title": "반도체 설계사 Arm, 최고경영자 임기 2033년까지 연장",
-          "category": "산업동향",
+          "title": "1월 4일부터 가구 에너지 지원금 지급",
+          "category": "에너지",
           "korea": false,
           "bullets": [
             {
-              "text": "영국 케임브리지에 본사를 둔 반도체 설계사 Arm, 르네 하스 최고경영자가 2033년까지 회사를 이끄는 계약 체결 발표",
-              "source": "Arm Holdings plc",
-              "url": "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000155/0001973239-26-000155-index.htm",
-              "date": "2026-11-23"
-            },
+              "text": "영국 정부, 지방세 A~D 등급에 해당하는 잉글랜드 약 2,000만 가구에 2027년 1월 4일부터 에너지 비용 지원금 100파운드 지급 발표",
+              "source": "The Independent",
+              "url": "https://www.independent.co.uk/news/uk/politics/labour-government-cash-payment-date-revealed-energy-bills-b3090909.html",
+              "date": "2026-11-24"
+            }
+          ]
+        },
+        {
+          "title": "북서부 노동생산성 연평균 1.8% 증가",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
             {
-              "text": "하스는 12월 1일부터 Arm의 최대주주인 일본 소프트뱅크그룹의 부회장도 겸임할 예정"
+              "text": "통계청, 2019~2024년 시간당 생산이 연평균 1.8% 늘어난 북서부가 영국 13개 지역 가운데 가장 높은 증가율을 기록했다고 발표",
+              "source": "Office for National Statistics",
+              "url": "https://www.ons.gov.uk/economy/economicoutputandproductivity/productivitymeasures/bulletins/regionalandsubregionallabourproductivityuk/2024",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -145,28 +143,18 @@ window.REPORT_DATA = {
       "country": "이탈리아",
       "items": [
         {
-          "title": "경쟁당국, 유로스핀 가맹점 가격 제한 의혹 조사",
-          "category": "정책·규제",
-          "korea": false,
-          "bullets": [
-            {
-              "text": "이탈리아 경쟁당국, 할인점 체인 유로스핀이 계산대 시스템을 통해 가맹점의 소매가격을 고정하고 가격 인하를 막았는지 조사 개시",
-              "source": "la Repubblica",
-              "url": "https://www.repubblica.it/economia/2026/11/23/news/antitrust_istruttoria_eurospin-425743650/",
-              "date": "2026-11-23"
-            }
-          ]
-        },
-        {
-          "title": "스텔란티스, 고성능차 개발로 투자 재배치",
+          "title": "올해 인공지능 시장 40.2% 성장 전망",
           "category": "산업동향",
           "korea": false,
           "bullets": [
             {
-              "text": "스텔란티스, 고성능차 개발과 고객 레이싱에 투자 역량을 집중하고 세계 내구선수권은 올해 말, 포뮬러 E는 2027년 여름까지 공식 참가 종료 방침 발표",
-              "source": "Sky TG24",
-              "url": "https://tg24.sky.it/motori/2026/11/23/stellantis-motorsport",
-              "date": "2026-11-23"
+              "text": "정보통신기술 업계 협회 아신텔(Assintel), 올해 이탈리아 인공지능 시장이 40.2% 성장해 20억 유로를 넘어설 것으로 전망",
+              "source": "ANSA",
+              "url": "https://www.ansa.it/canale_tecnologia/notizie/tecnologia/2026/11/24/assintel-nel-2026-31-il-mercato-ict-a-684-miliardi.-40-lia_2c0b9651-970c-41c1-ba2a-801bcd852222.html",
+              "date": "2026-11-24"
+            },
+            {
+              "text": "전체 정보통신기술 시장은 3.1% 성장해 684억 유로를 넘고, 기업의 29%는 인공지능을 시험하거나 실제 도입에 착수한 것으로 집계"
             }
           ]
         }
@@ -176,15 +164,31 @@ window.REPORT_DATA = {
       "country": "스페인",
       "items": [
         {
-          "title": "올리브유 생산 160만 톤 전망",
-          "category": "산업동향",
+          "title": "소상공인 부가세 신고 간소화",
+          "category": "정책·규제",
           "korea": false,
           "bullets": [
             {
-              "text": "국제올리브위원회, 2026~2027년 작기 스페인 올리브유 생산량을 세계 최대 규모인 160만 톤, 세계 생산량은 6.4% 늘어난 374만 톤으로 전망",
-              "source": "Europa Press",
-              "url": "https://www.europapress.es/epagro/agricultura/noticia-produccion-mundial-aceite-oliva-crecera-64-2026-27-374-millones-toneladas-20261123162914.html",
-              "date": "2026-11-23"
+              "text": "스페인 정부, 연매출 8만 5,000유로 미만 소상공인이 분기별 부가가치세 신고 대신 연 1회 신고를 선택할 수 있도록 하는 방안 발표",
+              "source": "EL PAÍS",
+              "url": "https://elpais.com/economia/2026-11-24/hacienda-rebaja-el-irpf-de-los-autonomos-y-elimina-los-pagos-trimestrales-del-iva-para-los-pequenos-negocios.html",
+              "date": "2026-11-24"
+            },
+            {
+              "text": "직접 산정 방식으로 소득세를 신고하는 자영업자의 증빙이 어려운 비용 등에 대한 공제율을 2026년분부터 5%에서 10%로 인상"
+            }
+          ]
+        },
+        {
+          "title": "1~9월 정유업 수익률 45.2%",
+          "category": "에너지",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "스페인 중앙은행 집계에서 정유업의 1~9월 수익률은 전년 동기 0.5%에서 45.2%로 상승하고 업계 매출은 약 47% 증가",
+              "source": "EL PAÍS",
+              "url": "https://elpais.com/economia/2026-11-24/las-refinerias-espanolas-viven-su-ano-mas-rentable-al-calor-de-la-tension-en-los-mercados-petroleros.html",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -194,28 +198,31 @@ window.REPORT_DATA = {
       "country": "네덜란드",
       "items": [
         {
-          "title": "헤이그 법원, BYD Ti7의 EU 내 판매 금지",
-          "category": "정책·규제",
+          "title": "포파머스, 2030년 자본수익률 목표 상향",
+          "category": "산업동향",
           "korea": false,
           "bullets": [
             {
-              "text": "헤이그 지방법원, 중국 비야디(BYD)의 스포츠유틸리티차량 Ti7이 랜드로버 디펜더의 디자인권을 침해했다고 판단해 EU 내 판매 금지 가처분 결정",
-              "source": "Tweakers",
-              "url": "https://tweakers.net/nieuws/254832/rechter-verbiedt-verkoop-byd-suv-wegens-gelijkenis-met-land-rover.html",
-              "date": "2026-11-23"
+              "text": "사료업체 포파머스, 2030년 투하자본수익률 목표를 종전 10%에서 최소 15%로 높이고 주당 배당 0.50유로를 목표로 제시",
+              "source": "ForFarmers Group",
+              "url": "https://www.forfarmersgroup.eu/resultaten/capital-markets-day-2026",
+              "date": "2026-11-24"
+            },
+            {
+              "text": "네덜란드·영국·독일에서 자체 성장과 인수로 점유율을 확대하고 폴란드에서는 현지 합작사를 중심으로 성장 추진"
             }
           ]
         },
         {
-          "title": "반도체주 반등에 AEX 장 초반 상승",
-          "category": "경제동향",
+          "title": "농가의 재생에너지 판매 수입원 확대",
+          "category": "에너지",
           "korea": false,
           "bullets": [
             {
-              "text": "전 거래일 2.4% 내린 암스테르담 AEX 지수, ASML·베시·ASM인터내셔널 등 반도체 장비주 반등으로 개장 직후 0.5% 상승",
-              "source": "Reformatorisch Dagblad",
-              "url": "https://www.rd.nl/artikel/aex-index-krabbelt-op-chipbedrijven-herstellen-na-uitverkoop",
-              "date": "2026-11-23"
+              "text": "네덜란드 통계청 잠정치에서 외부에 재생에너지를 공급해 수입을 얻은 농업 경영체는 올해 6,700곳으로 2023년보다 9% 증가",
+              "source": "CBS",
+              "url": "https://www.cbs.nl/nl-nl/nieuws/2026/48/aantal-boerenbedrijven-met-verbreding-in-drie-jaar-tijd-nauwelijks-gestegen",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -225,28 +232,28 @@ window.REPORT_DATA = {
       "country": "폴란드",
       "items": [
         {
-          "title": "10월 건설 생산 9.3% 감소",
+          "title": "10월 실질 소매판매 3.5% 증가",
           "category": "경제동향",
           "korea": false,
           "bullets": [
             {
-              "text": "폴란드 통계청, 10월 건설·시공 생산이 전년 동월 대비 9.3% 감소했으며 기업 부문 실질임금은 2.5% 늘었다고 집계",
+              "text": "폴란드 통계청, 10월 실질 소매판매가 전년 동월 대비 3.5% 늘고 가구·가전 등은 14.9% 증가했다고 발표",
               "source": "Business Insider Polska",
-              "url": "https://businessinsider.com.pl/gospodarka/wynagrodzenia-w-gore-ale-budownictwo-w-dolku-co-dalej-z-polska-gospodarka/eqklzfk",
-              "date": "2026-11-23"
+              "url": "https://businessinsider.com.pl/gospodarka/tak-polacy-wydaja-pieniadze-w-sklepach-najnowsze-dane-gus-o-sprzedazy-detalicznej/6jdrhvp",
+              "date": "2026-11-24"
             }
           ]
         },
         {
-          "title": "S&P, 내년 성장률 2.9% 전망",
+          "title": "3분기 비금융기업 매출 11.9% 증가",
           "category": "경제동향",
           "korea": false,
           "bullets": [
             {
-              "text": "S&P 글로벌 레이팅스, 폴란드 실질 국내총생산 성장률이 올해 3.6%에서 내년 2.9%로 둔화하고 물가상승률은 두 해 모두 3.2%를 기록할 것으로 전망",
-              "source": "Money.pl",
-              "url": "https://www.money.pl/gospodarka/nowa-prognoza-tak-ma-sie-zmienic-polska-i-europejska-gospodarka-7354109008295968a.html",
-              "date": "2026-11-23"
+              "text": "직원 50명 이상 비금융기업의 3분기 매출이 전년 동기 대비 11.9% 증가하고 순매출이익률은 2.1%포인트 오른 5.5% 기록",
+              "source": "Business Insider Polska",
+              "url": "https://businessinsider.com.pl/gospodarka/przychody-i-zyski-duzych-firm-w-iii-kwartale-2026-r-mocno-w-gore/k56y5fw",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -256,15 +263,15 @@ window.REPORT_DATA = {
       "country": "벨기에",
       "items": [
         {
-          "title": "긴축 반대 총파업으로 항공편 운항 차질",
-          "category": "정책·규제",
+          "title": "해운사 CMB.TECH, 3분기 순이익 3억 7,390만 달러",
+          "category": "산업동향",
           "korea": false,
           "bullets": [
             {
-              "text": "주요 노조가 정부 지출 삭감에 반대해 전국 총파업에 돌입하면서 공항의 정기 운항과 대중교통·학교 등 공공서비스에 차질 발생",
-              "source": "Euronews",
-              "url": "https://fr.euronews.com/2026/11/23/belgique-greve-nationale-contre-lausterite-lavenir-du-gouvernement-en-jeu",
-              "date": "2026-11-23"
+              "text": "앤트워프 해운사 CMB.TECH의 3분기 순이익이 전년 동기 1,730만 달러에서 3억 7,390만 달러로 증가하고 계약 잔고는 31억 달러 유지",
+              "source": "CMB.TECH",
+              "url": "https://cmb.tech/public/Q3_2026_Earnings_release_NL.pdf",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -274,15 +281,18 @@ window.REPORT_DATA = {
       "country": "스웨덴",
       "items": [
         {
-          "title": "LKAB·스테그라, 저탄소 철강 원료 협력 확대",
-          "category": "산업동향",
+          "title": "3분기 기업 영업이익 16.3% 증가",
+          "category": "경제동향",
           "korea": false,
           "bullets": [
             {
-              "text": "국영 광산기업 LKAB와 철강기업 스테그라, 보덴 제철소의 직접환원용 철광석 펠릿 장기 공급 협의와 품질 시험·철도 운송 계획에 관한 의향서 체결",
-              "source": "LKAB",
-              "url": "https://news.cision.com/lkab/r/lkab-and-stegra-extend-collaboration-on-iron-ore-pellet-supply-and-testing,c4427514",
-              "date": "2026-11-23"
+              "text": "스웨덴 통계청, 3분기 기업 명목 영업이익이 전년 동기 대비 16.3% 증가하고 영업이익률은 0.7%포인트 오른 8.2% 기록했다고 발표",
+              "source": "Statistiska centralbyrån",
+              "url": "https://www.scb.se/hitta-statistik/statistik-efter-amne/naringsverksamhet-och-utrikeshandel/foretagens-produktion-forsaljning-och-ekonomi--kortperiodisk-statistik/ekonomisk-statistik-pa-kvartal/pong/statistiknyhet/ekonomisk-statistik-pa-kvartal-3e-kvartalet-2026/",
+              "date": "2026-11-24"
+            },
+            {
+              "text": "기계·장비 투자가 증가를 주도하며 기업 명목 총고정투자가 전년 동기 대비 5.7% 증가"
             }
           ]
         }
@@ -292,15 +302,15 @@ window.REPORT_DATA = {
       "country": "스위스",
       "items": [
         {
-          "title": "파트너스그룹 펀드 투자자, 펀드 분할 승인",
-          "category": "경제동향",
+          "title": "하원 위원회, UBS 자본규제 강화안 지지",
+          "category": "정책·규제",
           "korea": false,
           "bullets": [
             {
-              "text": "스위스 사모투자사 파트너스그룹의 66억 유로 규모 글로벌 밸류 펀드 투자자들이 장기 가치 증대형과 자산 매각대금 배분형으로 펀드를 나누는 안에 찬성",
-              "source": "AWP",
-              "url": "https://ch.marketscreener.com/boerse-nachrichten/partners-group-kann-milliardenschweren-fonds-umbauen-ce7851dad98ff42d",
-              "date": "2026-11-23"
+              "text": "스위스 하원 경제위원회, UBS가 해외 자회사 지분의 90%를 자기자본으로 뒷받침하도록 하는 상원안을 지지하고 12월 하원 심의 예정",
+              "source": "BILANZ",
+              "url": "https://www.bilanz.ch/ubs-nationalratskommission-fordert-90percent-eigenkapital/d6ctpyr",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -310,15 +320,31 @@ window.REPORT_DATA = {
       "country": "오스트리아",
       "items": [
         {
-          "title": "연말 성수기에도 올해 유통업 부가가치 정체 전망",
-          "category": "경제동향",
+          "title": "산업용 전기료 지원에 최대 7억 5,000만 유로",
+          "category": "에너지",
           "korea": false,
           "bullets": [
             {
-              "text": "오스트리아 경제연구소(WIFO), 올해 유통업 매출이 늘어도 연료비 등 비용 상승으로 부가가치가 정체될 것으로 전망",
+              "text": "연립정부, 에너지 다소비 업종의 전기료 부담을 낮추기 위해 2027~2029년 최대 7억 5,000만 유로를 지원하는 방안을 12월 추진할 계획",
+              "source": "Der Standard",
+              "url": "https://www.derstandard.at/story/3000000350618/regierung-foerdert-industrie-mit-750-millionen-euro-wie-viel-klientelpolitik-steckt-da-drinnen",
+              "date": "2026-11-24"
+            }
+          ]
+        },
+        {
+          "title": "티롤에 최대 8MW 데이터센터 추진",
+          "category": "산업동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "쿨테크(Cooltec), 티롤주 할에 5,500만~6,000만 유로를 투자해 최대 8MW까지 확장 가능한 데이터센터를 내년 봄 착공할 계획",
               "source": "ORF",
-              "url": "https://orf.at/stories/3448753/",
-              "date": "2026-11-23"
+              "url": "https://tirol.orf.at/stories/3380905/",
+              "date": "2026-11-24"
+            },
+            {
+              "text": "초기 전력 접속 용량은 4MW로 잡고 시설에서 나오는 열은 지역난방망에 공급할 계획"
             }
           ]
         }
@@ -328,31 +354,15 @@ window.REPORT_DATA = {
       "country": "체코",
       "items": [
         {
-          "title": "팀코리아, 두코바니 원전 적기 준공 재확인",
-          "category": "에너지",
-          "korea": true,
-          "bullets": [
-            {
-              "text": "한국수력원자력과 참여 기업들, 공동성명을 통해 체코 두코바니 원전 5·6호기를 정해진 예산과 기한 내에 준공하겠다는 방침 재확인",
-              "source": "이데일리",
-              "url": "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02158246645648672",
-              "date": "2026-11-23"
-            },
-            {
-              "text": "한국 정부는 2027년 4월 건설허가 신청과 2029년 11월 착공을 목표로 사업 진행 상황 점검"
-            }
-          ]
-        },
-        {
-          "title": "체코·영국, 철강 투자 협의",
-          "category": "국제·외교",
+          "title": "11월 경제신뢰지수 100.2로 상승",
+          "category": "경제동향",
           "korea": false,
           "bullets": [
             {
-              "text": "페트르 마친카 체코 외무장관, 런던에서 에드 밀리밴드 영국 외무장관과 영국 철강업에 대한 체코 투자와 철강업 구조조정 경험 공유 방안 논의",
+              "text": "체코 통계청, 11월 경제신뢰지수가 전월보다 2.3포인트 오른 100.2, 산업 부문 신뢰지수는 7.0포인트 오른 97.5로 집계됐다고 발표",
               "source": "ČTK",
-              "url": "https://www.ceskenoviny.cz/zpravy/macinka-jednal-s-milibandem-o-bezpecnosti-evropy-ci-o-spolupraci-britanie-s-eu/2905494",
-              "date": "2026-11-23"
+              "url": "https://www.ceskenoviny.cz/zpravy/duvera-v-ceskou-ekonomiku-v-listopadu-mezimesicne-stoupla/2905784",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -362,15 +372,18 @@ window.REPORT_DATA = {
       "country": "헝가리",
       "items": [
         {
-          "title": "총리, 우크라이나 지원과 EU 장기예산 분리 요구",
-          "category": "국제·외교",
+          "title": "대기업 법인세율 15%로 인상",
+          "category": "정책·규제",
           "korea": false,
           "bullets": [
             {
-              "text": "머저르 페테르 총리, 의회에서 안토니우 코스타 유럽이사회 상임의장의 차기 7개년 예산 절충안에 반대하고 우크라이나 재원은 별도 논의하자고 제안",
-              "source": "Telex",
-              "url": "https://telex.hu/belfold/2026/11/23/magyar-peter-eu-s-koltsegvetes",
-              "date": "2026-11-23"
+              "text": "의회, 2027년부터 기준 연매출 5억 유로 이상 대기업의 법인세율을 9%에서 15%로 올리는 세법 개정안 가결",
+              "source": "Portfolio.hu",
+              "url": "https://www.portfolio.hu/gazdasag/20261124/itt-a-dontes-emelkedik-a-nagyvallalatok-tarsasagi-adoja-atalakitjak-a-kedvezmenyeket-878648",
+              "date": "2026-11-24"
+            },
+            {
+              "text": "대기업 판정에는 연결 매출을 반영하고 일반 연구개발 세액공제율은 기존 10%에서 20%로 인상"
             }
           ]
         }
@@ -380,15 +393,15 @@ window.REPORT_DATA = {
       "country": "슬로바키아",
       "items": [
         {
-          "title": "오스트리아와 국경 교통망 협력 양해각서",
-          "category": "국제·외교",
+          "title": "감사원, 수도의 민간 위탁 지출 지적",
+          "category": "정책·규제",
           "korea": false,
           "bullets": [
             {
-              "text": "로베르트 피초 총리와 크리스티안 슈토커 오스트리아 총리, D4·S8 고속도로 연결, 철도 건설, 모라바강 교량 확충 협력에 관한 양해각서 서명",
-              "source": "TASR",
-              "url": "https://www.teraz.sk/slovensko/premier-rokoval-v-bratislave-s-rakusky/1009882-clanok.html",
-              "date": "2026-11-23"
+              "text": "감사원, 브라티슬라바시가 자체 공기업의 업무에 해당하는 서비스를 민간에 맡겨 2022~2025년 두 업체에 3,760만 유로를 지급했다고 발표",
+              "source": "Aktuality.sk",
+              "url": "https://www.aktuality.sk/clanok/4ywwgnR/kym-komunalny-podnik-v-bratislave-mal-chaos-v-uctovnictve-magistrat-poslal-sukromnym-firmam-miliony-eur/",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -398,28 +411,28 @@ window.REPORT_DATA = {
       "country": "루마니아",
       "items": [
         {
-          "title": "갈라치 제철소 부지에 태양광·저장시설 추진",
-          "category": "에너지",
+          "title": "오첼루로슈 제철소에 1억 2,000만 유로 금융 지원",
+          "category": "산업동향",
           "korea": false,
           "bullets": [
             {
-              "text": "전력회사 일렉트리카, 리버티 갈라치 제철소 부지 약 240헥타르에 태양광 발전·에너지 저장시설을 설치하기 위한 25년 지상권 계약 체결",
-              "source": "Electrica",
-              "url": "https://m.bvb.ro/FinancialInstruments/SelectedData/NewsItem/EL-Electrica-si-Liberty-Galati-semneaza-un-contract-de-superficie/EEBF1",
-              "date": "2026-11-23"
+              "text": "라이파이젠은행, 오첼루로슈 제철소 재가동에 1억 2,000만 유로를 지원하고 새 연속주조·압연 설비의 연간 생산능력은 약 70만 톤으로 전망",
+              "source": "Profit.ro",
+              "url": "https://www.profit.ro/povesti-cu-profit/energie/umbrarescu-atrage-o-finantare-substantiala-pentru-rena%C8%99terea-combinatului-otelu-rosu-raiffeisen-bank-finanteaza-investitia-cu-120-milioane-euro-23007464",
+              "date": "2026-11-24"
             }
           ]
         },
         {
-          "title": "1~9월 공공투자 30% 증가",
-          "category": "경제동향",
+          "title": "스위스 비컴프, 티미쇼아라에 공장 신설",
+          "category": "산업동향",
           "korea": false,
           "bullets": [
             {
-              "text": "코스민 마리네스쿠 루마니아 중앙은행 부총재, 올해 1~9월 공공투자가 30% 늘었으며 유럽 재원 비중은 전년 동기 57%에서 66%로 상승했다고 발표",
-              "source": "AGERPRES",
-              "url": "https://agerpres.ro/economic/2026/11/23/marinescu-bnr-mai-multe-investitii-realizate-de-catre-stat-nu-inseamna-neaparat-mai-bine-pentru-econ--1615871",
-              "date": "2026-11-23"
+              "text": "스위스 복합소재 기업 비컴프(Bcomp), 자동차 등에 쓰이는 아마 섬유 원사를 티미쇼아라에서 생산하고 2027년 중반 가동을 시작할 계획",
+              "source": "Profit.ro",
+              "url": "https://www.profit.ro/stiri/economie/foto-romania-atrage-o-investitie-straina-elvetienii-de-la-bcomp-vor-deschide-o-noua-fabrica-la-timisoara-23008110",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -429,15 +442,18 @@ window.REPORT_DATA = {
       "country": "덴마크",
       "items": [
         {
-          "title": "르완다와 무역·투자 협력 협정 서명",
-          "category": "대외교역",
+          "title": "데만트, 중장기 자체 성장률 5~7% 전망",
+          "category": "산업동향",
           "korea": false,
           "bullets": [
             {
-              "text": "덴마크와 르완다, 무역·투자 확대를 위한 협력 협정과 이중과세 방지 협약 협상을 개시하기 위한 의향서에 서명",
-              "source": "Udenrigsministeriet",
-              "url": "https://api.via.ritzau.dk/pressemeddelelse/15306577/danmark-og-rwanda-styrker-samarbejdet-med-partnerskabsaftale?lang=da&publisherId=2012662",
-              "date": "2026-11-23"
+              "text": "보청기·청각 진단기기 기업 데만트, 중장기 연간 자체 성장률 전망을 6~8%에서 5~7%로 조정",
+              "source": "Demant A/S",
+              "url": "https://via.ritzau.dk/announcement/15307921?lang=da&publisherId=13560112",
+              "date": "2026-11-24"
+            },
+            {
+              "text": "올해 4분기부터 2027년 말까지 자사주 매입으로 주주에게 최소 30억 덴마크 크로네를 환원할 계획"
             }
           ]
         }
@@ -447,15 +463,18 @@ window.REPORT_DATA = {
       "country": "핀란드",
       "items": [
         {
-          "title": "맨챌래에 70MW 데이터센터 건설",
-          "category": "산업동향",
+          "title": "10월 산업 생산자물가 9.4% 상승",
+          "category": "경제동향",
           "korea": false,
           "bullets": [
             {
-              "text": "핀란드 건설사 얏케(Jatke), 인공지능 클라우드 기업 네비우스의 맨챌래 데이터센터 건설 사업을 공개하고 완공 시 전력 용량을 70MW로 제시",
-              "source": "Jatke Oy",
-              "url": "https://api.sttinfo.fi/tiedote/72526164/jatke-rakentaa-nebiukselle-datakeskusta-mantsalaan?lang=fi&publisherId=69820730",
-              "date": "2026-11-23"
+              "text": "핀란드 통계청, 10월 산업 생산자물가가 석유제품과 기초금속 가격 상승의 영향으로 전년 동월 대비 9.4% 올랐다고 발표",
+              "source": "Tilastokeskus",
+              "url": "https://stat.fi/fi/julkaisu/cmfgjlhly89ga07vxacjjvr13",
+              "date": "2026-11-24"
+            },
+            {
+              "text": "수출물가지수는 전년 동월 대비 10.8%, 수입물가지수는 10.9% 상승"
             }
           ]
         }
@@ -465,18 +484,15 @@ window.REPORT_DATA = {
       "country": "노르웨이",
       "items": [
         {
-          "title": "보르에네르기, 코노코필립스 노르웨이 사업 인수 계약",
+          "title": "에퀴노르, 독일과 18년 가스 공급 계약",
           "category": "에너지",
           "korea": false,
           "bullets": [
             {
-              "text": "보르에네르기(Vår Energi), 코노코필립스의 노르웨이 석유·가스 사업과 영국 내 관련 시설을 430억 크로네 규모에 인수하는 계약 발표",
-              "source": "E24",
-              "url": "https://e24.no/boers-og-finans/i/z0Gj1r/vaar-energi-kjoeper-conocophillips-norske-virksomhet-i-avtale-verdt-43-milliarder-kroner",
-              "date": "2026-11-23"
-            },
-            {
-              "text": "에코피스크 유전 지대와 노르파이프 송유관 운영권이 인수 대상에 포함되며 당국 승인 후 2027년 1분기 말 거래 종결 전망"
+              "text": "에퀴노르, 2027년 1월부터 2044년 말까지 독일 에너지 기업 VNG에 연간 최대 15.3TWh의 천연가스를 공급하는 계약 체결",
+              "source": "Equinor",
+              "url": "https://www.equinor.com/news/20261124-vng-18-year-gas-sales-agreement",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -486,16 +502,15 @@ window.REPORT_DATA = {
       "country": "아일랜드",
       "items": [
         {
-          "title": "켄메어리소시스, 조건부 인수안 가격에 원칙 합의",
-          "category": "산업동향",
+          "title": "PwC, 내년 수정 내수 2.3% 성장 전망",
+          "category": "경제동향",
           "korea": false,
           "bullets": [
             {
-              "text": "아일랜드 광산업체 켄메어리소시스, 아부다비 국제자원홀딩스(IRH)의 현금 인수 가능성을 두고 전 거래일 종가보다 52% 높은 주당 380펜스에 원칙 합의",
-              "source": "Kenmare Resources",
-              "url": "https://www.kenmareresources.com/rns/2026-nov-joint-statement-regarding-agreement-of-a-pre-conditional-possible-cash-acquisition-of-kenmare-resources-plc-by-international-resources-holding-rsc-ltd/",
-              "altUrl": "https://www.globenewswire.com/fr/news-release/2026/11/23/3408030/0/en/joint-statement-regarding-agreement-of-a-pre-conditional-possible-cash-acquisition-of-kenmare-resources-plc-by-international-resources-holding-rsc-ltd.html",
-              "date": "2026-11-23"
+              "text": "PwC, 아일랜드의 수정 내수가 2027년 2.3% 증가하고 물가상승률은 올해 3.8%에서 2027년 2.6%로 둔화할 것으로 전망",
+              "source": "The Irish Times",
+              "url": "https://www.irishtimes.com/business/2026/11/24/domestic-economy-to-moderate-in-2027/",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -505,18 +520,18 @@ window.REPORT_DATA = {
       "country": "포르투갈",
       "items": [
         {
-          "title": "레고, 이스타헤자에 10억 유로 규모 공장 투자",
-          "category": "산업동향",
+          "title": "기업 성장에 5억 유로 재간접펀드 추진",
+          "category": "정책·규제",
           "korea": false,
           "bullets": [
             {
-              "text": "덴마크 레고그룹, 포르투갈 이스타헤자 공장에 약 10억 유로를 투자하고 완전 가동 시 1,000명 이상을 고용할 계획 발표",
-              "source": "Euronews",
-              "url": "https://pt.euronews.com/2026/11/23/portugal-recebe-fabrica-lego-de-1-mil-milhoes-e-mais-de-1-000-empregos",
-              "date": "2026-11-23"
+              "text": "정부, 포르투갈 기업의 성장자금 조달을 돕기 위해 개발은행이 운용하는 초기 5억 유로 규모 재간접펀드 조성 추진",
+              "source": "Jornal Económico",
+              "url": "https://jornaleconomico.sapo.pt/noticias/fundo-de-fundos-de-500-milhoes-do-bpf-sera-aberto-a-todos-os-setores-e-tera-candidaturas-em-continuo/",
+              "date": "2026-11-24"
             },
             {
-              "text": "새 공장은 2030년 생산을 시작해 유럽·중동·아프리카 시장에 공급할 제품의 성형·가공·포장을 한곳에서 수행할 예정"
+              "text": "개발은행의 개별 펀드 출자 비중은 최대 49%로 제한하고 업종 제한 없이 운용사 신청을 상시 접수할 계획"
             }
           ]
         }
@@ -526,15 +541,15 @@ window.REPORT_DATA = {
       "country": "그리스",
       "items": [
         {
-          "title": "중소기업 AI 도입에 1억 5,000만 유로 지원 계획",
-          "category": "정책·규제",
+          "title": "피레우스은행, 중소기업 금융 21억 유로 확대 추진",
+          "category": "경제동향",
           "korea": false,
           "bullets": [
             {
-              "text": "타키스 테오도리카코스 개발부 장관, 중소기업의 인공지능 도입을 지원하는 1억 5,000만 유로 규모의 제도를 연말까지 마련할 계획 발표",
+              "text": "피레우스은행, 유럽투자기금과의 협력을 확대해 2029년까지 그리스 중소기업에 약 21억 유로 규모의 신규 금융 공급 추진",
               "source": "Οικονομικός Ταχυδρόμος",
-              "url": "https://www.ot.gr/2026/11/23/oikonomia/theodorikakos-i-texniti-noimosyni-na-ginei-ergaleio-kalyteris-paragogikotitas-kai-oxi-pedio-neon-anisotiton/",
-              "date": "2026-11-23"
+              "url": "https://www.ot.gr/2026/11/24/epixeiriseis/trapezes/peiraios-dieyrynei-ti-synergasia-tis-me-to-eif-sto-plaisio-tou-investeu/",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -544,15 +559,15 @@ window.REPORT_DATA = {
       "country": "불가리아",
       "items": [
         {
-          "title": "소피아 증시 SOFIX 지수 0.64% 상승",
-          "category": "경제동향",
+          "title": "의회 위원회, 내년 관광 예산안 1차 가결",
+          "category": "정책·규제",
           "korea": false,
           "bullets": [
             {
-              "text": "불가리아 증권거래소 대표 지수 SOFIX, 주 첫 거래일 0.64% 오른 2,204.10에 마감했으며 주요 시장 거래대금은 237만 유로 기록",
+              "text": "의회 관광위원회, 교통 연결과 관광 홍보에 1,000만 유로를 별도 배정한 2027년 관광 예산안을 1차 심의에서 가결",
               "source": "БТА",
-              "url": "https://www.bta.bg/bg/news/economy/1252714-sofix-startira-sedmitsata-s-povishenie",
-              "date": "2026-11-23"
+              "url": "https://www.bta.bg/bg/news/economy/1253538-komisiyata-po-turizam-v-ns-prie-na-parvo-chetene-byudzheta-za-2027-g-predvizhd",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -562,15 +577,28 @@ window.REPORT_DATA = {
       "country": "크로아티아",
       "items": [
         {
-          "title": "2027년 예산안, 재정적자 GDP 대비 2.9% 전망",
-          "category": "정책·규제",
+          "title": "제조업 노동생산성 연평균 5.9% 증가",
+          "category": "산업동향",
           "korea": false,
           "bullets": [
             {
-              "text": "의회가 24일 심의할 정부 예산안에 세입 373억 유로, 세출 415억 유로를 편성하고 일반정부 재정적자는 국내총생산의 2.9%로 전망",
+              "text": "크로아티아 상공회의소 발표에서 2013~2024년 제조업 노동생산성은 연평균 5.9% 증가했으며 생산성 수준은 EU 평균의 41.2%로 집계",
               "source": "HRT",
-              "url": "https://vijesti.hrt.hr/gospodarstvo/pavic-brani-proracun-za-2027-puljak-upozorava-na-rast-rashoda-13023811",
-              "date": "2026-11-23"
+              "url": "https://vijesti.hrt.hr/gospodarstvo/preradivacka-industrija-dize-produktivnost-ali-uz-nizu-dodanu-vrijednost-13026033",
+              "date": "2026-11-24"
+            }
+          ]
+        },
+        {
+          "title": "10월 취업자 0.9% 감소",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "크로아티아 통계청, 10월 취업자 수가 약 176만 명으로 전년 동월 대비 0.9%, 전월 대비 0.5% 감소했다고 발표",
+              "source": "HRT",
+              "url": "https://vijesti.hrt.hr/gospodarstvo/zaposlenih-u-listopadu-176-milijuna-09-posto-manje-nego-lani-13025696",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -580,15 +608,15 @@ window.REPORT_DATA = {
       "country": "슬로베니아",
       "items": [
         {
-          "title": "24일부터 휘발유·경유 가격 상한 인하",
-          "category": "에너지",
+          "title": "11월 경제심리지수 1.1포인트 개선",
+          "category": "경제동향",
           "korea": false,
           "bullets": [
             {
-              "text": "슬로베니아 정부, 24~30일 고속도로 밖 주유소의 소매가격 상한을 리터당 95옥탄 휘발유 1.413유로, 일반 경유 1.738유로로 인하 발표",
-              "source": "Slovenske novice",
-              "url": "https://slovenskenovice.delo.si/novice/slovenija/cene-bencina-in-dizla-znova-dol-poglejte-koliko-boste-prihranili-na-liter",
-              "date": "2026-11-23"
+              "text": "슬로베니아 통계청, 11월 경제심리지수가 소비자·건설업 신뢰 개선에 힘입어 전월 마이너스 1.6에서 마이너스 0.5로 상승했다고 발표",
+              "source": "Statistični urad Republike Slovenije",
+              "url": "https://www.stat.si/StatWeb/pr/News/Index/14085",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -598,15 +626,15 @@ window.REPORT_DATA = {
       "country": "세르비아",
       "items": [
         {
-          "title": "3분기 기업대출 10.1%, 가계대출 18.6% 증가",
-          "category": "경제동향",
+          "title": "경쟁당국, 이데아 납품업체와 공급망 논의",
+          "category": "정책·규제",
           "korea": false,
           "bullets": [
             {
-              "text": "세르비아 중앙은행, 3분기 기업대출과 가계대출이 전년 동기보다 각각 10.1%, 18.6% 늘었으며 두 부문 모두 증가세는 둔화했다고 발표",
-              "source": "Tanjug",
-              "url": "https://www.tanjug.rs/ekonomija/srbija/300236/narodna-banka-srbije-medugodisnji-rast-kreditne-aktivnosti-u-srbiji-i-dalje-je-relativno-visok/amp",
-              "date": "2026-11-23"
+              "text": "경쟁보호위원회, 대형 유통사 이데아(IDEA) 납품업체들과 거래 애로 및 공급 안정 방안을 논의하고 가격 등 민감정보 공유 금지 원칙 강조",
+              "source": "RTS",
+              "url": "https://www.rts.rs/lat/vesti/ekonomija/6091580/idea-marketi-poslovanje.html",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -616,15 +644,33 @@ window.REPORT_DATA = {
       "country": "리투아니아",
       "items": [
         {
-          "title": "재무부, 정유업 초과이윤세 초안 마련",
+          "title": "10월 주택가격 상승률 17.7%로 둔화",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "리투아니아 중앙은행 집계에서 주택 거래가격의 전년 동월 대비 상승률은 9월 19.5%에서 10월 17.7%로 둔화",
+              "source": "LRT",
+              "url": "https://www.lrt.lt/naujienos/verslas/4/3124153/lietuvos-banko-atstovas-busto-kainu-augimas-leteja",
+              "date": "2026-11-24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "라트비아",
+      "items": [
+        {
+          "title": "내년 잠정예산으로 새해 시작",
           "category": "정책·규제",
           "korea": false,
           "bullets": [
             {
-              "text": "민다우가스 싱케비추스 총리, 재무부가 정유업체에 부과할 초과이윤세 초안을 마련했으며 수일 내 업계와 협의할 계획이라고 발표",
-              "source": "LRT",
-              "url": "https://www.lrt.lt/naujienos/verslas/4/3123183/m-sinkevicius-virspelnio-mokescio-juodrastis-jau-yra-parengtas",
-              "date": "2026-11-23"
+              "text": "새 내각 첫 회의에서 2027년 예산 관련 보고서 3건을 검토하고 연내 새 예산 확정이 어려워 잠정예산으로 새해를 시작할 예정",
+              "source": "LSM.lv",
+              "url": "https://www.lsm.lv/raksts/zinas/zinas-vieglaja-valoda/24.11.2026-zinas-vieglaja-valoda-24-novembri.a673315/",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -634,15 +680,33 @@ window.REPORT_DATA = {
       "country": "에스토니아",
       "items": [
         {
-          "title": "에스티에네르기, 343명 감원 결정",
-          "category": "에너지",
+          "title": "파이프드라이브, 현지 인력 236명 감축",
+          "category": "산업동향",
           "korea": false,
           "bullets": [
             {
-              "text": "에너지기업 에스티에네르기, 근로자 측과의 협의를 마치고 본사와 자회사에서 343명을 감원하기로 결정했으며 당초 계획보다 47명 축소",
+              "text": "영업관리 소프트웨어 기업 파이프드라이브, 현지 인력의 62%에 해당하는 236명을 집단 감원할 계획을 실업보험기금에 통보",
               "source": "ERR",
-              "url": "https://www.err.ee/1610203651/eesti-energias-saab-koondamisteate-343-tootajat",
-              "date": "2026-11-23"
+              "url": "https://www.err.ee/1610204908/pipedrive-koondab-eestis-236-inimest",
+              "date": "2026-11-24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "룩셈부르크",
+      "items": [
+        {
+          "title": "에너지 지원 연장에 내년 물가 2.5% 전망",
+          "category": "경제동향",
+          "korea": false,
+          "bullets": [
+            {
+              "text": "룩셈부르크 통계청, 에너지 가격 지원 연장을 반영한 2027년 물가상승률을 2.5%로 전망해 지원이 없을 때보다 0.4%포인트 하향",
+              "source": "RTL Infos",
+              "url": "https://infos.rtl.lu/news/luxembourg/le-paquet-resilience-freine-linflation-et-retarde-lindex-1225554643",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -652,15 +716,18 @@ window.REPORT_DATA = {
       "country": "키프로스",
       "items": [
         {
-          "title": "대기업 최저한세 15% 이행법 개정 추진",
-          "category": "정책·규제",
+          "title": "바실리코 LNG 터미널 완공 재입찰 진행",
+          "category": "에너지",
           "korea": false,
           "bullets": [
             {
-              "text": "키프로스, EU 기준에 맞춰 연 매출 7억 5,000만 유로 초과 다국적·국내 기업집단에 최저 실효세율 15%를 적용하는 법 개정 추진",
+              "text": "키프로스 정부, 바실리코 액화천연가스 수입 터미널 완공을 에너지 정책의 우선 과제로 제시하고 새 입찰 절차가 진행 중이라고 발표",
               "source": "Philenews",
-              "url": "https://www.philenews.com/oikonomia/kypros/article/1799450/epimenoun-logistes-ke-selk-efigan-amerikanikes-eteries-ke-tha-figoun-ke-alles-to-kratos-zita-simmorfosi-me-ton-elachisto-foro-15-pou-zita-i-ee/",
-              "date": "2026-11-23"
+              "url": "https://www.philenews.com/oikonomia/kypros/article/1799769/piki-gia-energia-protereotita-sto-vasiliko-ke-ta-kitasmata-fisikou-aeriou-i-schediasmi-tis-kivernisis/",
+              "date": "2026-11-24"
+            },
+            {
+              "text": "배타적경제수역 10구역의 글라우코스·페가수스 가스전은 상업성을 공식 인정받았으며 사업자들은 2027년 초 개발·생산계획 제출 목표"
             }
           ]
         }
@@ -670,15 +737,15 @@ window.REPORT_DATA = {
       "country": "몰타",
       "items": [
         {
-          "title": "10월 소매물가 상승률 2.4%로 둔화",
+          "title": "중앙은행, 상반기 금융시스템 복원력 유지 평가",
           "category": "경제동향",
           "korea": false,
           "bullets": [
             {
-              "text": "몰타 통계청, 10월 소매물가지수 상승률이 전년 동월 대비 2.4%로 9월의 2.9%에서 낮아졌으며 주거비 부문은 6.7% 상승했다고 발표",
-              "source": "NSO Malta",
-              "url": "https://nso.gov.mt/retail-price-index-rpioctober-2026/",
-              "date": "2026-11-23"
+              "text": "몰타 중앙은행, 상반기 금융안정보고서에서 대외 불확실성 속에도 금융시스템이 복원력을 유지했으며 주택가격과 주택담보대출은 상승세를 보였다고 평가",
+              "source": "MaltaToday",
+              "url": "https://www.maltatoday.com.mt/business/business_news/145923/maltas_financial_system_remains_resilient__central_bank",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -688,15 +755,15 @@ window.REPORT_DATA = {
       "country": "아이슬란드",
       "items": [
         {
-          "title": "경쟁당국, 국제 연료가격 하락의 소매가 반영 여부 조사",
-          "category": "에너지",
+          "title": "10월 생산자물가 전월비 0.7% 상승",
+          "category": "경제동향",
           "korea": false,
           "bullets": [
             {
-              "text": "아이슬란드 경쟁당국, 국제 연료가격 하락이 국내 주유소 가격에 반영돼 소비자 부담을 줄였는지 조사 방침",
-              "source": "RÚV",
-              "url": "https://spilari.nyr.ruv.is/utvarp/spila/hadegisfrettir/25243/bhs82n",
-              "date": "2026-11-23"
+              "text": "아이슬란드 통계청, 10월 생산자물가가 전월보다 0.7% 올랐으며 수산물과 중공업 제품 가격은 각각 0.9%와 1.1% 상승했다고 발표",
+              "source": "Hagstofa Íslands",
+              "url": "https://hagstofa.is/utgafur/frettasafn/verdlag/visitala-framleidsluverds-i-oktober-2026/",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -706,15 +773,15 @@ window.REPORT_DATA = {
       "country": "알바니아",
       "items": [
         {
-          "title": "상위 200개 기업 매출의 약 70%가 상업·건설에 집중",
-          "category": "경제동향",
+          "title": "티라나, EU·서부발칸 투자포럼 개최 예정",
+          "category": "대외교역",
           "korea": false,
           "bullets": [
             {
-              "text": "알바니아 상위 200개 기업의 지난해 매출 중 상업·건설이 약 70%를 차지했으며 기업 포럼에서 수출 확대와 유럽 기준 충족을 위한 투자 필요성 제기",
-              "source": "Revista Monitor",
-              "url": "https://monitor.al/forumi-i-monitor-top-200-bizneset-nga-do-te-vije-rritja/",
-              "date": "2026-11-23"
+              "text": "티라나에서 11월 25~26일 열리는 EU·서부발칸 6개국 투자포럼에서 신생기업 자금조달과 에너지·디지털 인프라 투자 등을 논의할 예정",
+              "source": "Shqiptarja.com",
+              "url": "https://shqiptarja.com/lajm/tirana-pret-forumin-e-investimeve-te-bese-me-6-vendet-e-ballkanit-perendimor-ne-forum-edhe-charles-michel-massimo-dalema-e-enrico-letta-zbardhet-agjenda-e-takimit-dyditor",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -724,15 +791,15 @@ window.REPORT_DATA = {
       "country": "북마케도니아",
       "items": [
         {
-          "title": "24일부터 경유·휘발유 소매가 인하",
-          "category": "에너지",
+          "title": "내년 예산안에 자본투자 6억 6,300만 유로",
+          "category": "정책·규제",
           "korea": false,
           "bullets": [
             {
-              "text": "에너지규제위원회, 24일부터 경유 소매가격 상한을 리터당 92데나르에서 88.50데나르로 낮추고 휘발유 두 종류의 상한은 각각 2데나르 인하 결정",
-              "source": "Bloomberg Adria",
-              "url": "https://mk.bloombergadria.com/ekonomija/makedonija/117680/dizelot-poevtinuva-za-350-denari-benzinite-za-dva-denara/news",
-              "date": "2026-11-23"
+              "text": "여당 의원 보얀 스토야노스키, 2027년 예산안에 인프라 사업 등을 위한 408억 디나르(약 6억 6,300만 유로)의 자본투자 반영 설명",
+              "source": "Радио Лидер",
+              "url": "https://lider.mk/stojanoski-budhetot-za-2027-godina-e-budhet-na-razvoj-so-okolu-663-milioni-evra-za-kapitalni-investitsii/",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -742,15 +809,16 @@ window.REPORT_DATA = {
       "country": "보스니아-헤르체고비나",
       "items": [
         {
-          "title": "스릅스카 공화국 1~10월 산업생산 6.6% 감소",
-          "category": "경제동향",
+          "title": "각료회의 무산으로 공공투자계획 심의 연기",
+          "category": "정책·규제",
           "korea": false,
           "bullets": [
             {
-              "text": "보스니아-헤르체고비나의 스릅스카 공화국 통계청, 1~10월 산업생산이 전년 동기보다 6.6% 줄고 수출은 0.3%, 수입은 9.2% 늘었다고 발표",
-              "source": "Nezavisne novine",
-              "url": "https://www.nezavisne.com/ekonomija/privreda/industrija-srpska-pad-uvoz-cijene-rast/993826",
-              "date": "2026-11-23"
+              "text": "세르비아계 장관들의 의제 반대로 각료회의가 열리지 않아 2027~2029년 공공투자·개발계획안에 대한 심의 연기",
+              "source": "FENA",
+              "url": "https://test.fena.ba/article/1707209/sjednica-vijeca-ministara-bih-nije-odrzana-ministri-iz-rs-nisu-podrzali-predlozeni-dnevni-red",
+              "altUrl": "https://www.vecernji.ba/vijesti/nova-blokada-vijeca-ministara-sjednica-nije-odrzana-ministri-iz-rs-a-nisu-podrzali-dnevni-red-2016460",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -760,15 +828,18 @@ window.REPORT_DATA = {
       "country": "몬테네그로",
       "items": [
         {
-          "title": "의회, 보건·연금 추가 지출 담은 추경안 가결",
-          "category": "정책·규제",
+          "title": "IMF, 내년 경제성장률 약 3% 전망",
+          "category": "경제동향",
           "korea": false,
           "bullets": [
             {
-              "text": "몬테네그로 의회, 보건·연금·교육 분야 추가 재원을 담은 올해 추경안을 가결해 경상예산 3,920만 유로와 국가기금 예산 5,280만 유로 증액",
-              "source": "Portal ETV",
-              "url": "https://www.etv.me/ekonomija/skupstina-usvojila-izmjene-zakona-o-budzetu-poslanici-opozicije-nijesu-prisustvovali-glasanju",
-              "date": "2026-11-23"
+              "text": "국제통화기금(IMF) 실사단, 몬테네그로의 실질 경제성장률을 올해 3.5%, 내년 약 3%로 전망",
+              "source": "RTCG",
+              "url": "https://rtcg.me/vijesti/ekonomija/906243/mmf-rast-crnogorske-ekonomije-usporice-na-oko-tri-odsto-euro-model-moze-dovesti-do-veceg-budzetskog-deficita.html",
+              "date": "2026-11-24"
+            },
+            {
+              "text": "최저임금 인상과 연금기여금 인하 등이 담긴 정부 구상은 단기 성장을 높이는 동시에 재정적자와 물가를 키울 수 있다고 분석"
             }
           ]
         }
@@ -778,36 +849,33 @@ window.REPORT_DATA = {
       "country": "코소보",
       "items": [
         {
-          "title": "10월 상품 수출 35.3% 증가",
-          "category": "대외교역",
+          "title": "의회, 배전 투자 감사와 전기요금 논의",
+          "category": "에너지",
           "korea": false,
           "bullets": [
             {
-              "text": "코소보 통계청, 10월 상품 수출이 전년 동월보다 35.3% 늘어난 1억 2,420만 유로, 수입은 12.5% 늘어난 6억 9,930만 유로로 집계",
+              "text": "의회 경제위원회, 에너지규제청 연례보고서 심사에서 배전사 투자에 대한 현장 감사 부재와 전기 판매사 초과수입의 요금 영향 논의",
               "source": "KOHA.net",
-              "url": "https://www.koha.net/ekonomi/ask-ja-publikon-statistikat-e-tregtise-se-jashtme-eksporti-mbulon-importin-me-178percent",
-              "date": "2026-11-23"
-            },
-            {
-              "text": "수입 대비 수출 비율은 17.8%에 그쳤으며 상품 무역적자는 전년 동월 5억 3,000만 유로에서 5억 7,510만 유로로 확대"
+              "url": "https://www.koha.net/arberi/pushteti-e-opozita-perplasen-per-energjine",
+              "date": "2026-11-24"
             }
           ]
         }
       ]
     },
     {
-      "country": "리히텐슈타인",
+      "country": "모나코",
       "items": [
         {
-          "title": "스위스 연결 교량 4차로 확장 검토",
+          "title": "공무원용 인공지능 도우미 도입 계획",
           "category": "정책·규제",
           "korea": false,
           "bullets": [
             {
-              "text": "리히텐슈타인 정부, 파두츠와 스위스 제벨렌을 잇는 라인강 남측 교량의 4차로 확장안을 검토하고 스위스 당국 협의를 2027년 2월까지 마칠 계획",
-              "source": "Fürstentum Liechtenstein",
-              "url": "https://www.presseportal.ch/de/pm/100000148/100943745",
-              "date": "2026-11-23"
+              "text": "모나코 정부, 공무원용 보안 인공지능 도우미를 2027년 도입하고 프랑스에서 운영하다 2028년 자국 클라우드로 이전할 계획",
+              "source": "Monaco Hebdo",
+              "url": "https://monaco-hebdo.com/actualites/societe/monaco-hebdo-le-jt-ledition-du-24-novembre-2026/",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -817,33 +885,33 @@ window.REPORT_DATA = {
       "country": "안도라",
       "items": [
         {
-          "title": "노조, 산업안전 감독 강화 요구",
-          "category": "정책·규제",
+          "title": "10월 방문객 0.3% 감소",
+          "category": "경제동향",
           "korea": false,
           "bullets": [
             {
-              "text": "안도라 노동조합(USdA), 닷새간 발생한 산업재해 두 건을 계기로 정부에 노동감독 인력·자원 확충과 예방 점검 및 중대재해 조사 강화 요구",
-              "source": "El Periòdic d'Andorra",
-              "url": "https://elperiodic.ad/societat/la-unio-sindical-esclata-davant-els-accidents-laborals-dels-darrers-dies-treballar-no-pot-significar-jugar-se-la-vida/",
-              "date": "2026-11-23"
+              "text": "10월 방문객은 전년 동월 대비 0.3% 감소한 70만 9,894명으로 프랑스 방문객은 6.6% 감소하고 스페인 방문객은 3.6% 증가",
+              "source": "Diari d’Andorra",
+              "url": "https://www.diariandorra.ad/nacional/261124/baixada-turista-frances-marca-lleugera-disminucio-visitants_209502.html",
+              "date": "2026-11-24"
             }
           ]
         }
       ]
     },
     {
-      "country": "산마리노",
+      "country": "교황청",
       "items": [
         {
-          "title": "이탈리아 아체아와 물·에너지 협력 양해각서",
-          "category": "에너지",
+          "title": "바티칸 출판사, 프란치스코 교황 일기 출간",
+          "category": "산업동향",
           "korea": false,
           "bullets": [
             {
-              "text": "산마리노 공공서비스공사와 이탈리아 공공시설 기업 아체아(Acea), 물 관리·에너지·환경·스마트시티 사업을 공동 추진하는 양해각서 서명",
-              "source": "Affaritaliani.it",
-              "url": "https://www.affaritaliani.it/economia/notizie-aziende/acea-e-san-marino-siglato-un-protocollo-dintesa-per-lo-sviluppo-sostenibile-e-la-transizione-ecologica.html",
-              "date": "2026-11-23"
+              "text": "바티칸 출판사, 프란치스코 교황이 1992~2024년 남긴 기록을 엮은 일기를 출간하고 5개 언어로 94개국에 배포",
+              "source": "Vatican News",
+              "url": "https://www.vaticannews.va/it/papa/news/2026-11/diario-papa-francesco-cardinale-fernandez-libro-lev.html",
+              "date": "2026-11-24"
             }
           ]
         }
@@ -851,5 +919,5 @@ window.REPORT_DATA = {
     }
   ],
   "notes": [],
-  "lead": "EU의 복합재 원료 세이프가드 조사 개시와 제22차 대러 제재안 제안, 프랑스의 민간 항공 연구 예산 발표 및 한국이 참여하는 체코 두코바니 원전의 적기 준공 방침 재확인"
+  "lead": "EU의 한국산 하이브리드차 잠정 수입 쿼터 배정과 유럽의회의 한국 유기농 인증체계 동등성 인정 연장안 승인, 프랑스 사노피의 인스메드 인수 계약 및 헝가리의 대기업 법인세 인상안 가결"
 };
