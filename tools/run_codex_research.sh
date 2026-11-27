@@ -16,7 +16,7 @@
 set -uo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-OUT=""; TIMEOUT="${CODEX_TIMEOUT:-2400}"; EFFORT="${CODEX_EFFORT:-high}"; CHECK_LINKS=""; KEEP=0; PROMPT_ONLY=0
+OUT=""; TIMEOUT="${CODEX_TIMEOUT:-2400}"; EFFORT="${CODEX_EFFORT:-medium}"; CHECK_LINKS=""; KEEP=0; PROMPT_ONLY=0
 while [ $# -gt 0 ]; do
   case "$1" in
     --out) OUT="$2"; shift 2 ;;
